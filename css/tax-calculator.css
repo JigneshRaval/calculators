@@ -2290,12 +2290,12 @@ p.recalculator {
         background: 0 0
     }
 
-    .etmoney-logo {
+/*     .etmoney-logo {
         min-width: 133px!important;
         background: url(https://static.smartspends.com/static/images/etmoneyweb/etmoneyLogo.svg) no-repeat!important;
         background-size: 100%!important;
         margin-left: -5px
-    }
+    } */
 
     .single-result {
         text-align: center
