@@ -104,3 +104,11 @@ nav {
 #menuToggle input:checked~ul {
     transform: none;
 }
+
+.etmoney-logo {
+    /* background: url(https://img.smartspends.com/static/images/etmoneyweb/etmoneyLogo.svg) 100% 100% no-repeat; */
+    min-width: 170px;
+    min-height: 48px;
+    background-size: 100% 100%;
+    transition: all .5s;
+}
