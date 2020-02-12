@@ -35,7 +35,7 @@
     <header></header>
 
     <div class="container">
-        <include src="simple-interest-calculator.html">Loading...</include>
+        <!-- <include src="simple-interest-calculator.html">Loading...</include> -->
     </div>
 
     <footer></footer>
@@ -83,6 +83,14 @@
             } */
 
             // Method 3 : Using fetch() API
+            fetch("./simple-interest-calculator.html")
+                .then(response => {
+                    return response.text()
+                })
+                .then(data => {
+                    $('.container').html(data);
+                });
+
             fetch("./components/header.html")
                 .then(response => {
                     return response.text()
