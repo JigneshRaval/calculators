@@ -4,7 +4,7 @@
     <div class="sip-calculator">
         <h3 id="heading" style="margin-bottom: 1.5em; text-align: center;">Simple Interest Calculator</h3>
         <div class="sip-calculator-amount">
-            <p style="margin-top: 1.8em;">
+            <p style="margin-top: 1.8em;" class="d-flex">
                 <label id="amountLabel">Principal Amount</label>
                 <input name="Amount" id="inputAmount" type="number" step="1000" value="5000" min="1000" max="500000"
                     oninput="showValAmount(this.value)" />
@@ -14,7 +14,7 @@
                 max="500000" value="5000" />
         </div>
         <div class="sip-calculator-roi">
-            <p style="margin-top: 1.8em;">
+            <p style="margin-top: 1.8em;" class="d-flex">
                 <label>Rate of Interest</label>
                 <input name="Returns" id="inputRoi" type="number" value="3" min="1" max="30" step="0.5"
                     oninput="showValRoi(this.value)" />
@@ -23,7 +23,7 @@
             <input class="roi-slider" name="realRoi" id="myRoi" type="range" min="1" max="30" value="3" step="0.5">
         </div>
         <div class="sip-calculator-year">
-            <p style="margin-top: 1.8em;">
+            <p style="margin-top: 1.8em;" class="d-flex">
                 <label>Loan Tenure</label>
                 <input name="Years" id="inputYears" type="number" value="5" min="1" step="1" max="30"
                     oninput="showValYears(this.value)" />

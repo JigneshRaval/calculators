@@ -7,14 +7,14 @@
         <div class="container">
             <div class="radio">
                 <input onclick="changeMode('sip')" id="radio-1" name="radio" type="radio" checked="">
-                <label for="radio-1" class="radio-label">SIP</label>
+                <label for="radio-1" class="radio-label font-weight-bold">SIP</label>
                 <label>&nbsp;&nbsp;&nbsp;</label>
                 <input onclick="changeMode('lumpsum')" id="radio-2" name="radio" type="radio">
-                <label for="radio-2" class="radio-label">Lumpsum</label>
+                <label for="radio-2" class="radio-label font-weight-bold">Lumpsum</label>
             </div>
         </div>
         <div class="sip-calculator-amount">
-            <p style="margin-top: 1.8em;">
+            <p style="margin-top: 1.8em;" class="d-flex">
                 <label id="amountLabel"> Monthly Investment</label>
                 <input name="Amount" id="inputAmount" type="number" step="500" value="5000" min="500" max="100000"
                     oninput="showValAmount(this.value)">
@@ -24,7 +24,7 @@
                 value="5000">
         </div>
         <div class="sip-calculator-year">
-            <p style="margin-top: 1.8em;">
+            <p style="margin-top: 1.8em;" class="d-flex">
                 <label>Number of Years</label>
                 <input name="Years" id="inputYears" type="number" value="10" min="1" max="30"
                     oninput="showValYears(this.value)">
@@ -33,7 +33,7 @@
             <input class="year-slider" name="realYears" id="myYears" type="range" min="1" max="30" value="10">
         </div>
         <div class="sip-calculator-roi">
-            <p style="margin-top: 1.8em;">
+            <p style="margin-top: 1.8em;" class="d-flex">
                 <label>Returns</label>
                 <input name="Retunrs" id="inputRoi" type="number" value="15" min="5" max="22"
                     oninput="showValRoi(this.value)">
@@ -50,8 +50,9 @@
 </form>
 
 <!-- Thank you note with Logo -->
-<div class="text-center thanks-section">Thanks to <a href="https://groww.in/" target="_blank"> <img class="logo logo-dark" alt="logo"
-            src="https://groww.in/wp-content/uploads/2018/04/logo-groww-dark.png" width="100" />
+<div class="text-center thanks-section">Thanks to <a href="https://groww.in/" target="_blank"> <img
+            class="logo logo-dark" alt="logo" src="https://groww.in/wp-content/uploads/2018/04/logo-groww-dark.png"
+            width="100" />
     </a></div>
 <!-- Thank you note with Logo -->
 
@@ -74,8 +75,46 @@
             will change the estimated returns.</span></p>
 </section>
 
-<div class="text-center">Thanks to <a href="https://groww.in/" target="_blank"> <img class="logo logo-dark" alt="logo"
-            src="https://groww.in/wp-content/uploads/2018/04/logo-groww-dark.png" width="100"> </a></div>
+<section>
+    <h4><b>The formula to calculate Lumpsum MF returns</b></h4>
+    <p><b>&nbsp;</b><span>All</span><b> lumpsum calculator mutual fund </b><span>uses a specific method to compute the
+            estimated return on investment. It is essentially a compound interest formula with one of the variables
+            being the number of times the interest is compounded in a year.</span></p>
+    <p><span>The formula is as follows:</span></p>
+    <p><b>A = P (1 + r/n) ^ nt</b></p>
+    <p><span>The variables are mentioned in the table below.</span></p>
+    <table class="table">
+        <tbody>
+            <tr>
+                <td><b>A</b></td>
+                <td><span>Estimated return</span></td>
+            </tr>
+            <tr>
+                <td><b>P</b></td>
+                <td><span>Present value</span></td>
+            </tr>
+            <tr>
+                <td><b>r</b></td>
+                <td><span>Rate of return</span></td>
+            </tr>
+            <tr>
+                <td><b>t</b></td>
+                <td><span>Duration of investment</span></td>
+            </tr>
+            <tr>
+                <td><b>n</b></td>
+                <td><span>Number of compounded interests in a year</span></td>
+            </tr>
+        </tbody>
+    </table>
+    <p><span>You can use this formula to compute your mutual funds returns accurately. For example, imagine investing
+            Rs. 15 Lakh in a fund with a 12% return for 5-year period compounding every 6 months.</span></p>
+    <p><span>The estimated return in this scenario will be-</span></p>
+    <p><b>A = Rs. 15, 00,000 (1 + 12/2) ^ 2/5</b></p>
+    <p><span>As you can surmise, it’s a complex equation which may be out of grasp for a majority of investors. A
+        </span><b>lumpsum MF calculator </b><span>will calculate it instantly. In this case, your estimated return at
+            the end of a 5-year period shall be Rs. 26, 43, 513.</span></p>
+</section>
 
 <script>
     'use strict';

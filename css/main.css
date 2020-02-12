@@ -79,7 +79,7 @@ nav {
 #menu {
     position: absolute;
     width: 85%;
-    height: calc(100vh - 17px);
+    height: 100vh;
     /* box-shadow: 0 0 10px #85888C; */
     margin: -25px 0 0 -25px;
     padding: 25px;
@@ -91,6 +91,7 @@ nav {
     transform: translate(-100%, 0);
     list-style-type: none;
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+    overflow-y: auto;
 }
 
 #menu li {
@@ -100,6 +101,8 @@ nav {
 
 #menu li a {
     color: #ffffff;
+    font-weight: 600;
+    font-size: 16px;
 }
 
 #menuToggle input:checked~ul {
@@ -112,4 +115,15 @@ nav {
     border: 1px solid #b8b7b7;
     border-radius: 5px;
     padding: 1em;
+}
+
+.main-content summary {
+    padding: 1em;
+    border: 1px solid #CCC;
+    margin-bottom: 1em;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.main-content img {
+    max-width: 100%;
 }
