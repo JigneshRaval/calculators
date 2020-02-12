@@ -1,0 +1,356 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>SWP Calculator</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+
+    <!-- ===========================================
+        CSS
+    ============================================ -->
+    <link rel="stylesheet" href="../javascript/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/groww.css" />
+    <style>
+        .collapse:not(.show) {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <!-- START : SWP Calculator -->
+        <section class="swp-calculator">
+            <form name="sipForm">
+                <div class="sip-calculator">
+                    <h3 id="heading" style="margin-bottom: 1em; text-align: center;">SWP Calculator</h3>
+                    <div class="sip-calculator-amount">
+                        <p style="margin-top: 1.8em;">
+                            <label id="amountLabel">Total Investment</label>
+                            <input name="TotalInvestment" id="inputTotalInvestment" type="number" step="1000"
+                                value="1000000" min="500" max="5000000" oninput="showTotalInvestmentVal(this.value)">
+                            <span id="total-investment"></span> Rs.
+                        </p>
+                        <input class="amount-slider" name="realTotalInvestmentAmount" id="myTotalInvestmentAmount"
+                            type="range" step="5000" min="10000" max="5000000" value="1000000">
+                    </div>
+                    <div class="sip-calculator-year">
+                        <p style="margin-top: 1.8em;">
+                            <label>Withdrawal Per Month</label>
+                            <input name="WithdrawalPerMonth" id="inputWithdrawalAmount" type="number" step="500"
+                                value="10000" min="100" max="50000" oninput="showWithdrawalVal(this.value)">
+                            <span id="withdrawal"></span> Rs.
+                        </p>
+                        <input class="year-slider" name="realWithdrawalAmount" id="myWithdrawalAmount" type="range"
+                            step="500" min="500" max="50000" value="10000">
+                    </div>
+                    <div class="sip-calculator-roi">
+                        <p style="margin-top: 1.8em;">
+                            <label>Expected Returns</label>
+                            <input name="ExpectedReturns" id="inputExpectedReturns" type="number" value="10" min="1"
+                                step="1" max="50" oninput="showExpectedReturnsVal(this.value)">
+                            <span id="returns"></span> %
+                        </p>
+                        <input class="roi-slider" name="realExpectedReturns" id="myExpectedReturns" type="range" min="1"
+                            step="1" max="30" value="10">
+                    </div>
+                    <div class="sip-calculator-roi">
+                        <p style="margin-top: 1.8em;">
+                            <label>Tenure</label>
+                            <input name="Tenure" id="inputTenure" type="number" value="3" min="1" step="1" max="30"
+                                oninput="showTenureVal(this.value)">
+                            <span id="tenure"></span> Years
+                        </p>
+                        <input class="roi-slider" name="realTenure" id="myTenure" type="range" min="1" step="1" max="30"
+                            value="3">
+                    </div>
+                    <p
+                        style="margin-top: 1em;font-size: 1.2em; background: #f1f2f3; border-radius: 7px; padding: 20px;">
+                        <strong>Final Value:</strong>
+                        <span id="finalAmountAtTheEnd" style="font-size: 1.2em;margin-left: 8px;">Rs. 915908</span>
+                    </p>
+                    <!-- <div style="margin-top: 15px;"><img class="groww-logo" src="groww-logo-ed.png" target="_parent" align="right"/></div> -->
+                </div>
+            </form>
+
+
+            <a href="https://groww.in/"> Thanks to <img class="logo logo-dark" alt="logo"
+                    src="https://groww.in/wp-content/uploads/2018/04/logo-groww-dark.png" width="100"> </a>
+        </section>
+        <!-- END : SWP Calculator -->
+
+        <div class="wpb_wrapper">
+            <h2 class="LC20lb">SWP Calculator – Systematic Withdrawal Plan (SWP)</h2>
+            <h2>What is SWP?</h2>
+            <p><a href="https://groww.in/p/systematic-withdrawal-plan/"><span style="color: #3366ff;">SWP</span></a>
+                stands for systematic withdrawal plan. Under SWP, if you invest lump sum in a mutual fund, you can set
+                an amount you’ll withdraw regularly and the frequency at which you’ll withdraw.</p>
+            <p>For example, let’s say you invested in&nbsp;<a href="https://groww.in/mutual-funds/hdfc-top-200-growth"
+                    target="_blank" rel="noopener noreferrer">HDFC Top 200 Fund&nbsp;</a>an amount of&nbsp;₹1 lakh for a
+                year. Let’s assume that you decided to withdraw an amount of ₹10000 per month. So every month, your
+                investment in the fund will reduce by&nbsp;₹10000. The amount left every month after withdrawal will
+                continue to remain invested.</p>
+            <p>Use the above SWP calculator to know how much you can withdraw from your lumpsum investments.</p>
+            <h3><b>How can a SWP calculator assist you?</b></h3>
+            <p><span>As per the Systematic Withdrawal Plan, an individual needs to invest a
+                    particular amount and withdraw a certain amount of the corpus invested each month. After withdrawal,
+                    the amount will be deducted from the investment while it continues to accumulate interest.</span>
+            </p>
+            <p><span>It is difficult to accurately calculate the monthly withdrawals and total
+                    matured sum. Groww can help you with this complex calculations with the its SWP calculator. This
+                </span><b>Systematic Withdrawal Plan calculator </b><span>easily computes your
+                    matured sum as per your monthly withdrawals precisely. Calculators are simplifying the way people
+                    invest in mutual funds.</span></p>
+            <h3><b>Example of Systematic Withdrawal Plan</b></h3>
+            <p><span>As mentioned before, the SWP allows investors to generate both monthly
+                    revenue as well as an accumulated sum at the end of the maturity period. Refer to this investment
+                    and withdrawal schedule for an in-depth idea.</span></p>
+            <p><span>Here, an individual has invested Rs. 50,000 for tenure of 1 year along
+                    with a systematic withdrawal of Rs. 1,000 per month. Interest rate stands at 10%.</span></p>
+            <p><span>As such, total return of investments after the end of the tenor stands at
+                    Rs. 4,565.</span></p>
+            <table>
+                <tbody>
+                    <tr>
+                        <td><b>Month</b></td>
+                        <td><b>Balance at Begin</b></td>
+                        <td><b>Withdrawal</b></td>
+                        <td><b>Interest Earned</b></td>
+                    </tr>
+                    <tr>
+                        <td><span>1</span></td>
+                        <td><span>50,000</span></td>
+                        <td><span>Rs. 1,000</span></td>
+                        <td><span>Rs. 408</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>2</span></td>
+                        <td><span>Rs. 49,408</span></td>
+                        <td><span>Rs. 1,000</span></td>
+                        <td><span>Rs. 403</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>3</span></td>
+                        <td><span>Rs. 48,812</span></td>
+                        <td><span>Rs. 1,000</span></td>
+                        <td><span>Rs. 398</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>4</span></td>
+                        <td><span>Rs. 48,210</span></td>
+                        <td><span>Rs. 1,000</span></td>
+                        <td><span>Rs. 393</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>5</span></td>
+                        <td><span>Rs. 47,604</span></td>
+                        <td><span>Rs. 1,000</span></td>
+                        <td><span>Rs. 388</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>6</span></td>
+                        <td><span>Rs. 46,992</span></td>
+                        <td><span>Rs. 1,000</span></td>
+                        <td><span>Rs. 383</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>7</span></td>
+                        <td><span>Rs. 46,375</span></td>
+                        <td><span>Rs. 1,000</span></td>
+                        <td><span>Rs. 378</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>8</span></td>
+                        <td><span>Rs. 45,753</span></td>
+                        <td><span>Rs. 1,000</span></td>
+                        <td><span>Rs. 373</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>9</span></td>
+                        <td><span>Rs. 45,126</span></td>
+                        <td><span>Rs. 1,000</span></td>
+                        <td><span>Rs. 368</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>10</span></td>
+                        <td><span>Rs. 44,494</span></td>
+                        <td><span>Rs. 1,000</span></td>
+                        <td><span>Rs. 362</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>11</span></td>
+                        <td><span>Rs. 43,856</span></td>
+                        <td><span>Rs. 1,000</span></td>
+                        <td><span>Rs. 357</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>12</span></td>
+                        <td><span>Rs. 43,214</span></td>
+                        <td><span>Rs. 1,000</span></td>
+                        <td><span>Rs. 352</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <h4><b>How to use SWP calculator?</b></h4>
+            <p><span>The calculator is user-friendly and easy to use first time out. However,
+                    you need to ensure that all values are properly put in.</span></p>
+            <ul>
+                <li style="list-style-type: none;">
+                    <ul>
+                        <li><span>You will find three columns namely
+                                tenure, expected return and amount invested. Fill in the values as per your investment
+                                plan.</span></li>
+                        <li><b><span>Enter values and calculate to
+                                    find a similar SWP returns chart as mentioned above.</span></b></li>
+                    </ul>
+                </li>
+            </ul>
+            <h4><b>How can a SWP calculator benefit you?</b></h4>
+            <p><span>Retirees and senior citizens are among the most common investors in this
+                    scheme. Such individuals obviously require a fixed monthly financial input. An SWP can provide the
+                    same over and above the pension or even as an alternativ. They can easily use Groww’s simple and
+                    intuitive </span><b>systematic withdrawal plan calculator</b><span> for
+                    numerous benefits.</span></p>
+            <ul>
+                <li><span>A Systematic Withdrawal Plan ensures
+                        monthly returns while generating RoI on the total investment. This calculator can help easily
+                        compute both accurately.</span></li>
+                <li><span>It’s easy to set the amount which you wish
+                        to withdraw every month and calculate amount on maturity accordingly.</span></li>
+                <li><span>It is easily accessible online.</span>
+                </li>
+                <li><span>This </span><b>SWP return
+                        calculator</b><span> does not require any expertise to operate. Users
+                        need to just put variables in proper space and output is ready in no time.</span></li>
+            </ul>
+            <p><em>“Looking to invest? Open an account with Groww and start investing in direct</em>&nbsp;<span
+                    style="color: #333399;"><a style="color: #333399;" href="https://groww.in/mutual-funds/">Mutual
+                        Funds</a></span>&nbsp;<em>for free”</em></p>
+            <h5><b>FAQs</b></h5>
+            <ol>
+                <li><b> Can I choose the withdrawal amount or is it fixed?</b></li>
+            </ol>
+            <p><span>No, you can determine the monthly withdrawal amount as per requirements.
+                    You have to just choose between annual fixed amount and quarterly withdrawals.&nbsp;</span></p>
+            <ol start="2">
+                <li><b> When to use SWP?</b></li>
+            </ol>
+            <p><span>As per experts, SWP works best after retirement because an individual
+                    needs income.</span></p>
+            <ol start="3">
+                <li><b> Can individuals who are not retirees invest in an SWP?</b></li>
+            </ol>
+            <p><span>No, SWP investments are not limited only for retirees or senior
+                    citizens.</span></p>
+            <hr>
+        </div>
+    </main>
+
+    <script src="../javascript/js/jquery.min.js"></script>
+    <script>
+        'use strict';
+
+        var finalAmount;
+
+        var totalInvestmentSlider = document.getElementById("myTotalInvestmentAmount");
+        var amountTotalInvestmentOutput = document.getElementById("inputTotalInvestment");
+        var withdrawalAmountSlider = document.getElementById("myWithdrawalAmount");
+        var withdrawalAmountOutput = document.getElementById("inputWithdrawalAmount");
+        var expectedReturnsSlider = document.getElementById("myExpectedReturns");
+        var expectedReturnsOutput = document.getElementById("inputExpectedReturns");
+        var tenureSlider = document.getElementById("myTenure");
+        var tenureOutput = document.getElementById("inputTenure");
+
+
+        amountTotalInvestmentOutput.innerHTML = totalInvestmentSlider.value;
+        expectedReturnsOutput.innerHTML = expectedReturnsSlider.value;
+        withdrawalAmountOutput.innerHTML = withdrawalAmountSlider.value;
+        tenureOutput.innerHTML = tenureSlider.value;
+
+
+        totalInvestmentSlider.oninput = function () {
+            amountTotalInvestmentOutput.innerHTML = this.value;
+        }
+        withdrawalAmountSlider.oninput = function () {
+            withdrawalAmountOutput.innerHTML = this.value;
+        }
+        expectedReturnsSlider.oninput = function () {
+            expectedReturnsOutput.innerHTML = this.value;
+        }
+        tenureSlider.oninput = function () {
+            tenureOutput.innerHTML = this.value;
+        }
+
+
+        function showTotalInvestmentVal(newVal) {
+            totalInvestmentSlider.value = newVal;
+            calculateIt();
+        };
+
+        function showWithdrawalVal(newVal) {
+            withdrawalAmountSlider.value = newVal;
+            calculateIt();
+        };
+
+        function showExpectedReturnsVal(newVal) {
+            expectedReturnsSlider.value = newVal;
+            calculateIt();
+        };
+
+        function showTenureVal(newVal) {
+            tenureSlider.value = newVal;
+            calculateIt();
+        }
+
+
+
+        totalInvestmentSlider.addEventListener("input", updateValueTotalInvestment);
+        expectedReturnsSlider.addEventListener("input", updateValueExpectedReturns);
+        withdrawalAmountSlider.addEventListener("input", updateValueWithdrawalAmount);
+        tenureSlider.addEventListener("input", updateValueTenure);
+
+
+        function updateValueTotalInvestment(e) {
+            amountTotalInvestmentOutput.value = e.srcElement.value;
+            calculateIt();
+        }
+
+        function updateValueWithdrawalAmount(e) {
+            withdrawalAmountOutput.value = e.srcElement.value;
+            calculateIt();
+        }
+
+        function updateValueExpectedReturns(e) {
+            expectedReturnsOutput.value = e.srcElement.value;
+            calculateIt();
+        }
+
+        function updateValueTenure(e) {
+            tenureOutput.value = e.srcElement.value;
+            calculateIt();
+        }
+
+
+        function calculateIt() {
+            var finalAmountOutput = document.getElementById("finalAmountAtTheEnd");
+
+            var totalInvestmentValue = document.sipForm.realTotalInvestmentAmount.value; //fieldname2
+            var withdrawalAmountValue = document.sipForm.realWithdrawalAmount.value; //fieldname5
+            var expectedReturnsValue = document.sipForm.realExpectedReturns.value; //fieldname3
+            var tenureValue = document.sipForm.realTenure.value; //fieldname4
+
+            finalAmount = Math.round((totalInvestmentValue * Math.pow((1 + expectedReturnsValue / 100), tenureValue)) - (withdrawalAmountValue * (Math.pow((1 + (Math.pow((1 + expectedReturnsValue / 100), (1 / 12)) - 1)), (tenureValue * 12)) - 1) / (Math.pow((1 + expectedReturnsValue / 100), (1 / 12)) - 1)));
+
+            finalAmountOutput.innerHTML = "Rs. " + finalAmount;
+        }
+        calculateIt();
+    </script>
+</body>
+
+</html>

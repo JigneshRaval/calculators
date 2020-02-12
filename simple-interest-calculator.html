@@ -1,0 +1,159 @@
+<link rel="stylesheet" href="./css/groww.css" type="text/css">
+
+
+<form name="sipForm">
+    <div class="sip-calculator">
+        <h3 id="heading" style="margin-bottom: 1.5em; text-align: center;">Simple Interest Calculator</h3>
+        <div class="sip-calculator-amount">
+            <p style="margin-top: 1.8em;">
+                <label id="amountLabel">Principal Amount</label>
+                <input name="Amount" id="inputAmount" type="number" step="1000" value="5000" min="1000" max="500000"
+                    oninput="showValAmount(this.value)" />
+                <span id="amount"></span> Rs.
+            </p>
+            <input class="amount-slider" name="realAmount" id="myAmount" type="range" step="1000" min="5000"
+                max="500000" value="5000" />
+        </div>
+        <div class="sip-calculator-roi">
+            <p style="margin-top: 1.8em;">
+                <label>Rate of Interest</label>
+                <input name="Returns" id="inputRoi" type="number" value="3" min="1" max="30" step="0.5"
+                    oninput="showValRoi(this.value)" />
+                <span id="roi"></span> %
+            </p>
+            <input class="roi-slider" name="realRoi" id="myRoi" type="range" min="1" max="30" value="3" step="0.5">
+        </div>
+        <div class="sip-calculator-year">
+            <p style="margin-top: 1.8em;">
+                <label>Loan Tenure</label>
+                <input name="Years" id="inputYears" type="number" value="5" min="1" step="1" max="30"
+                    oninput="showValYears(this.value)" />
+                <span id="years"></span> Yr
+            </p>
+            <input class="year-slider" name="realYears" id="myYears" type="range" min="1" max="30" value="5" step="1">
+        </div>
+        <p style="margin-top: 1em;font-size: 1.2em; background: #f1f2f3; border-radius: 7px; padding: 20px;">
+            <strong>Total Interest:</strong>
+            <span id="totalInterest" style="font-size: 1.2em; margin-left: 8px; "></span>
+        </p>
+        <p style="margin-top: 1em;font-size: 1.2em; background: #f1f2f3; border-radius: 7px; padding: 20px;">
+            <strong>Total Amount:</strong>
+            <span id="totalAmount" style="font-size: 1.2em; margin-left: 8px; "></span>
+        </p>
+        <div style="margin-top: 15px;"><img class="groww-logo" src="groww-logo-ed.png" target="_parent" align="right" />
+        </div>
+    </div>
+</form>
+
+
+<div>
+    <h3><b>Formula to determine Simple Interest</b></h3>
+    <p><span style="font-weight: 400;">The </span><b>simple interest formula calculator</b><span
+            style="font-weight: 400;"> which is utilised to compute the overall gains accumulated via this
+            investment
+            –</span></p>
+    <p><b>SI= P X RX T/100</b></p>
+    <p><span style="font-weight: 400;">In it, the variables represent the following –</span></p>
+    <table>
+        <tbody>
+            <tr>
+                <td><b>SI</b></td>
+                <td><span style="font-weight: 400;">Simple Interest</span></td>
+            </tr>
+            <tr>
+                <td><b>R</b></td>
+                <td><span style="font-weight: 400;">Rate of interest</span></td>
+            </tr>
+            <tr>
+                <td><b>T</b></td>
+                <td><span style="font-weight: 400;">Time</span></td>
+            </tr>
+            <tr>
+                <td><b>P</b></td>
+                <td><span style="font-weight: 400;">Principal</span></td>
+            </tr>
+        </tbody>
+    </table>
+    <p><span style="font-weight: 400;">Groww uses this formula to help easily determine interest rates and gauge the
+            increase in value of initial investment. Let’s understand it with the help of an instance.</span></p>
+    <p><span style="font-weight: 400;">Mr. A has invested an amount of Rs. 15000 at an interest rate of 5% for
+            almost 2
+            years. So his SI will be calculated as Rs. (15000 X 5 X 2/100) which is equal to Rs.16500.</span></p>
+</div>
+
+<script>
+    'use strict';
+    var amountSlider = document.getElementById("myAmount");
+    var amountOutput = document.getElementById("inputAmount");
+    var roiSlider = document.getElementById("myRoi");
+    var roiOutput = document.getElementById("inputRoi");
+    var yearSlider = document.getElementById("myYears");
+    var yearOutput = document.getElementById("inputYears");
+
+    amountOutput.innerHTML = amountSlider.value;
+    roiOutput.innerHTML = roiSlider.value;
+    yearOutput.innerHTML = yearSlider.value;
+
+    amountSlider.oninput = function () {
+        amountOutput.innerHTML = this.value;
+    }
+    roiSlider.oninput = function () {
+        roiOutput.innerHTML = this.value;
+    }
+    yearSlider.oninput = function () {
+        yearOutput.innerHTML = this.value;
+    }
+
+    function showValAmount(newVal) {
+        amountSlider.value = newVal;
+        calculateIt();
+    };
+
+    function showValRoi(newVal) {
+        roiSlider.value = newVal;
+        calculateIt();
+    };
+
+    function showValYears(newVal) {
+        yearSlider.value = newVal;
+        calculateIt();
+    };
+
+    function showCompoundingFrequency(newVal) {
+        var compoundingFrequencyValue = compoundingFrequency.value;
+        calculateIt();
+    }
+
+    amountSlider.addEventListener("input", updateValueAmount);
+    roiSlider.addEventListener("input", updateValueRoi);
+    yearSlider.addEventListener("input", updateValueYears);
+
+    function updateValueAmount(e) {
+        amountOutput.value = e.srcElement.value;
+        calculateIt();
+    }
+
+    function updateValueRoi(e) {
+        roiOutput.value = e.srcElement.value;
+        calculateIt();
+    }
+
+    function updateValueYears(e) {
+        yearOutput.value = e.srcElement.value;
+        calculateIt();
+    }
+
+    function calculateIt() {
+        var totalInterest = document.getElementById("totalInterest");
+        var totalAmount = document.getElementById("totalAmount");
+        var P = document.sipForm.realAmount.value;
+        var R = document.sipForm.realRoi.value;
+        var T = document.sipForm.realYears.value;
+        var simpleInterestValue = (P * R * T) / 100;
+        var totalAmountValue = parseInt(P) + parseInt(simpleInterestValue);
+
+        totalInterest.innerHTML = "Rs. " + simpleInterestValue.toLocaleString();
+        totalAmount.innerHTML = "Rs. " + totalAmountValue.toLocaleString();
+    }
+    calculateIt();
+</script>

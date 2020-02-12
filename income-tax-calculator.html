@@ -1,0 +1,1229 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Stock Average Price Calculator</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+
+    <!-- ===========================================
+        CSS
+    ============================================ -->
+    <link rel="stylesheet" href="../javascript/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/tax-calculator.css" />
+    <style>
+        .collapse:not(.show) {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+        <!-- START : Income Tax Calculator -->
+        <section class="banner-section income-tax-wrap">
+            <div class="commen-container">
+                <div class="d-flex banner-section-inner incometax-banner">
+                    <img src="https://static.smartspends.com/static/images/etmoneyweb/tools/income-tax-banner-2.png"
+                        alt="income-tax-banner-2.png" class="mobile-bitcoin visible-xs">
+                    <div class="calculator-box order-2">
+                        <div class="step-1  calculator-inner-wrap animated3 show-section" data-step="step-1">
+                            <h2>Calculate income tax on your earnings in a few simple steps</h2>
+                            <div class="calculator-form">
+                                <h4>Enter Basic Details</h4>
+                                <div class="from-elem-wrapper mb25">
+                                    <div class="form-group-elem">
+                                        <label class="commen-label">Age</label>
+                                        <div>
+                                            <!-- <select id="user_age">
+                              <option value="1">18-59</option>
+                              <option value="2">60-79</option>
+                              <option value="3">80 & above</option>
+                            </select> -->
+                                            <div class="dropdown-wrap">
+                                                <input type="text" class="input-elmn-age placeholder commen-input-age"
+                                                    data-value="1" value="18-59" readonly="" id="user_age">
+                                                <ul class="dropdown-elem-age" id="age_list">
+                                                    <li class="item item-1">18-59</li>
+                                                    <li class="item item-2">60-79</li>
+                                                    <li class="item item-3">80 &amp; above</li>
+                                                </ul>
+                                                <span class="dropdown-arrow"></span>
+                                            </div>
+                                        </div>
+                                        <span class="error-text"></span>
+                                    </div>
+                                </div>
+                                <div class="from-elem-wrapper mb25">
+                                    <div class="form-group-elem">
+                                        <label class="commen-label">Residence city type</label>
+                                        <div>
+                                            <label class="radio-btn type2 mrgn19">
+                                                <input type="radio" class="radio-btn-input circle" checked=""
+                                                    name="city_type" value="1" id="metro">
+                                                <span></span>
+                                                Metro
+                                            </label>
+                                            <label class="radio-btn type2">
+                                                <input type="radio" class="radio-btn-input circle" name="city_type"
+                                                    value="2" id="nonMetro">
+                                                <span></span>
+                                                Non Metro
+                                            </label>
+                                        </div>
+                                        <span class="error-text"></span>
+                                    </div>
+                                </div>
+                                <div class="from-elem-wrapper mb25">
+                                    <div class="form-group-elem">
+                                        <label class="commen-label">Residence type</label>
+                                        <div>
+                                            <label class="radio-btn type2 mrgn19">
+                                                <input type="radio" class="radio-btn-input circle" name="residence_type"
+                                                    value="1" id="self">
+                                                <span></span>
+                                                Self Owned
+                                            </label>
+                                            <label class="radio-btn type2">
+                                                <input type="radio" class="radio-btn-input circle" checked=""
+                                                    name="residence_type" value="2" id="rented">
+                                                <span></span>
+                                                Rented
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="from-elem-wrapper" id="annualRentBox">
+                                    <div class="form-group-elem">
+                                        <input type="tel" class="input-elmn placeholder commen-input"
+                                            placeholder="Total Rent Paid during financial year" id="annualRent">
+                                        <span class="error-text show-error commen-error"></span>
+                                        <label class="floating-label">Total Rent Paid during financial year*</label>
+                                        <div class="notes-wrap">
+                                            <p class="notes">Enter total rent paid in the financial year you are
+                                                calculating income tax for. This is equal to the sum of monthly rent
+                                                paid during the entire financial year.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="from-elem-wrapper mb25">
+                                    <div class="form-group-elem">
+                                        <label class="commen-label">Occupation</label>
+                                        <div>
+                                            <label class="radio-btn type2 mrgn19">
+                                                <input type="radio" class="radio-btn-input circle" checked=""
+                                                    name="occupation" value="1" id="salaried">
+                                                <span></span>
+                                                Salaried
+                                            </label>
+                                            <label class="radio-btn type2">
+                                                <input type="radio" class="radio-btn-input circle" name="occupation"
+                                                    value="2" id="selfEmployed">
+                                                <span></span>
+                                                Self Employed
+                                            </label>
+                                        </div>
+                                        <span class="error-text"></span>
+                                    </div>
+                                </div>
+                                <div class="calc-btn-box rquired">
+                                    <p class="required-notes align-right">*Required</p>
+                                    <button type="submit" class="bold commen-btn"
+                                        id="inCometaxcalcBtn">Continue</button>
+                                    <i class="arrow"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="calculator-inner-wrap animated3 display-none type2" id="taxForm">
+                            <div class="tab-list-wrap">
+                                <ul class="tab-list occupation-1">
+                                    <li class="active-list" id="step-1" form-step="1">1 <span>Basic Details</span></li>
+                                    <li id="step-2" form-step="2">2 <span>Salary Details</span></li>
+                                    <li id="step-3" form-step="3">3 <span>Other Income Details</span></li>
+                                    <li id="step-4" form-step="4">4 <span>Capital gains</span></li>
+                                    <li id="step-5" form-step="5">5 <span>Deductions</span></li>
+                                    <li id="step-6" form-step="6">Result</li>
+                                </ul>
+                                <ul class="tab-list occupation-2 display-none">
+                                    <li class="active-list" id="step-1" form-step="1">1 <span>Basic Details</span></li>
+                                    <li id="step-2" form-step="3">2 <span>Income Detail</span></li>
+                                    <li id="step-3" form-step="4">3 <span>Capital gains</span></li>
+                                    <li id="step-4" form-step="5">4 <span>Deductions</span></li>
+                                    <li id="step-5" form-step="6">Result</li>
+                                </ul>
+                            </div>
+                            <div class="step-2 step-inner-box animated3" data-step="step-2">
+                                <div class="d-flex-desktop mbl">
+                                    <h4>Salary Details </h4>
+                                    <div class="form-group-elem-radio">
+                                        <div>
+                                            <label class="radio-btn type2 mrgn19">
+                                                <input type="radio" class="radio-btn-input circle" checked=""
+                                                    name="salary_type" value="1" id="salaried">
+                                                <span></span>
+                                                Monthly
+                                            </label>
+                                            <label class="radio-btn type2">
+                                                <input type="radio" class="radio-btn-input circle" name="salary_type"
+                                                    value="2" id="selfEmployed">
+                                                <span></span>
+                                                Annually
+                                            </label>
+                                        </div>
+                                        <span class="error-text"></span>
+                                    </div>
+                                </div>
+                                <div class="calculator-form">
+                                    <div class="from-elem-wrapper">
+                                        <div class="form-group-elem">
+                                            <input type="tel" class="input-elmn placeholder commen-input"
+                                                oninput="updateGrossSalary()" placeholder="Basic salary"
+                                                id="basicSalary">
+                                            <span class="error-text show-error commen-error"></span>
+                                            <label class="floating-label" id="basic">Monthly Basic salary*</label>
+                                            <div class="notes-wrap">
+                                                <p class="notes">Enter values as mentioned in your monthly salary slips.
+                                                    Annual values can be either found on offer letter or salary
+                                                    incremenet letter.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="from-elem-wrapper">
+                                        <div class="form-group-elem">
+                                            <input type="tel" class="input-elmn placeholder commen-input"
+                                                oninput="updateGrossSalary()" placeholder="HRA received"
+                                                id="hraReceived">
+                                            <span class="error-text show-error commen-error"></span>
+                                            <label class="floating-label" id="hra">Monthly HRA received*</label>
+                                            <div class="notes-wrap">
+                                                <p class="notes">Enter values as mentioned in your monthly salary slips.
+                                                    Annual values can be either found on offer letter or salary
+                                                    incremenet letter.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="from-elem-wrapper">
+                                        <div class="form-group-elem">
+                                            <input type="tel" class="input-elmn placeholder"
+                                                oninput="updateGrossSalary()" placeholder="Dearness Allowance"
+                                                id="dearnessAllowance">
+                                            <span class="error-text"></span>
+                                            <label class="floating-label" id="dearness">Monthly Dearness
+                                                allowance</label>
+                                            <div class="notes-wrap">
+                                                <p class="notes">Enter values as mentioned in your monthly salary slips.
+                                                    Annual values can be either found on offer letter or salary
+                                                    incremenet letter.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="from-elem-wrapper">
+                                        <div class="form-group-elem">
+                                            <input type="tel" class="input-elmn placeholder"
+                                                oninput="updateGrossSalary()" placeholder="Special Allowance"
+                                                id="specialAllowance">
+                                            <span class="error-text"></span>
+                                            <label class="floating-label" id="special">Monthly Special allowance</label>
+                                            <div class="notes-wrap">
+                                                <p class="notes"> Enter values as mentioned in your monthly salary
+                                                    slips. Annual values can be either found on offer letter or salary
+                                                    incremenet letter.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="from-elem-wrapper">
+                                        <div class="form-group-elem">
+                                            <input type="tel" class="input-elmn placeholder"
+                                                oninput="updateGrossSalary()" placeholder="Employee EPF Contribution"
+                                                id="employeeEpfContribution">
+                                            <span class="error-text"></span>
+                                            <label class="floating-label" id="epf">Monthly Employee EPF Contribution by
+                                                self</label>
+                                            <div class="notes-wrap">
+                                                <p class="notes">Enter values as mentioned in your monthly salary slips.
+                                                    Annual values can be either found on offer letter or salary
+                                                    incremenet letter.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="from-elem-wrapper gross-salary-parent">
+                                        <div class="form-group-elem">
+                                            <input type="tel" class="input-elmn placeholder commen-input" readonly=""
+                                                placeholder="Gross salary" id="grossSalary">
+                                            <span class="error-text show-error commen-error"></span>
+                                            <label class="floating-label" id="changeSalaryType">Monthly Gross
+                                                salary*</label>
+                                            <div class="notes-wrap">
+                                                <p class="notes"> Update your annual gross salary, as mentioned in your
+                                                    salary slip.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="calc-btn-box rquired">
+                                        <p class="required-notes align-right">*Required</p>
+                                        <button type="submit" class="bold commen-btn"
+                                            id="calcBtnStep1">Continue</button>
+                                        <i class="arrow"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="step-3 step-inner-box animated3" data-step="step-3">
+                                <h4>Details of Other Income</h4>
+
+                                <div class="calculator-form">
+                                    <div class="from-elem-wrapper">
+                                        <div class="form-group-elem">
+                                            <input type="tel" class="input-elmn placeholder"
+                                                placeholder="Income from Interest on savings"
+                                                id="incomeOnInterestSaving">
+                                            <span class="error-text"></span>
+                                            <label class="floating-label">Annual Income from Interest on savings</label>
+                                            <div class="notes-wrap">
+                                                <p class="notes">Annual Income from interest from bank deposits &amp;
+                                                    savings.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="from-elem-wrapper">
+                                        <div class="form-group-elem">
+                                            <input type="tel" class="input-elmn placeholder"
+                                                placeholder="Interest from Deposits" id="interestFromDeposit">
+                                            <span class="error-text"></span>
+                                            <label class="floating-label">Annual Interest from Deposits</label>
+                                            <div class="notes-wrap">
+                                                <p class="notes">Amount of Interest income from Fixed / Recurring
+                                                    Deposit.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="from-elem-wrapper">
+                                        <div class="form-group-elem">
+                                            <input type="tel" class="input-elmn placeholder"
+                                                placeholder="Income from rentals" id="incomFromRental">
+                                            <span class="error-text"></span>
+                                            <label class="floating-label">Annual Income from rentals</label>
+                                            <div class="notes-wrap">
+                                                <p class="notes">Income, if any, from a rented property.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="from-elem-wrapper">
+                                        <div class="form-group-elem">
+                                            <input type="tel" class="input-elmn placeholder"
+                                                placeholder="Income from other source" id="otherIncome">
+                                            <span class="error-text"></span>
+                                            <label class="floating-label">Annual Income from other source</label>
+                                            <div class="notes-wrap">
+                                                <p class="notes">Income from any other source not covered above.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="calc-btn-box">
+                                        <button type="submit" class="bold commen-btn"
+                                            id="calcBtnStep2">Continue</button>
+                                        <i class="arrow"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="step-4 step-inner-box animated3" data-step="step-4">
+                                <h4>Details of Captial gains</h4>
+                                <div class="calculator-form">
+                                    <div class="from-elem-wrapper">
+                                        <label class="commen-label mb20">Equity Instruments</label>
+                                        <div class="d-flex-desktop">
+                                            <div class="form-group-elem">
+                                                <input type="tel" class="input-elmn placeholder"
+                                                    placeholder="Short term" id="shortEquityGain">
+                                                <span class="error-text"></span>
+                                                <label class="floating-label">Short term <span>( &lt; 1 year
+                                                        )</span></label>
+                                                <div class="notes-wrap">
+                                                    <p class="notes">Capital gains arising from short term investments
+                                                        in Equity. Holding period for short term captial gains in equity
+                                                        is less than 1 year.</p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group-elem">
+                                                <input type="tel" class="input-elmn placeholder" placeholder="Long term"
+                                                    id="longEquityGain">
+                                                <span class="error-text"></span>
+                                                <label class="floating-label">Long term <span>( &gt;= 1 year
+                                                        )<span></span></span></label>
+                                                <div class="notes-wrap">
+                                                    <p class="notes">Capital gains arising from long term investments in
+                                                        Equity. Holding period for long term captial gains in equity is
+                                                        more than or equal to 1 year.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="from-elem-wrapper">
+                                        <label class="commen-label mb20">Debt Investments</label>
+                                        <div class="d-flex-desktop">
+                                            <div class="form-group-elem">
+                                                <input type="tel" class="input-elmn placeholder"
+                                                    placeholder="Short term" id="shortDebtGain">
+                                                <span class="error-text"></span>
+                                                <label class="floating-label">Short term <span>( &lt; 3 year
+                                                        )</span></label>
+                                                <div class="notes-wrap">
+                                                    <p class="notes">Capital gains arising from short term investments
+                                                        in Debt instruments. Holding period for Short Term Captial gains
+                                                        in Debt Instruments is less than 3 year.</p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group-elem">
+                                                <input type="tel" class="input-elmn placeholder" placeholder="Long term"
+                                                    id="longDebtGain">
+                                                <span class="error-text"></span>
+                                                <label class="floating-label">Long term <span>( &gt;= 3 year
+                                                        )<span></span></span></label>
+                                                <div class="notes-wrap">
+                                                    <p class="notes">Capital gains arising from long term investments in
+                                                        Debt Instruments. Holding period for long term captial gains in
+                                                        Debt Instruments is more than or equal to 3 years.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="from-elem-wrapper display-none forList" id="unlistedShare">
+                                        <label class="commen-label mb20">Unlisted shares</label>
+                                        <div class="d-flex-desktop">
+                                            <div class="form-group-elem">
+                                                <input type="tel" class="input-elmn placeholder"
+                                                    placeholder="Short term" id="shortUnlistedGain">
+                                                <span class="error-text"></span>
+                                                <label class="floating-label">Short term <span>( &lt; 2 year
+                                                        )</span></label>
+                                                <div class="notes-wrap">
+                                                    <p class="notes">Capital gains arising from short term investments
+                                                        in Unlisted shares. Holding period for short term captial gains
+                                                        in unlisted shares is less than 2 year.</p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group-elem">
+                                                <input type="tel" class="input-elmn placeholder" placeholder="Long term"
+                                                    id="longUnlistedGain">
+                                                <span class="error-text"></span>
+                                                <label class="floating-label">Long term <span>( &gt;= 2 year
+                                                        )<span></span></span></label>
+                                                <div class="notes-wrap">
+                                                    <p class="notes">Capital gains arising from long term investments in
+                                                        Unlisted shares. Holding period for long term captial gains in
+                                                        unlisted shares is more than or equal to 2 years.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="from-elem-wrapper display-none forList" id="realEstate">
+                                        <label class="commen-label mb20">Real estate or Land</label>
+                                        <div class="d-flex-desktop">
+                                            <div class="form-group-elem">
+                                                <input type="tel" class="input-elmn placeholder"
+                                                    placeholder="Short term" id="shortRealEstateGain">
+                                                <span class="error-text"></span>
+                                                <label class="floating-label">Short term <span>( &lt; 2 year
+                                                        )</span></label>
+                                                <div class="notes-wrap">
+                                                    <p class="notes">Capital gains arising from short term investments
+                                                        in Real Estate or Land. Holding period for Short Term Captial
+                                                        gains from real estate or land is less than 1 year.</p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group-elem">
+                                                <input type="tel" class="input-elmn placeholder" placeholder="Long term"
+                                                    id="longRealEstateGain">
+                                                <span class="error-text"></span>
+                                                <label class="floating-label">Long term <span>( &gt;= 2 year
+                                                        )<span></span></span></label>
+                                                <div class="notes-wrap">
+                                                    <p class="notes">Capital gains arising from long term investments in
+                                                        Real Estate or Land. Holding period for long term captial gains
+                                                        from real estate or land is more than or equal to 2 years.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- <input class="add-onther-text addOnther dropdownFrom" value="Add another"  readonly="readonly" for="addonther"></input> -->
+                                    <label class="add-onther-text addOnther" id="dropdownFrom"
+                                        data-dropdown-id="dropdownFrom">Add another</label>
+                                    <div class="form-group-elem" id="dropdownFrom">
+                                        <ul class="dropdown-elem add-drop-dwon">
+                                            <li select-option="unlistedShare">Unlisted shares</li>
+                                            <li select-option="realEstate">Real estate or Land</li>
+                                        </ul>
+                                    </div>
+                                    <div class="calc-btn-box rquired ">
+                                        <p class="required-notes align-right">*Non equity short term gains to be entered
+                                            post indexation.</p>
+                                        <button type="submit" class="bold commen-btn"
+                                            id="calcBtnStep3">Continue</button>
+                                        <i class="arrow"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="step-5 step-inner-box animated3" data-step="step-5">
+                                <h4>Details of eligible Tax Deductions</h4>
+                                <div class="calculator-form">
+                                    <div class="from-elem-wrapper">
+                                        <div class="form-group-elem">
+                                            <input type="tel" class="input-elmn placeholder"
+                                                placeholder="Deduction under section 80C" id="deduction80C">
+                                            <span class="error-text"></span>
+                                            <label class="floating-label">Section 80C deductions excluding EPF</label>
+                                            <div class="notes-wrap">
+                                                <p class="notes">Deductions eligible for tax savings under section 80C
+                                                    include PPF, VPF, Fixed Deposits, ELSS Mutual Funds, National
+                                                    Pension Scheme (NPS)Term Insurance Premium etc.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="from-elem-wrapper">
+                                        <div class="form-group-elem">
+                                            <input type="tel" class="input-elmn placeholder"
+                                                placeholder="Deduction under section 80D" id="deduction80D">
+                                            <span class="error-text"></span>
+                                            <label class="floating-label">Health insurance premium for self /
+                                                family</label>
+                                            <div class="notes-wrap">
+                                                <p class="notes">Total annual premium paid towards medical or health
+                                                    insurance policy for Self or Family.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="from-elem-wrapper">
+                                        <div class="form-group-elem">
+                                            <input type="tel" class="input-elmn placeholder"
+                                                placeholder="Deduction under section 80CCD(1B)" id="deduction80CCD1B">
+                                            <span class="error-text"></span>
+                                            <label class="floating-label">NPS investment under section 80CCD(1B)</label>
+                                            <div class="notes-wrap">
+                                                <p class="notes">Contributions made to National Pension Scheme (NPS)
+                                                    under section 80CCD(1B). This investment is over and above the
+                                                    specified investment limit of 1.5 lacs unders section 80C.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="from-elem-wrapper display-none forList" id="expensesRelated">
+                                        <div class="form-group-elem">
+                                            <input type="tel" class="input-elmn placeholder"
+                                                placeholder="Expenses related to work" id="expensesRelatedToWork">
+                                            <span class="error-text"></span>
+                                            <label class="floating-label">Expenses related to work</label>
+                                            <div class="notes-wrap">
+                                                <p class="notes">Total expenses incurred in running the business like
+                                                    office rent, client meeting expenses, contracting expenses, etc.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="from-elem-wrapper display-none forList" id="healthInsParent">
+                                        <div class="form-group-elem">
+                                            <div class="d-flex-align-center">
+                                                <label class="commen-class mrgn10">Is any of the parent a senior
+                                                    citizen?</label>
+                                                <label class="radio-btn type2">
+                                                    <input type="radio" class="radio-btn-input circle" checked=""
+                                                        name="parents_age" value="1">
+                                                    <span></span>
+                                                    No
+                                                </label>
+                                                <label class="radio-btn type2">
+                                                    <input type="radio" class="radio-btn-input circle"
+                                                        name="parents_age" value="2">
+                                                    <span></span>
+                                                    Yes
+                                                </label>
+                                            </div>
+                                            <span class="error-text"></span>
+                                        </div>
+                                        <div class="form-group-elem" style="margin-top: 20px;">
+                                            <input type="tel" class="input-elmn placeholder"
+                                                placeholder="Health Insurance for parents" id="healthInsParentInput">
+                                            <span class="error-text"></span>
+                                            <label class="floating-label">Health Insurance premium for parents</label>
+                                            <div class="notes-wrap">
+                                                <p class="notes">Health Insurance premium for parents</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="from-elem-wrapper display-none forList" id="donationCharityList">
+                                        <div class="form-group-elem">
+                                            <input type="tel" class="input-elmn placeholder"
+                                                placeholder="Deduction under section 80G" id="donationCharity">
+                                            <span class="error-text"></span>
+                                            <label class="floating-label">Donations made to charity</label>
+                                            <div class="notes-wrap">
+                                                <p class="notes">Amount paid as donations to charitable organisations,
+                                                    eligible for tax deduction under section 80G.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="from-elem-wrapper  display-none forList" id="educationLoanList">
+                                        <div class="form-group-elem">
+                                            <input type="tel" class="input-elmn placeholder"
+                                                placeholder="Deduction under section 80E" id="educationLoanInterest">
+                                            <span class="error-text"></span>
+                                            <label class="floating-label">Interest on Education Loan</label>
+                                            <div class="notes-wrap">
+                                                <p class="notes">Total Interest paid during the entire financial year
+                                                    towards a loan for higher education.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="from-elem-wrapper display-none forList" id="selfOccupiedList">
+                                        <div class="form-group-elem">
+                                            <input type="tel" class="input-elmn placeholder"
+                                                placeholder="Home loan interest for self occupied property"
+                                                id="homeLoanInterestForSelfOccupied">
+                                            <span class="error-text"></span>
+                                            <label class="floating-label">Home loan interest for self occupied
+                                                property</label>
+                                            <div class="notes-wrap">
+                                                <p class="notes">Total interest paid towards an ongoing home loan for a
+                                                    self occupied property, during the financial year.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="from-elem-wrapper  display-none forList" id="homeLoanList">
+                                        <div class="form-group-elem">
+                                            <input type="tel" class="input-elmn placeholder"
+                                                placeholder="Home loan interest for rented property"
+                                                id="homeLoanInterestForRented">
+                                            <span class="error-text"></span>
+                                            <label class="floating-label">Home loan interest for rented property</label>
+                                            <div class="notes-wrap">
+                                                <p class="notes">Total interest paid towards an ongoing home loan for a
+                                                    rented out property, during the financial year.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <label class="add-onther-text addOnther" id="dropdownFrom1"
+                                        data-dropdown-id="dropdownFrom1">Add another</label>
+                                    <div class="form-group-elem" id="dropdownFrom1">
+                                        <ul class="dropdown-elem add-drop-dwon">
+                                            <li select-option="healthInsParent">Health Insurance premium for parents
+                                            </li>
+                                            <li select-option="donationCharityList">Donation to charity</li>
+                                            <li select-option="educationLoanList">Interest on Education Loan</li>
+                                            <li select-option="selfOccupiedList">Home loan interest for self occupied
+                                                property</li>
+                                            <li select-option="homeLoanList">Home loan interest for rented property</li>
+                                        </ul>
+                                    </div>
+                                    <div class="calc-btn-box">
+                                        <button type="submit" class="bold commen-btn" id="calcBtnStep3">Calculate
+                                            Now</button>
+                                        <i class="arrow"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="step-6 step-inner-box animated3" data-step="step-6">
+                                <div class="tax-result-footer">
+                                    <a href="/tax-saving"><img
+                                            src="https://static.smartspends.com/static/images/etmoneyweb/tools/tax-result.png"
+                                            alt="tax result"></a>
+                                </div>
+                                <div class="tax-saving-result">
+                                    <h4 class="align-center"><span>Total Tax Payable</span></h4>
+                                    <div class="calculator-form">
+                                        <!-- <p class="tax-result-sub-txt">In the financial year 2019-20 you,ll pay</p> -->
+                                        <p class="tax-result-txt bold"><span class="totalTaxtoPay">₹</span><span
+                                                id="netTotalTaxToPay"></span></p>
+                                        <div class="tax-summary">
+                                            <!-- <div class="budget-year d-flex-desktop income-details">
+                                <p>Post budget FY (2019-20)</p>
+                              </div> -->
+                                            <div class="d-flex-desktop income-details">
+                                                <p>Gross income</p>
+                                                <p class="bold" id="grossIncome-p"><span>₹</span><span
+                                                        id="grossIncome"></span></p>
+                                            </div>
+                                            <div class="d-flex-desktop income-details">
+                                                <p>Capital Gains</p>
+                                                <p class="bold" id="annualGains-p"><span>₹</span><span
+                                                        id="annualGains"></span></p>
+                                            </div>
+                                            <div class="d-flex-desktop income-details">
+                                                <p>Tax Deductions</p>
+                                                <p class="bold" id="annualDeduction-p"><span>₹</span><span
+                                                        id="annualDeduction"></span></p>
+                                            </div>
+                                            <div class="d-flex-desktop income-details">
+                                                <p>Tax Exemptions</p>
+                                                <p class="bold" id="annualExemptions-p"><span>₹</span><span
+                                                        id="annualExemptions"></span></p>
+                                            </div>
+                                            <!--  <div class="d-flex-desktop payable-tax">
+                                <p class="bold">Total tax payable </p>
+                                <p class="bold totalTaxtoPay"><span>&#x20B9;</span><span id="totalTaxToPay"></span></p>
+                              </div> -->
+                                        </div>
+                                        <div class="align-center">
+                                            <p class="recalculator" id="recalculator">Recalculate</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="banner-left-box  order-1 pad-top0">
+                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <div class="banner-text income-banner">
+                                        <h2 class="banner-sub-title semibold border-top">Income tax liability calculator
+                                        </h2>
+                                        <p class="description hidden-xs">Explore best options to save upto <span
+                                                class="rupee">₹78,000</span> in tax</p>
+                                        <a href="/tax-saving" class="button button-outline  hidden-xs">Explore</a>
+                                    </div>
+                                    <img src="https://static.smartspends.com/static/images/etmoneyweb/tools/income-tax-banner-2.png"
+                                        alt="income-tax-banner" class="bitcoin">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END : Income Tax Calculator -->
+
+        <section class="calculator-sub-wapper">
+            <div class="calculator-commen-section">
+                <div class="calculator-main-section">
+                    <h1 class="calculator-sub-title">Understanding income tax calculation in India</h1>
+                    <p>Come the end of the financial year, and most employees have only one thing on their minds, and
+                        that is income tax. As the name suggests, income tax is a direct tax that is levied on the
+                        income that an individual earns. This tax earned is then used by the government for a variety of
+                        purposes like building public infrastructure, public welfare projects etc.</p>
+
+                    <p>Whether you are working for a company or run a business, it is imperative for you to pay tax on
+                        your income &amp; file it every year. The income tax that is paid is dependent on several
+                        parameters - this includes income &amp; its sources, age, exemptions &amp; investments that are
+                        eligible for tax deduction. Let us explain how this works in detail.</p>
+                    <p></p>
+                    <div class="fund-guide">
+                        <ul>
+                            <li><a href="#sourcesIncCalc">Sources of Income &amp; Calculation of Gross Income</a></li>
+                            <li><a href="#taxExempt">Tax exemptions available for tax benefits</a></li>
+                            <li><a href="#taxDeduct">Tax deductions under different sections of the Income Tax Act</a>
+                            </li>
+                            <li><a href="#slabs">Income tax slabs in India</a></li>
+                            <li><a href="#how">How to Use Income Tax Calculator</a>
+                                <ul>
+                                    <li><a href="#howSalaried">Salaried Individuals</a></li>
+                                    <li><a href="#howSelf">Self Employed Individuals</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#faq">Frequently Asked Questions (FAQs)</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="calculator-sub-section">
+
+
+
+                    <h2 class="calculator-sub-title" id="sourcesIncCalc">Sources of Income &amp; Calculation of Gross
+                        Income</h2>
+                    <p>Income is classified into five categories:</p>
+                    <ul class="check-list">
+                        <li class="zeroList"><span class="bold">Income from Salary:</span> This is the monthly income
+                            one receives from the employer they work for. The salary amount can include these
+                            components:</li>
+                    </ul>
+                    <ul class="check-list-ul">
+                        <li>Basic Salary</li>
+                        <li>Dearness Allowance (DA)</li>
+                        <li>Any Annuity &amp; Gratuity benefits received in that financial year</li>
+                        <li>Allowances on transport, medical expenses etc.</li>
+                        <li>Any Special Allowances received</li>
+                    </ul>
+
+                    <p class="pad-left25">The aggregate of the above-mentioned incomes is called Gross Salary.</p>
+
+
+                    <ul class="check-list">
+                        <li class="zeroList"><span class="bold">Income from Business or Profession:</span> The income
+                            that one earns through business or profession is also taxable.</li>
+                        <li class="zeroList"><span class="bold">Income from capital gains:</span> Any profit or gain
+                            that arises from sale or transfer of capital assets (such as stocks, Mutual Funds, Real
+                            estate etc) is taxable under the head capital gains. This gain is further categorized as
+                            Short Term Capital Gains (STCG) and Long Term Capital Gains (LTCG).</li>
+                        <li class="zeroList"><span class="bold">Income from rent on House property:</span> The next head
+                            - Income from House property - includes any rental income that an individual earns as rent
+                            from a residential or commercial property, and is subject to taxation.</li>
+                        <li class="zeroList"><span class="bold">Income from other sources:</span> Any income that can't
+                            be bracketed under the other four heads of income will come under the head income from other
+                            sources.</li>
+                    </ul>
+                    <p>All above components put together constitute your Gross Income.</p>
+
+
+
+                    <h2 class="calculator-sub-title" id="taxExempt">Tax exemptions available for tax benefits</h2>
+                    <ul class="check-list">
+                        <li class="zeroList"><span class="bold">Standard exemption:</span> Post union budget 2019-20, a
+                            standard exemption of ₹50,000/- is available to all individuals irrespective of their
+                            income. Pre budget 2019-20, the limit of standard exemption was ₹40,000/-.</li>
+                        <li class="zeroList"><span class="bold">HRA exemptions under Section 10:</span> Any individual
+                            who lives in a rented house can also avail tax exemption under section 10. HRA exemption for
+                            salaried individual is the minimum of-<br>
+                        </li>
+                    </ul>
+                    <ul class="check-list-ul">
+                        <li>The actual HRA received from employer</li>
+                        <li>50% of the basic salary &amp; dearness allowance for individuals living in metro cities, 40%
+                            of the same for individuals living in non-metro cities</li>
+                        <li>Actual rent paid less 10% of basic salary &amp; dearness allowance</li>
+                    </ul>
+                    <p>Self employed individuals can claim actual rent paid or ₹60,000/-, whichever is less as deduction
+                        under Section 10. To claim deductions, one needs to submit various proofs like Rent Agreement,
+                        Receipts of rent paid, Pan of landlord. Use ETMONEY's <a
+                            href="/tools-and-calculators/rent-receipt-generator" title="Rent Receipt Generator"
+                            class="link-class">Rent Receipt Generator</a> for free rent receipts required for HRA
+                        exemptions.</p>
+
+
+
+
+                    <h2 class="calculator-sub-title" id="taxDeduct">Tax deductions under different sections of the
+                        Income Tax Act</h2>
+
+                    <p>As the name suggests, tax deductions help to save tax on your total income. One can claim a tax
+                        deduction on the money he/she spends on medical expenses or on charity. There are certain
+                        investments that help you bring down tax - these include life insurance plans, health insurance
+                        plans, retirement schemes or even NSC.
+                        Here are the sections under which one can claim tax deduction:</p>
+
+                    <ul class="check-list">
+                        <li class="zeroList"> <span class="bold">Section 80C:</span> Under this section, all investments
+                            made towards ELSS Mutual Funds, Tax saving Fixed Deposits, Term Life Insurance Premium,
+                            Pension Schemes, Provident Fund etc. are eligible for tax deduction. Maximum available
+                            deduction unders section 80C is ₹1,50,000/-.
+                        </li>
+                        <li class="zeroList"><span class="bold">Section 80 CCD:</span> This section encourages
+                            investments in two pension schemes - Atal Pension Yojna (APY) &amp; National Pension Scheme
+                            (NPS). This section has been further divided into two sub sections: 80CCD(1) &amp; 80CCD(2).
+                            Under the provisions of section 80CCD(1):
+                        </li>
+                    </ul>
+                    <ul class="check-list-ul">
+                        <li> One can claim a maximum deduction up to 10% of basic salary + dearness allowance.</li>
+                        <li> Additional benefit of up to ₹50,000/- has been granted under section 80CCD(1B), post a new
+                            amendment in union budget of 2015 - 16.</li>
+
+                    </ul>
+                    <p class="pad-left25">Furthermore, sub section 80CCD(2) allows employer's contribution to Pension
+                        Schemes subject to a maximum of 10% of basic salary + dearness allowance, to be claimed as a tax
+                        benefit. This limit is over and above the limit prescribed under 80CCD(1).</p>
+                    <ul class="check-list">
+
+                        <li class="zeroList"><span class="bold">Section 80D:</span> Under this section, the premium paid
+                            towards a health insurance policy can be claimed as a tax deduction. Premiums for health
+                            insurance for self, spouse &amp; dependent children (family) and parents can be claimed as a
+                            deduction. However, the maximum allowed deduction for self &amp; family is ₹25,000 per year.
+                            Deductions on premium for health insurance of parents are allowed to a limit of up to
+                            Rs.25,000 if they are less than 60 years of age or Rs.50,000 if any or both of the parents
+                            are over the age of 60 years.</li>
+                    </ul>
+
+                    <p>In addition to the above sections, one can claim tax benefits on Interest paid on Education Loan
+                        (Section 80E) &amp; Home Loan (Section 24), Donations made to charity (Section 80G). Read
+                        ETMONEY's <a href="/income-tax-saving/how-to-save-income-tax" title="Tax Saving Guide"
+                            class="link-class">Tax Saving Guide</a> &amp; learn about the best ways to Save Income Tax
+                        in FY 2019-20.</p>
+
+
+
+                    <h2 class="calculator-sub-title" id="slabs">Income tax slabs in India</h2>
+                    <p>Income taxpayers (both salaried &amp; self employed) have been categorized into three age groups:
+                    </p>
+                    <ol type="1" class="ol-list">
+                        <li class="zeroList">Individuals who are below the age of 60 years</li>
+                        <li class="zeroList">Senior citizens who are between 60 years and 80 years old.</li>
+                        <li class="zeroList">Super senior citizens who are above 80 years old.</li>
+                    </ol>
+
+                    <h3 class="calculator-table-title align-center">Tax Rate for individuals below the age Of 60 Years
+                        as per budget 2019-2020</h3>
+
+                    <div class="top-performing-fund-table colored-table" id="sub-artical1">
+                        <table border="1">
+                            <thead>
+                                <tr class="nowrap">
+                                    <td>
+                                        Income Tax Slab
+                                        (in Rupees)
+                                    </td>
+                                    <td>Tax Rate for individuals below the age Of 60 Years</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>0 to ₹2,50,000*</td>
+                                    <td>Nil</td>
+                                </tr>
+                                <tr>
+                                    <td>₹2,50,001 to ₹5,00,000</td>
+                                    <td>5% of total income exceeding ₹2,50,000</td>
+                                </tr>
+                                <tr>
+                                    <td>₹5,00,001 to ₹10,00,000</td>
+                                    <td>Tax Amount of ₹12,500 for the income up to ₹5,00,000
+                                        + 20% of total income exceeding ₹5,00,000
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Above ₹10,00,000</td>
+                                    <td>Tax Amount of ₹1,12,500 for the income up to ₹10,00,000
+                                        + 30% of total income exceeding ₹10,00,000
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <h3 class="calculator-table-title align-center">Tax Rates for Senior Citizens of age between 60
+                        years to 79 years old</h3>
+
+                    <div class="top-performing-fund-table colored-table" id="sub-artical1">
+                        <table border="1">
+                            <thead>
+                                <tr class="nowrap">
+                                    <td>
+                                        Income Tax Slab
+                                        (in Rupees)
+                                    </td>
+                                    <td>Tax Rates for Senior Citizens of age between 60 years to 79 years old</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>0 to ₹3,00,000</td>
+                                    <td>Nil</td>
+                                </tr>
+                                <tr>
+                                    <td>₹3,00,001 to ₹5,00,000</td>
+                                    <td>5% of total income exceeding ₹3,00,000</td>
+                                </tr>
+                                <tr>
+                                    <td>₹5,00,001 to ₹10,00,000</td>
+                                    <td>Tax Amount of ₹10,000 for the income up to ₹5,00,000
+                                        + 20% of total income exceeding ₹5,00,000
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Above ₹10,00,000</td>
+                                    <td>Tax Amount of ₹1,10,000 for the income up to ₹10,00,000
+                                        + 30% of total income exceeding ₹10,00,000
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+
+                    <h3 class="calculator-table-title align-center">Tax Rates for Very Senior Citizens of age 80 years
+                        or above</h3>
+
+                    <div class="top-performing-fund-table colored-table" id="sub-artical1">
+                        <table border="1">
+                            <thead>
+                                <tr class="nowrap">
+                                    <td>
+                                        Income Tax Slab
+                                        (in Rupees)
+                                    </td>
+                                    <td>Tax Rate for Very Senior Citizens of age 80 years or above</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>0 to ₹5,00,000</td>
+                                    <td>Nil</td>
+                                </tr>
+                                <tr>
+                                    <td>₹5,00,001 to ₹10,00,000</td>
+                                    <td>20% of total income exceeding ₹5,00,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Above ₹10,00,000</td>
+                                    <td>Tax Amount of ₹1,00,000 for the income up to ₹10,00,000
+                                        + 30% of total income exceeding ₹10,00,000
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <h2 id="how" class="calculator-sub-title">How to Use Income Tax Calculator</h2>
+                    <p>Following are the steps to use the online tax calculator:</p>
+
+                    <h3 id="howSalaried" class="calculator-sub-title">For Salaried Individuals:</h3>
+                    <ul class="check-list genrator-steps">
+                        <li class="zeroList"><span class="bold">Step 1:</span> Choose your age bracket, then select your
+                            residence city type, residence type and occupation.
+                            <img src="https://static.smartspends.com/static/images/etmoneyweb/tools/income-tax-salaried-1.png"
+                                alt="etmoney income tax calculator Salaried step1" class="img-responsive">
+                        </li>
+                        <li class="zeroList"><span class="bold">Step 2:</span> Enter your salary details - basic salary,
+                            HRA, dearness allowance, special allowance and employee EPF contribution.
+                            <img src="https://static.smartspends.com/static/images/etmoneyweb/tools/income-tax-salaried-2.png"
+                                alt="etmoney income tax calculator Salaried step2" class="img-responsive">
+                        </li>
+                        <li class="zeroList"><span class="bold">Step 3:</span> Next, add other income details - Income
+                            from Interest on Savings, Income from Rentals, Income from Deposits and lastly, income from
+                            all other sources.
+                            <img src="https://static.smartspends.com/static/images/etmoneyweb/tools/income-tax-salaried-3.png"
+                                alt="etmoney income tax calculator Salaried step3" class="img-responsive">
+                        </li>
+                        <li class="zeroList"><span class="bold">Step 4:</span> Add both Long Term &amp; Short Term
+                            Capital Gains for all capital assets like Stocks, Mutual Funds, Real estate etc. To
+                            understand taxation on all types of Mutual Funds, read our blog- <a
+                                href="https://www.etmoney.com/blog/how-your-mutual-fund-investments-are-taxed/"
+                                class="link-class">How Your Mutual Fund Investments are&nbsp;Taxed?</a>
+                            <img src="https://static.smartspends.com/static/images/etmoneyweb/tools/income-tax-salaried-4.png"
+                                alt="etmoney income tax calculator Salaried step4" class="img-responsive">
+                        </li>
+                        <li class="zeroList"><span class="bold">Step 5:</span> List down other deductions under Section
+                            80C, 80D and 80CCD.
+                            <img src="https://static.smartspends.com/static/images/etmoneyweb/tools/income-tax-salaried-5.png"
+                                alt="etmoney income tax calculator Salaried step5" class="img-responsive">
+                        </li>
+
+                        <li class="zeroList"><span class="bold">Step 6:</span> Click on calculate now and you will see
+                            your income tax liability for choosen financial year.
+                            <img src="https://static.smartspends.com/static/images/etmoneyweb/tools/income-tax-salaried-6.png"
+                                alt="etmoney income tax calculator Salaried step6" class="img-responsive">
+                        </li>
+                    </ul>
+
+                    <h2 id="howSelf" class="calculator-sub-title">For Self-employed Individuals:</h2>
+                    <p>If you are self-employed and you want to calculate the income tax you need to pay, here are the
+                        steps you must follow in the online tax calculator: </p>
+                    <ul class="check-list genrator-steps">
+                        <li class="zeroList"><span class="bold">Step 1:</span> Choose the financial year for which you
+                            want your taxes to be calculated and select your age accordingly, then mention the residence
+                            city type, residence type and occupation.
+                            <img src="https://static.smartspends.com/static/images/etmoneyweb/tools/income-tax-self-1.png"
+                                alt="etmoney income tax calculator self employed step1" class="img-responsive">
+                        </li>
+                        <li class="zeroList"><span class="bold">Step 2:</span> Enter your income details - gross income,
+                            income from interest on savings, income from rentals, interest from deposits, income from
+                            other sources.
+                            <img src="https://static.smartspends.com/static/images/etmoneyweb/tools/income-tax-self-2.png"
+                                alt="etmoney income tax calculator self employed step2" class="img-responsive">
+                        </li>
+                        <li class="zeroList"><span class="bold">Step 3:</span> Add income from capital gains. Enter all
+                            non equity short term capital gains post indexation benefits. To understand taxation on all
+                            types of Mutual Funds, read our blog- <a
+                                href="https://www.etmoney.com/blog/how-your-mutual-fund-investments-are-taxed/"
+                                class="link-class">How Your Mutual Fund Investments are&nbsp;Taxed?</a>
+                            <img src="https://static.smartspends.com/static/images/etmoneyweb/tools/income-tax-self-3.png"
+                                alt="etmoney income tax calculator self employed step3" class="img-responsive">
+                        </li>
+                        <li class="zeroList"><span class="bold">Step 4:</span> List down other deductions under Section
+                            80C, 80D and 80CCD. Self employed individuals can also get tax benefits on expenses related
+                            to work or business by submitting valid expense proofs while filing tax.
+                            <img src="https://static.smartspends.com/static/images/etmoneyweb/tools/income-tax-self-4.png"
+                                alt="etmoney income tax calculator self employed step4" class="img-responsive">
+                        </li>
+                        <li class="zeroList"><span class="bold">Step 5:</span> Click on calculate now and this will give
+                            you all the details regarding the income tax you need to pay.
+                            <img src="https://static.smartspends.com/static/images/etmoneyweb/tools/income-tax-self-6.png"
+                                alt="etmoney income tax calculator self employed step5" class="img-responsive">
+                        </li>
+
+                    </ul>
+
+
+                    <p>With this taxable income calculator, you can quickly know how much income tax you need to pay!
+                    </p>
+
+
+                    <h2 id="faq" class="calculator-sub-title">FAQs</h2>
+
+                    <div class="panel-group customFaq" id="accordion" role="tablist" aria-multiselectable="true">
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="question1">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                        href="#answer1" aria-expanded="false" aria-controls="answer1">How do I calculate
+                                        taxable income?</a>
+                                </h4>
+                            </div>
+                            <div id="answer1" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="question1">
+                                <div class="panel-body">
+                                    <p>Here's how you can calculate your taxable income:</p>
+
+                                    <ul class="check-list">
+                                        <li class="zeroList">First step is to calculate your gross salary by adding all
+                                            taxable components of salary- Basic Pay, Dearness Allowance, HRA, Special
+                                            &amp; other allowances.
+                                        </li>
+                                        <li class="zeroList">Once you get this amount, add the extra income of
+                                            interests, rental on property, bonuses &amp; income from other sources, if
+                                            any.
+                                        </li>
+                                        <li class="zeroList">Add capital gains from all assets- Equity or Debt
+                                            instruments, Real Estate, Unlisted shares etc.
+                                        </li>
+                                        <li class="zeroList">Deduct all exemptions- standard exemption of ₹50,000/-
+                                            (available to all), HRA exemption, from your gross income.
+                                        </li>
+                                        <li class="zeroList">Further subtract basic deductions under Section 80C, 80D or
+                                            any other deductions that are applicable.
+                                        </li>
+                                        <li class="zeroList"> The income arrived is your Net Taxable Income.
+                                        </li>
+                                    </ul>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="question2">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                        href="#answer2" aria-expanded="false" aria-controls="answer2">What is standard
+                                        deduction in income tax?</a>
+                                </h4>
+                            </div>
+                            <div id="answer2" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="question2">
+                                <div class="panel-body">
+                                    In the Union Budget 2018, a standard deduction amounting to ₹40,000 for salaried
+                                    employees was announced for salaried employees. This was in the place of the
+                                    transport allowance (₹19,200) and medical reimbursement (₹5,000). As a result,
+                                    salaried people could avail an additional income of ₹5,800 in FY 2018-19. The limit
+                                    of ₹40,000 was increased to ₹50,000 in the Interim Budget 2019.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="question3">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                        href="#answer3" aria-expanded="false" aria-controls="answer3">Does everyone have
+                                        to file their income tax returns?</a>
+                                </h4>
+                            </div>
+                            <div id="answer3" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="question3">
+                                <div class="panel-body">
+                                    Filing income tax returns is mandatory for those whose total income is more than
+                                    ₹2,50,000. Even if your income isn't over this amount, it is suggested that you file
+                                    your income tax return.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="question4">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                        href="#answer4" aria-expanded="false" aria-controls="answer4">How is TDS
+                                        calculated on salary?</a>
+                                </h4>
+                            </div>
+                            <div id="answer4" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="question4">
+                                <div class="panel-body">
+                                    The total earnings of an employee over the year (including perks, commission, bonus
+                                    etc) is calculated. Next, a declaration from employees about the investments they
+                                    plan to make is taken. At the end of the year, the proof of investment is collected.
+                                    Basis that the TDS is calculated.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="question5">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                        href="#answer5" aria-expanded="false" aria-controls="answer5">How much tax will
+                                        be deducted from my salary?</a>
+                                </h4>
+                            </div>
+                            <div id="answer5" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="question5">
+                                <div class="panel-body">
+                                    Enter your income, exemptions &amp; deductions details in the calculator at the top
+                                    of this page to calculate total income tax on your salary.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="question6">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                        href="#answer6" aria-expanded="false" aria-controls="answer6">How can I save my
+                                        maximum income tax?</a>
+                                </h4>
+                            </div>
+                            <div id="answer6" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="question6">
+                                <div class="panel-body">
+                                    <p>Here's how you can save maximum Income tax:</p>
+
+                                    <ul class="check-list">
+                                        <li class="zeroList">Go for an investment of ₹1.5 lakhs under Sec 80C to reduce
+                                            your taxable income.</li>
+                                        <li class="zeroList">Get medical insurance and claim a deduction up to ₹25,000
+                                            (₹50,000 for Senior Citizens) for medical insurance premium under Section
+                                            80D.</li>
+                                        <li class="zeroList">Claim deduction up to ₹50,000 by investing in National
+                                            Pension Scheme (NPS) under section 80CCD(1B).</li>
+                                    </ul>
+                                    You can use tax maximiser on ETMONEY and get a personalised tax saving plan best
+                                    suited for you.
+                                    <!--Tax maximiser link-->
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../javascript/js/jquery.min.js"></script>
+    <script src="js/income-tax-calculator.js"></script>
+</body>
+
+</html>
