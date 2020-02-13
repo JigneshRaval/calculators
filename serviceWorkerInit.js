@@ -41,6 +41,9 @@ const isLocalhost = Boolean(
 );
 
 function register(config) {
+    if (process.env.NODE_ENV === 'production') {
+        process.env.PUBLIC_URL = 'https://jigneshraval.github.io/calculators/';
+    }
     console.log('${process.env.PUBLIC_URL} process.env.NODE_ENV === "production"', `${process.env.PUBLIC_URL}`)
     if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
         // The URL constructor is available in all browsers that support SW.
