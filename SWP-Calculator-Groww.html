@@ -4,59 +4,61 @@
         display: block;
     }
 </style>
+
 <!-- START : SWP Calculator -->
-<section class="swp-calculator">
-    <form name="sipForm">
-        <div class="sip-calculator">
-            <h3 id="heading" style="margin-bottom: 1em; text-align: center;">SWP Calculator</h3>
-            <div class="sip-calculator-amount">
-                <p style="margin-top: 1.8em;" class="d-flex">
-                    <label id="amountLabel">Total Investment</label>
-                    <input name="TotalInvestment" id="inputTotalInvestment" type="number" step="1000" value="1000000"
-                        min="500" max="5000000" oninput="showTotalInvestmentVal(this.value)">
-                    <span id="total-investment"></span> Rs.
-                </p>
-                <input class="amount-slider" name="realTotalInvestmentAmount" id="myTotalInvestmentAmount" type="range"
-                    step="5000" min="10000" max="5000000" value="1000000">
-            </div>
-            <div class="sip-calculator-year">
-                <p style="margin-top: 1.8em;" class="d-flex">
-                    <label>Withdrawal Per Month</label>
-                    <input name="WithdrawalPerMonth" id="inputWithdrawalAmount" type="number" step="500" value="10000"
-                        min="100" max="50000" oninput="showWithdrawalVal(this.value)">
-                    <span id="withdrawal"></span> Rs.
-                </p>
-                <input class="year-slider" name="realWithdrawalAmount" id="myWithdrawalAmount" type="range" step="500"
-                    min="500" max="50000" value="10000">
-            </div>
-            <div class="sip-calculator-roi">
-                <p style="margin-top: 1.8em;" class="d-flex">
-                    <label>Expected Returns</label>
-                    <input name="ExpectedReturns" id="inputExpectedReturns" type="number" value="10" min="1" step="1"
-                        max="50" oninput="showExpectedReturnsVal(this.value)">
-                    <span id="returns"></span> %
-                </p>
-                <input class="roi-slider" name="realExpectedReturns" id="myExpectedReturns" type="range" min="1"
-                    step="1" max="30" value="10">
-            </div>
-            <div class="sip-calculator-roi">
-                <p style="margin-top: 1.8em;" class="d-flex">
-                    <label>Tenure</label>
-                    <input name="Tenure" id="inputTenure" type="number" value="3" min="1" step="1" max="30"
-                        oninput="showTenureVal(this.value)">
-                    <span id="tenure"></span> Years
-                </p>
-                <input class="roi-slider" name="realTenure" id="myTenure" type="range" min="1" step="1" max="30"
-                    value="3">
-            </div>
-            <p class="calculations">
-                <strong>Final Value:</strong>
-                <span id="finalAmountAtTheEnd" style="font-size: 1.2em;margin-left: 8px;">Rs. 915908</span>
+
+<h3 id="heading" class="text-center calc-title"><button onclick="hidePanel()">&#8592;</button> SWP Calculator</h3>
+
+<form name="sipForm">
+    <div class="sip-calculator">
+
+        <div class="sip-calculator-amount">
+            <p style="margin-top: 1.8em;" class="d-flex">
+                <label id="amountLabel">Total Investment</label>
+                <input name="TotalInvestment" id="inputTotalInvestment" type="number" step="1000" value="1000000"
+                    min="500" max="5000000" oninput="showTotalInvestmentVal(this.value)">
+                <span id="total-investment"></span> Rs.
             </p>
-            <!-- <div style="margin-top: 15px;"><img class="groww-logo" src="groww-logo-ed.png" target="_parent" align="right"/></div> -->
+            <input class="amount-slider" name="realTotalInvestmentAmount" id="myTotalInvestmentAmount" type="range"
+                step="5000" min="10000" max="5000000" value="1000000">
         </div>
-    </form>
-</section>
+        <div class="sip-calculator-year">
+            <p style="margin-top: 1.8em;" class="d-flex">
+                <label>Withdrawal Per Month</label>
+                <input name="WithdrawalPerMonth" id="inputWithdrawalAmount" type="number" step="500" value="10000"
+                    min="100" max="50000" oninput="showWithdrawalVal(this.value)">
+                <span id="withdrawal"></span> Rs.
+            </p>
+            <input class="year-slider" name="realWithdrawalAmount" id="myWithdrawalAmount" type="range" step="500"
+                min="500" max="50000" value="10000">
+        </div>
+        <div class="sip-calculator-roi">
+            <p style="margin-top: 1.8em;" class="d-flex">
+                <label>Expected Returns</label>
+                <input name="ExpectedReturns" id="inputExpectedReturns" type="number" value="10" min="1" step="1"
+                    max="50" oninput="showExpectedReturnsVal(this.value)">
+                <span id="returns"></span> %
+            </p>
+            <input class="roi-slider" name="realExpectedReturns" id="myExpectedReturns" type="range" min="1" step="1"
+                max="30" value="10">
+        </div>
+        <div class="sip-calculator-roi">
+            <p style="margin-top: 1.8em;" class="d-flex">
+                <label>Tenure</label>
+                <input name="Tenure" id="inputTenure" type="number" value="3" min="1" step="1" max="30"
+                    oninput="showTenureVal(this.value)">
+                <span id="tenure"></span> Years
+            </p>
+            <input class="roi-slider" name="realTenure" id="myTenure" type="range" min="1" step="1" max="30" value="3">
+        </div>
+        <p class="calculations">
+            <strong>Final Value:</strong>
+            <span id="finalAmountAtTheEnd" style="font-size: 1.2em;margin-left: 8px;">Rs. 915908</span>
+        </p>
+        <!-- <div style="margin-top: 15px;"><img class="groww-logo" src="groww-logo-ed.png" target="_parent" align="right"/></div> -->
+    </div>
+</form>
+
 <!-- END : SWP Calculator -->
 
 <div class="text-center thanks-section">Thanks to <a href="https://groww.in/" target="_blank"> <img

@@ -42,6 +42,39 @@
     <!-- <button className="ad2hs-prompt uk-button uk-button-primary">Add to Home</button> -->
     <header></header>
 
+    <ul class="nav-icons">
+        <li><a href="./simple-interest-calculator.html"><img src="./images/financial-icons/icon-1.svg" /> Simple
+                Interest Calculator</a></li>
+        <li><a href="./SIP-Calculator-Groww.html">
+                <img src="./images/financial-icons/icon-2.svg" />SIP Calculator - GROWW</a>
+        </li>
+        <li>
+            <a href="./SIP-Calculator-Groww.html"> <img src="./images/financial-icons/icon-3.svg" />Lumpsum SIP
+                Calculator - GROWW</a></li>
+        <li><a href="./SWP-Calculator-Groww.html"> <img src="./images/financial-icons/icon-4.svg" />SWP Calculator -
+                GROWW</a></li>
+        <li><a href="./HRA-Calculator-Groww.html"> <img src="./images/financial-icons/icon-5.svg" />HRA Calculator -
+                GROWW</a></li>
+        <li><a href="./NPS-Calculator-Groww.html"> <img src="./images/financial-icons/icon-6.svg" />NPS Calculator -
+                GROWW</a></li>
+        <li><a href="./FD-Calculator-Groww.html"> <img src="./images/financial-icons/icon-7.svg" />FD (Fixed Deposit)
+                Calculator - GROWW</a></li>
+        <li><a href="./PPF-Calculator-Groww.html"> <img src="./images/financial-icons/icon-8.svg" />PPF Calculator -
+                GROWW</a></li>
+        <li><a href="./sip-calculator.html"> <img src="./images/financial-icons/icon-9.svg" />SIP Calculator -
+                ETMoney</a></li>
+        <li><a href="./rent-receipt-generator.html"> <img src="./images/financial-icons/icon-10.svg" />Rent Receipt
+                Generator - ETMoney</a></li>
+        <li><a href="./income-tax-calculator.html"> <img src="./images/financial-icons/icon-11.svg" />Income Tax
+                Calculator - ETMoney</a></li>
+        <li><a href="./stock-average-calculator.html"> <img src="./images/financial-icons/icon-12.svg" />Stock Average
+                Price Calculator</a></li>
+        <li><a href="./EPF-Calculator-personalfn.html"> <img src="./images/financial-icons/icon-13.svg" />EPF Calculator
+                - PersonalFN</a></li>
+        <li><a href="./HRA-Calculator-ICICI.html"> <img src="./images/financial-icons/icon-2.svg" />HRA Calculator -
+                ICICI</a></li>
+    </ul>
+
     <div class="container main-content">
         <!-- <include src="simple-interest-calculator.html">Loading...</include> -->
     </div>
@@ -102,7 +135,7 @@
         // Method 1 : Include another HTML files
         // https://stackoverflow.com/questions/8988855/include-another-html-file-in-a-html-file
         // Usage : <include src="simple-interest-calculator.html">Loading...</include>
-        (() => {
+        /* (() => {
             const includes = document.getElementsByTagName('include');
             [].forEach.call(includes, i => {
                 let filePath = i.getAttribute('src');
@@ -114,7 +147,7 @@
                     });
                 });
             });
-        })();
+        })(); */
 
         // Document Ready check
         document.addEventListener("DOMContentLoaded", function () {
@@ -159,13 +192,13 @@
             } */
 
             // Method 3 : Using fetch() API
-            fetch("./simple-interest-calculator.html")
+            /* fetch("./simple-interest-calculator.html")
                 .then(response => {
                     return response.text()
                 })
                 .then(data => {
                     $('.container').html(data);
-                });
+                }); */
 
             fetch("./components/header.html")
                 .then(response => {
@@ -177,30 +210,44 @@
                     links.forEach(link => {
                         link.addEventListener('click', loadCalculator);
                     })
+                    let iconLinks = document.querySelectorAll(".nav-icons a");
+                    iconLinks.forEach(link => {
+                        link.addEventListener('click', loadCalculator);
+                    })
                 });
 
             function loadCalculator(event) {
                 event.preventDefault();
-                let chkMenu = document.querySelector('#toggleMenu');
-                chkMenu.checked = false;
 
-                fetch(event.target.href)
-                    .then(response => {
-                        return response.text();
-                    })
-                    .then(data => {
-                        $('.container').html(data);
-                        // let divElem = document.createElement('div');
-                        // divElem.innerHTML = data;
-                        // console.log(divElem.innerHTML);
-                        // document.querySelector(".container").innerHTML = divElem.innerHTML;
-                    });
+                if (event && event.currentTarget.nodeName === 'A') {
+                    let chkMenu = document.querySelector('#toggleMenu');
+                    chkMenu.checked = false;
+
+                    fetch(event.currentTarget.href)
+                        .then(response => {
+                            return response.text();
+                        })
+                        .then(data => {
+                            $('.container').html(data);
+                            $('.nav-icons').hide();
+                            $('.main-content').addClass('isVisible');
+                            // let divElem = document.createElement('div');
+                            // divElem.innerHTML = data;
+                            // console.log(divElem.innerHTML);
+                            // document.querySelector(".container").innerHTML = divElem.innerHTML;
+                        });
+                }
             }
         });
 
         function savePreferences() {
             localStorage.setItem('Disclaimer_Visited', true);
             $('#disclaimerModal').modal('hide');
+        }
+
+        function hidePanel() {
+            $('.nav-icons').show();
+            $('.main-content').removeClass('isVisible');
         }
     </script>
     <!-- <script src="./js/addToHome.js"></script> -->
