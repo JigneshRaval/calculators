@@ -5,7 +5,7 @@
         <h3 id="heading" style="margin-bottom: 1.5em; text-align: center;">HRA Calculator</h3>
         <p>Calculate your HRA (House Rent Allowance) returns easily</p>
         <div class="sip-calculator-amount">
-            <p style="margin-top: 1.8em;">
+            <p style="margin-top: 1.8em;" class="d-flex">
                 <label>Basic Salary</label>
                 <input name="BasicSalary" id="inputBasicSalary" type="number" step="500" value="20000" min="500"
                     max="100000" oninput="showBasicSalary(this.value)">
@@ -15,7 +15,7 @@
                 max="100000" value="20000">
         </div>
         <div class="sip-calculator-year">
-            <p style="margin-top: 1.8em;">
+            <p style="margin-top: 1.8em;" class="d-flex">
                 <label>HRA (As Per Pay Slip)</label>
                 <input name="Years" id="inputHraAmount" type="number" value="10000" min="500" max="50000" step="500"
                     oninput="showHraAmount(this.value)">
@@ -25,7 +25,7 @@
                 step="500" value="10000">
         </div>
         <div class="sip-calculator-roi">
-            <p style="margin-top: 1.8em;">
+            <p style="margin-top: 1.8em;" class="d-flex">
                 <label>Actual Rent Paid</label>
                 <input name="ActualRentPaid" id="inputActualRentPaid" type="number" value="10000" min="500" max="50000"
                     step="500" oninput="showActualRentPaid(this.value)">

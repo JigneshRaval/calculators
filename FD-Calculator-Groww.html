@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="sip-calculator-amount">
-            <p style="margin-top: 1.8em;">
+            <p style="margin-top: 1.8em;" class="d-flex">
                 <label id="amountLabel">Total Investment</label>
                 <input name="TotalInvestment" id="inputTotalInvestment" type="number" step="500" value="5000" min="500"
                     max="150000" oninput="showTotalInvestment(this.value)">
@@ -24,7 +24,7 @@
                 step="500" min="500" max="150000" value="5000">
         </div>
         <div class="sip-calculator-year">
-            <p style="margin-top: 1.8em;">
+            <p style="margin-top: 1.8em;" class="d-flex">
                 <label>Number of Years</label>
                 <input name="Years" id="inputYears" type="number" value="10" min="1" max="25" step="1"
                     oninput="showValYears(this.value)">
@@ -33,7 +33,7 @@
             <input class="year-slider" name="realYears" id="myYears" type="range" min="1" max="25" step="1" value="10">
         </div>
         <div class="sip-calculator-roi">
-            <p style="margin-top: 1.8em;">
+            <p style="margin-top: 1.8em;" class="d-flex">
                 <label>Rate of Interest</label>
                 <input name="Retunrs" id="inputRoi" type="number" value="7" min="1" max="15" step="1"
                     oninput="showValRoi(this.value)">

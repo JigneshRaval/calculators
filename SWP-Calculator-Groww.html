@@ -10,7 +10,7 @@
         <div class="sip-calculator">
             <h3 id="heading" style="margin-bottom: 1em; text-align: center;">SWP Calculator</h3>
             <div class="sip-calculator-amount">
-                <p style="margin-top: 1.8em;">
+                <p style="margin-top: 1.8em;" class="d-flex">
                     <label id="amountLabel">Total Investment</label>
                     <input name="TotalInvestment" id="inputTotalInvestment" type="number" step="1000" value="1000000"
                         min="500" max="5000000" oninput="showTotalInvestmentVal(this.value)">
@@ -20,7 +20,7 @@
                     step="5000" min="10000" max="5000000" value="1000000">
             </div>
             <div class="sip-calculator-year">
-                <p style="margin-top: 1.8em;">
+                <p style="margin-top: 1.8em;" class="d-flex">
                     <label>Withdrawal Per Month</label>
                     <input name="WithdrawalPerMonth" id="inputWithdrawalAmount" type="number" step="500" value="10000"
                         min="100" max="50000" oninput="showWithdrawalVal(this.value)">
@@ -30,7 +30,7 @@
                     min="500" max="50000" value="10000">
             </div>
             <div class="sip-calculator-roi">
-                <p style="margin-top: 1.8em;">
+                <p style="margin-top: 1.8em;" class="d-flex">
                     <label>Expected Returns</label>
                     <input name="ExpectedReturns" id="inputExpectedReturns" type="number" value="10" min="1" step="1"
                         max="50" oninput="showExpectedReturnsVal(this.value)">
@@ -40,7 +40,7 @@
                     step="1" max="30" value="10">
             </div>
             <div class="sip-calculator-roi">
-                <p style="margin-top: 1.8em;">
+                <p style="margin-top: 1.8em;" class="d-flex">
                     <label>Tenure</label>
                     <input name="Tenure" id="inputTenure" type="number" value="3" min="1" step="1" max="30"
                         oninput="showTenureVal(this.value)">

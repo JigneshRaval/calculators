@@ -1,6 +1,8 @@
 // Initialize service worker
 let newWorker;
 
+// Show notification bar if any change in service worker
+// https://deanhume.com/displaying-a-new-version-available-progressive-web-app/
 function showUpdateBar() {
     let snackbar = document.getElementById('snackbar');
     snackbar.className = 'show';
@@ -14,7 +16,7 @@ document.getElementById('reload').addEventListener('click', function () {
 window.addEventListener('load', () => {
     if ('serviceWorker' in navigator) {
         try {
-
+            // Register the service worker
             // navigator.serviceWorker.register('serviceWorker.js');
             registerSW('serviceWorker.js');
             console.log("Service Worker Registered");
@@ -43,17 +45,25 @@ function registerSW(swUrl, config) {
     navigator.serviceWorker
         .register(swUrl)
         .then(registration => {
+
+            // Method 1 : Another way to check events
+            // registration.addEventListener('updatefound', () => { });
+            // newWorker.addEventListener('statechange', () => {});
+
+            // Method 2 : Another way to check events
             registration.onupdatefound = () => {
-                const installingWorker = registration.installing;
-                // A wild service worker has appeared in reg.installing!
+                // An updated service worker has appeared in reg.installing!
                 newWorker = registration.installing;
 
-                if (installingWorker == null) {
+                if (newWorker == null) {
                     return;
                 }
+
                 newWorker.onstatechange = () => {
                     // Has network.state changed?
                     if (newWorker.state === 'installed') {
+
+                        // There is a new service worker available, show the notification
                         if (navigator.serviceWorker.controller) {
 
                             // At this point, the updated precached content has been fetched,
