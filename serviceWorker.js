@@ -73,24 +73,6 @@ self.addEventListener('fetch', function (event) {
     );
 });
 
-self.addEventListener('message', function (event) {
-    console.log('form data', event.data)
-    if (event.data.hasOwnProperty('data')) {
-        // receives form data from script.js upon submission
-        form_data = event.data.data
-    }
-});
-
-self.addEventListener('sync', function (event) {
-    console.log('now online. Sync data');
-    try {
-
-    } catch (error) {
-        console.log('Looks like there was a problem. Status Code: ', error)
-    }
-});
-
-
 // https://levelup.gitconnected.com/build-a-pwa-using-only-vanilla-javascript-bdf1eee6f37a
 /* self.addEventListener('fetch', event => {
     const req = event.request;
