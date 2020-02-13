@@ -129,3 +129,11 @@ nav {
 .main-content img {
     max-width: 100%;
 }
+
+/*==============================
+    FOOTER
+================================*/
+footer {
+    padding: 1em;
+    background-color: #CCC;
+}

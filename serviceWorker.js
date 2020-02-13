@@ -4,7 +4,7 @@ const CACHE_NAME = "cache-v4";
 
 const assetToCache = [
     "manifest.json",
-    "serviceWorkerInit.js",
+    "service-worker-init.js",
     "components/header.html",
     "css/main.css",
     "css/groww.css",
@@ -33,7 +33,7 @@ const assetToCache = [
     "stock-average-calculator.html"
 ];
 
-self.addEventListener("install", function (event) {
+/* self.addEventListener("install", function (event) {
     event.waitUntil(
         caches
             .open(CACHE_NAME)
@@ -71,10 +71,15 @@ self.addEventListener('fetch', function (event) {
             });
         })
     );
-});
+}); */
 
 // https://levelup.gitconnected.com/build-a-pwa-using-only-vanilla-javascript-bdf1eee6f37a
-/* self.addEventListener('fetch', event => {
+self.addEventListener('install', async event => {
+    const cache = await caches.open('cache-v4');
+    cache.addAll(assetToCache);
+});
+
+self.addEventListener('fetch', event => {
     const req = event.request;
     const url = new URL(req.url);
 
@@ -100,4 +105,4 @@ async function newtorkFirst(req) {
     } catch (error) {
         return await cache.match(req);
     }
-} */
+}
