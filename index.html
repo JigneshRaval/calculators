@@ -51,6 +51,9 @@
             Read Disclaimer
         </button>
     </footer>
+    <!-- The actual snackbar -->
+    <div id="snackbar">A new version of this app is available. Click <button class="btn btn-primary"
+            id="reload">here</button> to update.</div>
 
     <!-- START : Disclaimer Modal -->
     <div class="modal fade" id="disclaimerModal" tabindex="-1" role="dialog" aria-labelledby="disclaimerModalLabel"
@@ -64,27 +67,28 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>This app/site is just for community/society help, it is non-commercial & non-profitable, we have
-                        try to club here all financial calculators from different sites/apps and we are thanking to all
-                        those sites/apps for their contribution for society.</p>
+                    <div class="disclaimer-content">
+                        <p>This app/site is just for community/society help, it is non-commercial & non-profitable, we
+                            have
+                            try to club here all financial calculators from different sites/apps and we are thanking to
+                            all
+                            those sites/apps for their contribution for society.</p>
 
-                    <p>We are thankful to</p>
+                        <p>We are thankful to <a href="https://www.etmoney.com/" target="_blank">ETMoney</a>, <a
+                                href="https://groww.in/" target="_blank">Groww</a></p>
 
-                    <ul>
-                        <li><a href="https://www.etmoney.com/" target="_blank">ETMoney</a></li>
-                        <li><a href="https://groww.in/" target="_blank">Groww</a></li>
-                    </ul>
+                        <p>All calculators are just for illustrations purpose, we are not responsible for any type of
+                            your
+                            profit and loss.</p>
 
-                    <p>All calculators are just for illustrations purpose, we are not responsible for any type of your
-                        profit and loss.</p>
-
-                    <p>We do not have any intention to make profit from this site/app and If we have any financial
-                        benefit from this site/app that we will use for community welfare, only apart from
-                        maintenance/infrastructure cost.</p>
+                        <p>We do not have any intention to make profit from this site/app and If we have any financial
+                            benefit from this site/app that we will use for community welfare, only apart from
+                            maintenance/infrastructure cost.</p>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" onclick="savePreferences()">Save Preference</button>
+                    <button type="button" class="btn btn-primary" onclick="savePreferences()">Don't show again</button>
                 </div>
             </div>
         </div>
@@ -112,7 +116,10 @@
         // Document Ready check
         document.addEventListener("DOMContentLoaded", function () {
 
-            $('#disclaimerModal').modal('show');
+            if(!localStorage.getItem('Disclaimer_Visited')) {
+                $('#disclaimerModal').modal('show');
+            }
+
             // console.log('Your document is ready!');
             // close menu
             document.body.addEventListener('click', (event) => {
@@ -187,6 +194,11 @@
                     });
             }
         });
+
+        function savePreferences() {
+            localStorage.setItem('Disclaimer_Visited', true);
+            $('#disclaimerModal').modal('hide');
+        }
     </script>
     <!-- <script src="./js/addToHome.js"></script> -->
     <script src="./service-worker-init.js"></script>

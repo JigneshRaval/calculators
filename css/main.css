@@ -130,10 +130,52 @@ nav {
     max-width: 100%;
 }
 
+.disclaimer-content {
+    font-size: 12px;
+}
+
+
 /*==============================
     FOOTER
 ================================*/
 footer {
     padding: 1em;
     background-color: #CCC;
+}
+
+
+/*==============================
+    SNACKBAR
+================================*/
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #0a1323;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1055;
+    left: auto;
+    width: 80%;
+    bottom: 30px;
+    box-shadow: 1px 10px 15px rgba(0,0,0,0.5);
+}
+
+#snackbar.show {
+    visibility: visible;
+    animation: fadein 0.5s;
+}
+
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
 }

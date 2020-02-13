@@ -1,7 +1,20 @@
 // Initialize service worker
+let newWorker;
+
+function showUpdateBar() {
+    let snackbar = document.getElementById('snackbar');
+    snackbar.className = 'show';
+}
+
+// The click event on the pop up notification
+document.getElementById('reload').addEventListener('click', function () {
+    newWorker.postMessage({ action: 'skipWaiting' });
+});
+
 window.addEventListener('load', () => {
     if ('serviceWorker' in navigator) {
         try {
+
             // navigator.serviceWorker.register('serviceWorker.js');
             registerSW('serviceWorker.js');
             console.log("Service Worker Registered");
@@ -11,6 +24,15 @@ window.addEventListener('load', () => {
                     'worker. To learn more, visit https://bit.ly/CRA-PWA'
                 );
             });
+
+            let refreshing;
+            navigator.serviceWorker.addEventListener('controllerchange', function () {
+                if (refreshing) return;
+                console.log('Reloading page...')
+                window.location.reload();
+                refreshing = true;
+            });
+
         } catch (error) {
             console.log("Service Worker Registration Failed");
         }
@@ -23,12 +45,17 @@ function registerSW(swUrl, config) {
         .then(registration => {
             registration.onupdatefound = () => {
                 const installingWorker = registration.installing;
+                // A wild service worker has appeared in reg.installing!
+                newWorker = registration.installing;
+
                 if (installingWorker == null) {
                     return;
                 }
-                installingWorker.onstatechange = () => {
-                    if (installingWorker.state === 'installed') {
+                newWorker.onstatechange = () => {
+                    // Has network.state changed?
+                    if (newWorker.state === 'installed') {
                         if (navigator.serviceWorker.controller) {
+
                             // At this point, the updated precached content has been fetched,
                             // but the previous service worker will still serve the older
                             // content until all client tabs are closed.
@@ -36,6 +63,9 @@ function registerSW(swUrl, config) {
                                 'New content is available and will be used when all ' +
                                 'tabs for this page are closed. See https://bit.ly/CRA-PWA.'
                             );
+
+                            // new update available
+                            showUpdateBar();
 
                             // Execute callback
                             if (config && config.onUpdate) {

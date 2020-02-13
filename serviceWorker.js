@@ -1,6 +1,6 @@
 // Set this to true for production
 var doCache = false;
-const CACHE_NAME = "cache-v4";
+const CACHE_NAME = "cache-v4.0.5";
 
 const assetToCache = [
     "manifest.json",
@@ -33,7 +33,7 @@ const assetToCache = [
     "stock-average-calculator.html"
 ];
 
-/* self.addEventListener("install", function (event) {
+self.addEventListener("install", function (event) {
     event.waitUntil(
         caches
             .open(CACHE_NAME)
@@ -58,23 +58,36 @@ self.addEventListener('activate', function (event) {
     );
 });
 
+self.addEventListener('message', function (event) {
+    if (event.data.action === 'skipWaiting') {
+        self.skipWaiting();
+    }
+});
+
 self.addEventListener('fetch', function (event) {
     event.respondWith(
         caches.open('cache-v4').then(function (cache) {
-            return cache.match(event.request).then(function (response) {
-                return response || fetch(event.request).then(function (response) {
-                    cache.put(event.request, response.clone());
-                    return response;
-                }).catch((error) => {
-                    console.log('Error in service worker fetch event : ', error);
+            return cache.match(event.request)
+                .then(function (response) {
+                    if (response) {
+                        return response;
+                    }
+
+                    return fetch(event.request)
+                        .then(function (response) {
+                            cache.put(event.request, response.clone());
+                            return response;
+                        }).catch((error) => {
+                            console.log('Error in service worker fetch event : ', error);
+                        });
                 });
-            });
         })
     );
-}); */
+});
+
 
 // https://levelup.gitconnected.com/build-a-pwa-using-only-vanilla-javascript-bdf1eee6f37a
-self.addEventListener('install', async event => {
+/* self.addEventListener('install', async event => {
     const cache = await caches.open('cache-v4');
     cache.addAll(assetToCache);
 });
@@ -105,4 +118,4 @@ async function newtorkFirst(req) {
     } catch (error) {
         return await cache.match(req);
     }
-}
+} */
