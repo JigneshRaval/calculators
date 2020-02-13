@@ -5,7 +5,7 @@
 // START :: Progressive web app ( PWA ) Code
 let process = {
     env: {
-        NODE_ENV: "production",
+        NODE_ENV: "production", // production, local
         PUBLIC_URL: "http://localhost:3002"
     }
 }
@@ -42,7 +42,8 @@ const isLocalhost = Boolean(
 
 function register(config) {
     if (process.env.NODE_ENV === 'production') {
-        process.env.PUBLIC_URL = 'https://jigneshraval.github.io/calculators';
+        // process.env.PUBLIC_URL = 'https://jigneshraval.github.io/calculators';
+        process.env.PUBLIC_URL = 'http://localhost:3002';
     }
     console.log('${process.env.PUBLIC_URL} process.env.NODE_ENV === "production"', `${process.env.PUBLIC_URL}`)
     if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
