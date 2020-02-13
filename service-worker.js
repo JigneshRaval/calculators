@@ -19,16 +19,18 @@ const assetToCache = [
     "js/rent-receipt-generator.js",
     "js/sip-calculator.js",
     "index.html",
+    "EPF-Calculator-personalfn.html",
     "simple-interest-calculator.html",
     "rent-receipt-generator.html",
+    "income-tax-calculator.html",
     "sip-calculator.html",
-    "EPF-Calculator-personalfn.html",
+    "FD-Calculator-Groww.html",
+    "HRA-Calculator-Groww.html",
+    "NPS-Calculator-Groww.html",
+    "PPF-Calculator-Groww.html",
     "SIP-Calculator-Groww.html",
     "SWP-Calculator-Groww.html",
-    "NPS-Calculator-Groww.html",
-    "HRA-Calculator-Groww.html",
-    "FD-Calculator-Groww.html",
-    "PPF-Calculator-Groww.html"
+    "stock-average-calculator.html"
 ];
 
 self.addEventListener("install", function (event) {
