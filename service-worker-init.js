@@ -18,7 +18,7 @@ window.addEventListener('load', () => {
         try {
             // Register the service worker
             // navigator.serviceWorker.register('serviceWorker.js');
-            registerSW('serviceWorker.js');
+            // registerSW('serviceWorker.js');
             console.log("Service Worker Registered");
             navigator.serviceWorker.ready.then(() => {
                 console.log(
