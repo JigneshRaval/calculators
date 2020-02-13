@@ -147,21 +147,25 @@ footer {
 /*==============================
     SNACKBAR
 ================================*/
-#snackbar {
+.snackbar-cover {
     visibility: hidden;
-    min-width: 250px;
-    margin-left: -125px;
+    position: fixed;
+    z-index: 1055;
+    left: 0;
+    right: 0;
+    width: 100%;
+    bottom: 30px;
+    margin: 0 auto;
+}
+#snackbar {
     background-color: #0a1323;
     color: #fff;
     text-align: center;
     border-radius: 2px;
     padding: 16px;
-    position: fixed;
-    z-index: 1055;
-    left: auto;
-    width: 80%;
-    bottom: 30px;
     box-shadow: 1px 10px 15px rgba(0,0,0,0.5);
+    margin: 0 auto;
+    width: 80%;
 }
 
 #snackbar.show {

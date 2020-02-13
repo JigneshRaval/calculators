@@ -51,9 +51,12 @@
             Read Disclaimer
         </button>
     </footer>
+
     <!-- The actual snackbar -->
-    <div id="snackbar">A new version of this app is available. Click <button class="btn btn-primary"
-            id="reload">here</button> to update.</div>
+    <div class="snackbar-cover">
+        <div id="snackbar">A new version of this app is available. Click <button class="btn btn-primary"
+                id="reload">here</button> to update.</div>
+    </div>
 
     <!-- START : Disclaimer Modal -->
     <div class="modal fade" id="disclaimerModal" tabindex="-1" role="dialog" aria-labelledby="disclaimerModalLabel"
@@ -116,7 +119,7 @@
         // Document Ready check
         document.addEventListener("DOMContentLoaded", function () {
 
-            if(!localStorage.getItem('Disclaimer_Visited')) {
+            if (!localStorage.getItem('Disclaimer_Visited')) {
                 $('#disclaimerModal').modal('show');
             }
 
