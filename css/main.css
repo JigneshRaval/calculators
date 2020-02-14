@@ -112,33 +112,10 @@ nav {
     transform: none;
 }
 
-.thanks-section {
-    text-align: center;
-    margin: 1.5em 0;
-    border: 1px solid #b8b7b7;
-    border-radius: 5px;
-    padding: 1em;
-}
 
-.main-content summary {
-    padding: 1em;
-    border: 1px solid #CCC;
-    margin-bottom: 1em;
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-.main-content img {
-    max-width: 100%;
-}
-
-.disclaimer-content {
-    font-size: 12px;
-}
-
-.calc-title {
-    padding: 0.8em;
-    margin: 0;
-}
+/*==============================
+    ICON DASHBOARD
+================================*/
 .nav-icons {
     margin: 0;
     padding: 0;
@@ -149,6 +126,7 @@ nav {
     justify-content: space-around;
     align-items: stretch;
 }
+
 .nav-icons li {
     flex-grow: 1;
     flex-basis: 50%;
@@ -159,18 +137,26 @@ nav {
     border-bottom: 1px solid #EEE;
     padding: 1em;
 }
+
 .nav-icons li:hover {
     background-color: #CCC;
 }
+
 .nav-icons li a {
     color: #222;
     text-align: center;
     display: block;
 }
+
 .nav-icons img {
     display: block;
     margin: 0 auto;
 }
+
+
+/*==============================
+    CONTENT
+================================*/
 .main-content {
     position: fixed;
     top: 0;
@@ -203,6 +189,26 @@ nav {
     background: #e74c3c;
     color: #FFF;
 }
+
+.main-content summary {
+    padding: 1em;
+    border: 1px solid #CCC;
+    margin-bottom: 1em;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.main-content img {
+    max-width: 100%;
+}
+
+.calc-title {
+    padding: 0.5em;
+    margin: 0;
+    font-size: 24px;
+}
+
+
 /*==============================
     FOOTER
 ================================*/
@@ -250,4 +256,20 @@ footer {
         bottom: 30px;
         opacity: 1;
     }
+}
+
+
+/*==============================
+    MISC
+================================*/
+.thanks-section {
+    text-align: center;
+    margin: 1.5em 0;
+    border: 1px solid #b8b7b7;
+    border-radius: 5px;
+    padding: 1em;
+}
+
+.disclaimer-content {
+    font-size: 12px;
 }
