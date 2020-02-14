@@ -53,6 +53,7 @@ Router.prototype = {
         (function (scope) {
             // generateImportLinks(htmlName);
             loadCalculator(htmlName);
+            window.scrollTo(0, 0);
         })(this);
     }
 };
@@ -86,6 +87,8 @@ function renderTemplate(data) {
     // Create an instance of the template content
     const instance = document.importNode(template.content, true); // instance of template
     $('.container').html(instance);
+    // animateContent();
+
     // document.body.appendChild(document.importNode(template.content, true));
 
     /* var fragment = document.createDocumentFragment();
@@ -131,4 +134,32 @@ function generateImportLinks(fileName) {
 
         document.querySelector('#container2').appendChild(clone);
     }
+}
+
+function animateContent() {
+    // first state
+    const contentBox = document.querySelector(".container");
+
+    // Fade-out effect
+    // contentBox.classList.add('box', 'fade-out');
+
+    // Fade-in effect
+    contentBox.classList.remove('fade-in');
+
+    contentBox.addEventListener('transitionend', timeoutDisplay);
+
+    /* requestAnimationFrame(() => {
+        // second state
+        contentBox.classList.remove("fade-out");
+    }); */
+}
+
+function timeoutDisplay() {
+    console.log('timeoutDisplay');
+    const contentBox = document.querySelector(".container");
+    // Fade-out effect
+    // contentBox.classList.remove("fade-out");
+
+    // Fade-in effect
+    contentBox.classList.add('box', 'fade-in');
 }

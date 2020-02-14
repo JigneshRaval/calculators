@@ -15,6 +15,8 @@
     });
 })(); */
 
+let scrollTimer;
+
 // Document Ready check
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -36,6 +38,16 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     });
+
+    window.addEventListener('scroll', () => {
+        let scrollElement = document.querySelector('.content__header');
+        if (scrollTimer) {
+            clearTimeout(scrollTimer);
+        }
+        scrollTimer = setTimeout(() => {
+            getScrollPosition(scrollElement);
+        }, 250);
+    }, false);
 
     // Method 2 : using import
     /* function supportsImports() {
@@ -83,4 +95,46 @@ function savePreferences() {
 function hidePanel() {
     $('.nav-icons').show();
     $('.main-content').removeClass('isVisible');
+}
+
+/**
+ * @function : Scroll to top with smooth animation using javascript only
+ * @param event
+ */
+function getScrollPosition(scrollElement) {
+    let scrollTop = window.pageYOffset;
+
+    let appHeader = document.querySelector('.app__header');
+
+    if (scrollTop > 20) {
+        scrollElement.style.position = 'sticky';
+        appHeader.style.opacity = 0;
+        scrollElement.classList.add('isVisible');
+    } else {
+        scrollElement.style.position = 'static';
+        appHeader.style.opacity = 1;
+        scrollElement.classList.remove('isVisible');
+    }
+
+    // Ref: https://medium.com/@mariusc23/hide-header-on-scroll-down-show-on-scroll-up-67bbaae9a78c
+    // Make sure they scroll more than delta ( delta = 5 )
+    if (Math.abs(this.lastScrollTop - scrollTop) <= this.delta) {
+        return;
+    }
+
+    // If they scrolled down and are past the navbar, add class .nav-up.
+    // This is necessary so you never see what is 'behind' the navbar.
+    // header height = 96px
+    if (scrollTop > this.lastScrollTop && scrollTop > 96) {
+        // Scroll Down
+        document.body.classList.add('shrinkHeader');
+    } else {
+        // Scroll Up
+        if (scrollTop + window.innerHeight < document.body.offsetHeight) {
+            document.body.classList.remove('shrinkHeader');
+        }
+    }
+
+    // console.log('scrollTop =', scrollTop, ' this.lastScrollTop =', this.lastScrollTop)
+    this.lastScrollTop = scrollTop;
 }

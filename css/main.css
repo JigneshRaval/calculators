@@ -15,7 +15,11 @@ body > header {
 }
 
 nav {
-    background-color: #8e44ad;
+    /* background-color: #8e44ad; */
+    background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+    background: linear-gradient(150deg,#53f 15%,#05d5ff 70%,#a6ffcb 94%);
+    background-image: linear-gradient(-135deg,#1400c8,#b900b4,#f50000);
+    background-image: linear-gradient(-135deg,#17cbff, #2f8dff);
     display: flex;
     align-items: center;
     color: #FFF;
@@ -91,6 +95,7 @@ nav h2{
     padding: 25px;
     padding-top: 125px;
     background-color: #2c3e50;
+    background-color: #121423;
     color: #ffffff;
     -webkit-font-smoothing: antialiased;
     transform-origin: 0% 0%;
@@ -136,26 +141,55 @@ nav h2{
     background-color: #FFF;
     /* border-radius: 4px; */
     /* box-shadow: 1px 10px 15px rgba(0,0,0,0.5); */
-    border-right: 1px solid #EEE;
-    border-bottom: 1px solid #EEE;
+    border-right: 1px solid #cadbf8;
+    border-bottom: 1px solid #cadbf8;
     padding: 1em;
+    transition: background .25s ease-in-out;
+    animation: slide-up 0.4s ease, fadeIn 0.4s ease;
 }
 
-.nav-icons li:hover {
-    background-color: #CCC;
+.nav-icons li:nth-child(2n) {
+    border-right: 0px solid #cadbf8;
+}
+
+.nav-icons li:hover,
+.nav-icons li:active {
+    background-color: #353e4d;
+}
+
+.nav-icons li:hover a,
+.nav-icons li:active a {
+    color: #FFF;
 }
 
 .nav-icons li a {
     color: #222;
     text-align: center;
     display: block;
+    font-weight: 500;
 }
 
 .nav-icons img {
     display: block;
     margin: 0 auto;
+    margin-bottom: 8px;
 }
 
+@keyframes slide-up {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
 
 /*==============================
     CONTENT
@@ -173,36 +207,55 @@ nav h2{
     background-color: #FFF;
     padding: 0;
     position: relative;
+    animation: slide-up 0.4s ease, fadeIn 0.4s ease;
     /* transform-origin: 0% 0%;
     transform: translate(-100%, 0);
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0); */
+}
+
+.main-content .content__main{
+    animation: slide-up 0.4s ease, fadeIn 0.4s ease;
+}
+
+.box {
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    will-change: opacity;
+}
+
+.box.fade-out {
+    opacity: 0;
+}
+
+.box.fade-in {
+    opacity: 1;
 }
 
 .main-content.isVisible {
     transform: translate(0, 0);
 }
 
-.main-content h3 {
-    border-bottom: 1px solid #c0392b;
-    background: #e74c3c;
-    color: #FFF;
-    text-align: left !important;
+.main-content details {
+    margin-bottom: 1em;
 }
 
-.main-content h3 button {
-    border: none;
-    background: #e74c3c;
-    color: #FFF;
+.main-content details > article {
+    background-color: #e4e9ff;
+    padding: 1em;
 }
 
 .main-content summary {
     padding: 1em;
     border: 1px solid #CCC;
-    margin-bottom: 1em;
     font-weight: bold;
     font-size: 1.2rem;
 }
-
+/* details > summary {
+    list-style: none;
+}
+details > summary::-webkit-details-marker {
+    display: none;
+} */
 .main-content img {
     max-width: 100%;
 }
@@ -213,22 +266,50 @@ nav h2{
     font-size: 24px;
 }
 
+/* Content Header
+------------------------------*/
 .content__header {
-    position: sticky;
+    position: static;
     top: 0;
     z-index: 10;
+    background: linear-gradient(120deg, #fccb90 0%, #d57eeb 100%);
+    background: linear-gradient(120deg, #fb3e5e 0%, #fe2045 100%);
 }
+
 .content__header a {
     text-decoration: none;
     color: #FFF;
 }
+
+.content__header h3 {
+    color: #FFF;
+    text-align: left !important;
+}
+
+.content__header h3 button {
+    border: none;
+    background: #e74c3c;
+    color: #FFF;
+}
+
+/* Content Summary
+------------------------------*/
+.content__summary {
+    padding: 0 1em;
+}
+
 
 /*==============================
     FOOTER
 ================================*/
 footer {
     padding: 1em;
-    background-color: #CCC;
+    background-color: #121423;
+    color: #FFF;
+}
+
+footer a {
+    color: #FFF;
 }
 
 
@@ -278,7 +359,7 @@ footer {
 ================================*/
 .thanks-section {
     text-align: center;
-    margin: 1.5em 0;
+    margin: 1em;
     border: 1px solid #b8b7b7;
     border-radius: 5px;
     padding: 1em;

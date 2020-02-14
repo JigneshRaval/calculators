@@ -56,7 +56,7 @@ p.black {
     color: #fff;
     border-color: #fff;
     border-radius: 5px;
-    font-family: proxima-novabold,sans-serif;
+
     border: 0;
     cursor: pointer
 }
@@ -302,7 +302,6 @@ input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-
     line-height: 20px;
     color: #000;
     margin: 0;
-    font-family: proxima-nova,sans-serif
 }
 
 @media(max-width: 991px) {
@@ -613,7 +612,7 @@ label.floating-label span {
     width: 16px;
     height: 16px;
     text-align: center;
-    font-family: proxima-novabold,sans-serif;
+
     color: #9b9b9b;
     border-radius: 100%;
     border: 2px solid #9b9b9b;
@@ -699,7 +698,7 @@ p.notes:after {
     font-size: 14px;
     line-height: 20px;
     color: #9b9b9b;
-    font-family: proxima-novabold,sans-serif;
+
     display: inline-block;
     text-align: left;
     padding: 4px 13px;
@@ -969,7 +968,7 @@ p.notes:after {
 .calculator-title {
     font-size: 36px;
     line-height: 42px;
-    font-family: proxima-novabold,sans-serif;
+
     margin: 0;
     margin-bottom: 20px;
     color: #25282a
@@ -978,7 +977,6 @@ p.notes:after {
 .calculator-sub-section p {
     font-size: 16px;
     line-height: 20px;
-    font-family: proxima-nova,sans-serif;
     margin-bottom: 25px
 }
 
@@ -987,7 +985,7 @@ p.notes:after {
     line-height: 30px;
     margin: 0;
     margin-bottom: 13px;
-    font-family: proxima-novabold,sans-serif;
+
     color: #25282a
 }
 
@@ -999,13 +997,13 @@ p.notes:after {
     visibility: hidden
 }
 
-.calculator-table-title {
+/* .calculator-table-title {
     font-size: 20px;
     line-height: 26px;
     margin: 30px 0 0 0;
     font-family: proxima-novasemi,sans-serif;
     color: #25282a
-}
+} */
 
 aside .calculator-sub-title {
     font-size: 16px;
@@ -1030,10 +1028,10 @@ aside .calculator-sub-title:before {
         margin-bottom: 5px
     }
 
-    .calculator-table-title {
+    /* .calculator-table-title {
         font-size: 16px;
         line-height: 22px
-    }
+    } */
 }
 
 .check-list {
@@ -1146,7 +1144,6 @@ aside .calculator-sub-title:before {
 
 .top-performing-fund-table table tbody tr td,.top-performing-fund-table table thead tr td {
     font-size: 14px;
-    font-family: proxima-nova,sans-serif;
     padding: 11px 10px;
     border-bottom: 1px solid #e6ebea;
     color: #54504d
@@ -1154,7 +1151,6 @@ aside .calculator-sub-title:before {
 
 .top-performing-fund-table table thead tr td {
     font-size: 15px;
-    font-family: proxima-novabold,sans-serif
 }
 
 .top-performing-fund-table {
@@ -1286,7 +1282,6 @@ aside .calculator-sub-title:before {
 .income-banner .description .rupee {
     font-size: 32px;
     color: #19b38d;
-    font-family: proxima-novasemi,sans-serif
 }
 
 .income-banner .button-outline {
@@ -1368,7 +1363,6 @@ aside .calculator-sub-title:before {
 
 .banner-footer ul li.user-trust {
     font-size: 16px;
-    font-family: proxima-novabold,sans-serif;
     color: #889a9e;
     width: 42%
 }
@@ -1416,7 +1410,6 @@ aside .calculator-sub-title:before {
     color: #fff;
     border-color: #fff;
     border-radius: 5px;
-    font-family: proxima-novasemi,sans-serif
 }
 
 .banner-footer .saveTax .tax {
@@ -1503,7 +1496,6 @@ aside .calculator-sub-title:before {
 }
 
 .fund-guide ul {
-    font-family: proxima-nova,sans-serif;
     font-size: 16px;
     line-height: 20px;
     padding: 10px 24px 15px 24px;
@@ -1589,7 +1581,6 @@ aside .calculator-list-wrapper ul {
 .calculator-list-wrapper .fund-name {
     font-size: 17px;
     line-height: 1.2;
-    font-family: proxima-novabold,sans-serif;
     margin: 0 0 10px 0
 }
 
@@ -1646,7 +1637,6 @@ aside .calculator-list-wrapper ul {
 
 .list-link.active {
     color: #59c3a0;
-    font-family: proxima-novasemi,sans-serif
 }
 
 .list-link:hover:after {
@@ -1718,7 +1708,6 @@ p.tax-result-txt {
     font-size: 22px;
     line-height: 29px;
     color: #4c4c4c;
-    font-family: proxima-novabold,sans-serif;
     text-align: center
 }
 
@@ -1754,7 +1743,7 @@ p.tax-result-txt {
 }
 
 .income-details p:nth-child(2) {
-    font-family: proxima-novabold,sans-serif
+
 }
 
 .budget-year p {
@@ -1764,7 +1753,7 @@ p.tax-result-txt {
 .payable-tax p {
     font-size: 16px;
     line-height: 22px;
-    font-family: proxima-novabold,sans-serif;
+
     color: #4c4c4c
 }
 
@@ -2173,7 +2162,7 @@ p.recalculator {
     font-family: proxima-nova;
     padding: 8px 10px;
     text-align: center;
-    font-family: proxima-novabold,sans-serif
+
 }
 
 .sipCalculator .calculator-inner-wrap.hidenow {
@@ -2277,7 +2266,6 @@ p.recalculator {
     border: none!important;
     font-size: 16px;
     line-height: 20px;
-    font-family: proxima-nova,sans-serif;
     margin-bottom: 25px
 }
 
