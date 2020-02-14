@@ -1,0 +1,529 @@
+<link rel="stylesheet" href="./css/tax-calculator.css" />
+<link href='./css/bootstrap-datepicker.min.css' rel='stylesheet' type='text/css'>
+<style>
+    .collapse:not(.show) {
+        display: block;
+    }
+</style>
+
+
+<!-- START : Rend Receipt Generator -->
+<section class="rent-receipt-generator">
+    <section class=" banner-section rent-recipt">
+        <div class="commen-container">
+            <h1 class="rent-banner-sub-title semibold align-center visible-xs">Generate FREE Rent Receipts for
+                income tax declaration</h1>
+            <div class="d-flex-align-center banner-section-inner">
+                <div class="calculator-box order-2">
+                    <div class="calculator-inner-wrap animated3 type2" id="taxForm">
+                        <div class="tab-list-wrap flex">
+                            <h3>Generate Rent Receipt</h3>
+                            <ul class="tab-list" id="tabList">
+                                <li class="active active-list" id="step-1">1 <span>Basic details</span></li>
+                                <li id="step-2">2 <span>Rented property</span></li>
+                                <li id="step-3">3 <span>Duration</span></li>
+                                <li id="step-4"></li>
+                            </ul>
+                            <div class="d-flex-desktop recipt-preview display-none" id="reciptPreview">
+                                <p>Rent Receipt Preview</p>
+                                <p id="reciptType"></p>
+                            </div>
+                        </div>
+                        <div class="step-1 step-inner-box animated3 show-section">
+                            <h2>Just fill in few required details &amp; get started!</h2>
+                            <div class="calculator-form mrgn-in-input">
+                                <div class="from-elem-wrapper">
+                                    <div class="form-group-elem">
+                                        <input type="text" class="input-elmn placeholder commen-input"
+                                            placeholder="Full Name" id="fullName">
+                                        <span class="error-text show-error commen-error"></span>
+                                        <label class="floating-label">Enter full Name*</label>
+                                    </div>
+                                </div>
+                                <div class="from-elem-wrapper">
+                                    <div class="form-group-elem">
+                                        <input type="tel" class="input-elmn placeholder commen-input input-number"
+                                            placeholder="Monthly Rent" id="monthlyRent">
+                                        <span class="error-text show-error commen-error"></span>
+                                        <label class="floating-label">Enter Monthly Rent*</label>
+                                    </div>
+                                </div>
+                                <div class="calc-btn-box rquired">
+                                    <p class="required-notes align-right">*Required</p>
+                                    <button type="submit" class="bold commen-btn">Continue</button>
+                                    <i class="arrow"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-2 step-inner-box animated3" data-step="step-2">
+                            <h4>Tell us more about the rented property</h4>
+                            <div class="calculator-form  mrgn-in-input">
+                                <div class="from-elem-wrapper">
+                                    <div class="form-group-elem">
+                                        <input type="text" class="input-elmn placeholder commen-input"
+                                            placeholder="Owner name" id="ownerName">
+                                        <span class="error-text show-error commen-error"></span>
+                                        <label class="floating-label">Name of your house owner*</label>
+                                    </div>
+                                </div>
+                                <div class="from-elem-wrapper">
+                                    <div class="form-group-elem">
+                                        <input type="text" class="input-elmn placeholder uppercase"
+                                            placeholder="Enter your house owner's PAN number (optional)?"
+                                            id="panNumber">
+                                        <span class="error-text"></span>
+                                        <label class="floating-label">House owner's PAN number</label>
+                                    </div>
+                                </div>
+                                <div class="from-elem-wrapper">
+                                    <div class="form-group-elem">
+                                        <input type="text" class="input-elmn placeholder commen-input"
+                                            placeholder="Full address" id="address">
+                                        <span class="error-text show-error commen-error"></span>
+                                        <label class="floating-label">Address of the rented property*</label>
+                                    </div>
+                                </div>
+                                <div class="calc-btn-box rquired">
+                                    <p class="required-notes align-right">*Required</p>
+                                    <button type="submit" class="bold commen-btn" id="calcBtnStep1">Continue</button>
+                                    <i class="arrow"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-3 step-inner-box animated3" data-step="step-3">
+                            <h4>Lastly, tell us the duration</h4>
+                            <div class="calculator-form  mrgn-in-input">
+                                <div class="from-elem-wrapper">
+                                    <div class="form-group-elem">
+                                        <div class="date" id="datetimepicker1">
+                                            <input type="text" class="input-elmn placeholder commen-input"
+                                                data-date-format="MM/DD/YYYY" placeholder="Start Date" id="starDate">
+                                            <span class="error-text show-error commen-error"></span>
+                                            <span class="input-group-addon display-none"></span>
+                                            <label class="floating-label">Start date of rent receipts*</label>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="from-elem-wrapper">
+                                    <div class="form-group-elem">
+                                        <div class="date" id="datetimepicker2">
+                                            <input type="text" class="input-elmn placeholder commen-input"
+                                                data-date-format="MM/DD/YYYY" placeholder="End Date" id="endDate">
+                                            <span class="error-text show-error commen-error"></span>
+                                            <span class="input-group-addon display-none"></span>
+                                            <label class="floating-label">End date of rent receipts*</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="from-elem-wrapper mb25">
+                                    <div class="form-group-elem">
+                                        <label class="commen-label">Rent receipt format</label>
+                                        <div>
+                                            <label class="radio-btn type2 mrgn19">
+                                                <input type="radio" class="radio-btn-input circle" checked=""
+                                                    name="receipt" id="monthly">
+                                                <span></span>
+                                                Monthly
+                                            </label>
+                                            <label class="radio-btn type2">
+                                                <input type="radio" class="radio-btn-input circle" name="receipt"
+                                                    id="quarterly">
+                                                <span></span>
+                                                Quarterly
+                                            </label>
+                                        </div>
+                                        <span class="error-text"></span>
+                                    </div>
+                                </div>
+                                <div class="calc-btn-box rquired">
+                                    <p class="required-notes align-right">*Required</p>
+                                    <button type="submit" class="bold commen-btn" id="calcBtnStep2">Continue</button>
+                                    <i class="arrow"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-4 step-inner-box animated3" data-step="step-4">
+                            <div class="calculator-form">
+                                <div class="rent-recipt-block" id="previewBlock">
+                                    <div class="d-flex-desktop">
+                                        <div>
+                                            <h2 class="black bold uppercase">Rent Receipt</h2>
+                                            <p class="period"></p>
+                                        </div>
+                                    </div>
+                                    <p class="black">Received sum of ₹<span class="bold" id="rentPriview"></span>
+                                        from <span class="underline capitalize" id="tenantPriview"></span>
+                                        towards
+                                        the rent of property located at
+                                        <span id="addressPreview" class="underline capitalize"></span>, for the
+                                        period <span class="period"></span></p>
+                                    <div class="d-flex-desktop">
+                                        <p class="black">Landlord Name:</p>
+                                        <p id="ownerNamePriview" class="capitalize"></p>
+                                    </div>
+                                    <div class="d-flex-desktop">
+                                        <p class="black">PAN Number:</p>
+                                        <p id="ownerPanPriview" class="uppercase"></p>
+                                    </div>
+                                    <div class="two-btn">
+                                        <div class="calc-btn-box">
+                                            <button type="submit" class="bold click edit-btn">Edit</button>
+                                        </div>
+                                        <div class="calc-btn-box">
+                                            <button type="submit" class="bold click print-btn">Print all
+                                                receipts</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="banner-left-box  order-1 hidden-xs">
+                    <div id="myCarousel" class="carousel slide">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="banner-text">
+                                    <h1 class="rent-banner-sub-title semibold align-center">Generate FREE Rent
+                                        Receipts for income tax declaration</h1>
+                                </div>
+                                <img src="https://static.smartspends.com/static/images/etmoneyweb/tools/rent.png"
+                                    alt="etmoney rent receipt generator">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Print Data -->
+    <div id="print-area-2" class="print-area display-none">
+        <table cellpadding="0" cellspacing="0"
+            style="page-break-after: always;padding:0px 0px 0px 0px;display:block;max-width:100%;width: 710px;margin:0 0 0px 0;font-family: arial;position:fixed;bottom:0;"
+            id="footer">
+            <tr>
+                <td><img src="https://static.smartspends.com/static/images/etmoneyweb/tools/footer-img.png" width="710"
+                        align="top" /></td>
+            </tr>
+        </table>
+        <div id="inner-print-area-2" class="print-area"></div>
+    </div>
+    <iframe id="printing-frame" name="print_frame" src="about:blank" style="display:none;"></iframe>
+
+</section>
+<!-- END : Rent Receipt Generator -->
+
+<div class="text-center thanks-section">Thanks to <a id="logo_original" class="etmoney-logo"
+        href="https://www.etmoney.com/tools-and-calculators/sip-calculator" target="_blank"><img
+            src="https://img.smartspends.com/static/images/etmoneyweb/etmoneyLogo.svg" /></a></div>
+
+<section class="calculator-sub-wapper">
+    <div class="calculator-commen-section">
+        <div class="calculator-sub-section">
+            <h2 class="calculator-sub-title">Why do you need the Rent Receipts and how to Generate them</h2>
+            <p>Whether you are a beginner or an experienced professional, the HR of your company will ask you
+                for rent receipts for the purpose of Income Tax Declaration. This is the time when most
+                employees get frantic and check with their friends or colleagues about the best way to arrange
+                these receipts. Most employees do not understand why these rent receipts are important or how
+                they help you save tax.</p>
+            <p>Let us delve deep into this subject and get an in-depth understanding of why we need rent
+                receipts:</p>
+            <div class="fund-guide">
+                <ul>
+                    <li><a href="#need_receipt">Why do you need to submit rent receipts</a></li>
+                    <li><a href="#monthly_rent">What is the tax benefit of monthly rent paid</a></li>
+                    <li><a href="#rent_component">Understanding components of a valid rent receipt</a></li>
+                    <li><a href="#rent_genrator">How to use this FREE Rent Receipt Generator</a></li>
+                    <li><a href="#imp_points">Important points to remember</a></li>
+                    <li><a href="#faq">Frequently Asked Questions (FAQs)</a></li>
+                </ul>
+            </div>
+            <h2 id="need_receipt" class="calculator-sub-title">Why do you need to submit rent receipts?</h2>
+            <p>If an employee wants to claim income tax benefit on House Rent Allowance (HRA), he/she has to
+                provide the proof of payment of rent to the employer. In this regard, rent receipts serve as
+                evidence. Basis the receipts submitted, the Indian Government provides deductions and allowances
+                to the employee.</p>
+            <h2 id="monthly_rent" class="calculator-sub-title">What is the tax benefit of monthly rent paid?
+            </h2>
+            <p>In case you are a salaried professional and you live in a rented house, you can avail HRA
+                exemption to save tax under Section 10 (13A) of the Income Tax Act. For those who are
+                self-employed, they can avail HRA tax deduction under Section 80GG.</p>
+            <p>You can calculate the HRA exempted amount using the steps mentioned below: </p>
+            <ul class="check-list">
+                <li class="zeroList"><strong>Step 1:</strong> Actual HRA received from the employer</li>
+                <li class="zeroList"><strong>Step 2:</strong> The rent you actually pay - 10% of sum of basic
+                    salary &amp; Dearness allowance</li>
+                <li class="zeroList"><strong>Step 3:</strong> In case you stay in a metro city, 50% of your
+                    basic salary &amp; dearness allowance, else 40% of your basic salary &amp; dearness
+                    allowance. </li>
+            </ul>
+            <p>The lowest of these 3 components will be a part of your Exemptions, in Income Tax Calculation.
+                Your final tax liability will be calculated based on the exempted HRA amount.</p>
+            <h2 id="rent_component" class="calculator-sub-title">Understanding components of a valid rent
+                receipt</h2>
+            <p>As explained above, a salaried employee has to submit a rent receipt as a proof of rental
+                expenses to his company - this is in accordance with the Income Tax Act, 1961. A rent receipt is
+                provided by the landlord when he receives the rent from the tenant - it has his signature that
+                confirms the receipt of payment. If you are paying rent, you can submit evidence and save tax -
+                total amount is reduced from your gross taxable income. </p>
+            <p>A rent receipt is only valid if it has certain components: </p>
+            <ul class="check-list">
+                <li class="zeroList">Tenant Name</li>
+                <li class="zeroList">Landlord Name</li>
+                <li class="zeroList">Rent Paid</li>
+                <li class="zeroList">Rental Period</li>
+                <li class="zeroList">House Address</li>
+                <li class="zeroList">Signature of Landlord</li>
+            </ul>
+            <p>Some other elements that could be a part of the receipt include: PAN of the landlord, if annual
+                rent exceeds ₹1,00,000 in a year and Revenue Stamp (where amount exceeding ₹5000 is paid). </p>
+            <h2 id="rent_genrator" class="calculator-sub-title">How to use this FREE Rent Receipt Generator</h2>
+            <p>Please find below the steps to generate the rent receipts for FREE:</p>
+            <ul class="check-list genrator-steps">
+                <li class="zeroList"><strong>Step 1:</strong> Fill in your full name and the monthly rent you
+                    pay to your landlord
+                    <img src="https://static.smartspends.com/static/images/etmoneyweb/tools/rentscreen-1.png"
+                        alt="etmoney rent receipt genrator step1" class="img-responsive">
+                </li>
+                <li class="zeroList"><strong>Step 2:</strong> Fill in your house owner's name, PAN number (if
+                    you have) and the full address of the rented property, where you reside
+                    <img src="https://static.smartspends.com/static/images/etmoneyweb/tools/rentscreen-2.png"
+                        alt="etmoney rent receipt genrator step2" class="img-responsive">
+                </li>
+                <li class="zeroList"><strong>Step 3:</strong> Enter the duration for which you need to generate
+                    the rent receipts
+                    <img src="https://static.smartspends.com/static/images/etmoneyweb/tools/rentscreen-3.png"
+                        alt="etmoney rent receipt genrator step2" class="img-responsive">
+                </li>
+                <li class="zeroList"><strong>Step 4:</strong> You can preview the sample receipt on the final
+                    screen and print all of them with just 1 click.
+                    <img src="https://static.smartspends.com/static/images/etmoneyweb/tools/rentscreen-4.png"
+                        alt="etmoney rent receipt genrator step4" class="img-responsive">
+                </li>
+            </ul>
+            <h2 id="imp_points" class="calculator-sub-title">Important points to remember</h2>
+            <ul class="check-list">
+                <li class="zeroList">One must have a valid rent agreement - the agreement has to have all the
+                    relevant details including monthly rent, time period of agreement or any utility bills.</li>
+                <li class="zeroList">If it is a shared accommodation, then all the details must be mentioned in
+                    the agreement, along with the number of tenants, ratio of how rent and utility bills are to
+                    be divided.</li>
+                <li class="zeroList">It is better to pay rent online rather than by cash. This helps you keep
+                    track of the transactions in a seamless manner.</li>
+                <li class="zeroList">One must ask for a rent receipt every time rent is paid. It is important to
+                    share rent receipts with the employer to claim HRA exemption for monthly rent paid above
+                    ₹3,000</li>
+                <li class="zeroList">Besides rent receipts, if the rent payment exceeds ₹1 lakh annually, then
+                    it is mandatory to provide the PAN of the landlord to your employer to avail the full
+                    benefit of HRA exemption.</li>
+                <li class="zeroList">If the PAN is not available, then the landlord must be ready to give a
+                    declaration. This must be confirmed before deciding on a house for rent. Along with the
+                    declaration, one needs to also obtain 'Form 60' duly filled by your landlord. These
+                    documents need to be submitted to the employer.</li>
+                <li class="zeroList">There could be a situation, where an employee might pay a higher payment
+                    different from what is mentioned in the rent agreement. In this case, tax exemption is
+                    calculated on the basis of the rent receipt shared by the employee.</li>
+            </ul>
+            <h2 id="faq" class="calculator-sub-title">FAQs</h2>
+            <div class="panel-group customFaq" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="question1">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                href="#answer1" aria-expanded="false" aria-controls="answer1">What is HRA?</a>
+                        </h4>
+                    </div>
+                    <div id="answer1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="question1">
+                        <div class="panel-body">
+                            As the name suggests, HRA or House Rent Allowance is the amount paid by employers to
+                            employees, as part of their salaries.
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="question2">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                href="#answer2" aria-expanded="false" aria-controls="answer2">How is HRA
+                                calculated?</a>
+                        </h4>
+                    </div>
+                    <div id="answer2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="question2">
+                        <div class="panel-body">
+                            The calculation of HRA is dependent on several factors - this includes entitlement
+                            to 50% of the basic salary, if the employee resides in a metro city and 40% if it's
+                            a non-metro city. The calculation of HRA to avail tax benefit is considered from any
+                            of the three below-mentioned provisions:
+                            <ul class="check-list">
+                                <li class="zeroList">The actual rent that is paid should be less than 10% of the
+                                    basic salary</li>
+                                <li class="zeroList">If you're staying in a metro, 50% of the basic salary and
+                                    40% if you live in a non-metro city</li>
+                                <li class="zeroList">The actual amount allotted by the employer as HRA.</li>
+                            </ul>
+
+                            The least of the aforementioned amounts will be considered for tax deduction.
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="question3">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                href="#answer3" aria-expanded="false" aria-controls="answer3">What proof is
+                                required to claim HRA?</a>
+                        </h4>
+                    </div>
+                    <div id="answer3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="question3">
+                        <div class="panel-body">
+                            Wherever you work, your employer will ask you to give evidence of the rent payment
+                            to permit exemption on HRA.
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="question4">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                href="#answer4" aria-expanded="false" aria-controls="answer4">What is a rent
+                                receipt?</a>
+                        </h4>
+                    </div>
+                    <div id="answer4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="question4">
+                        <div class="panel-body">
+                            A rent receipt documents rent payments between the tenant and landlord. It includes
+                            important information, including the amount of the rent, the date of the payment
+                            received, and the medium of transaction.
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="question5">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                href="#answer5" aria-expanded="false" aria-controls="answer5">Are rent receipts
+                                needed for every month?</a>
+                        </h4>
+                    </div>
+                    <div id="answer5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="question5">
+                        <div class="panel-body">
+                            It is not mandatory to submit rent receipts every month, but one must do it on a
+                            quarterly basis.
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="question6">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                href="#answer6" aria-expanded="false" aria-controls="answer6"> Is the landlord's
+                                PAN number required in a Rent Receipt?</a>
+                        </h4>
+                    </div>
+                    <div id="answer6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="question6">
+                        <div class="panel-body">
+                            If the annual rent paid exceeds ₹1,00,000, it is important to obtain PAN of the
+                            landlord and share it with the employer to claim HRA exemption. If the landlord does
+                            not have a PAN, get a declaration from the landlord with his/her name and address.
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="question7">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                href="#answer7" aria-expanded="false" aria-controls="answer7">What happens when
+                                I stay in a rented home for only a few months?</a>
+                        </h4>
+                    </div>
+                    <div id="answer7" class="panel-collapse collapse" role="tabpanel" aria-labelledby="question7">
+                        <div class="panel-body">
+                            Yes, you can claim HRA exemption for the months you paid rent for.
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="question8">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                href="#answer8" aria-expanded="false" aria-controls="answer8">Does the rent
+                                receipt needs to be on paper or is a soft copy enough?</a>
+                        </h4>
+                    </div>
+                    <div id="answer8" class="panel-collapse collapse" role="tabpanel" aria-labelledby="question8">
+                        <div class="panel-body">
+                            Check with your employer about this.
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="question9">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                href="#answer9" aria-expanded="false" aria-controls="answer9">I have changed
+                                jobs this year. Should I share my old rent receipts with the new company? </a>
+                        </h4>
+                    </div>
+                    <div id="answer9" class="panel-collapse collapse" role="tabpanel" aria-labelledby="question9">
+                        <div class="panel-body">
+                            In case your current employer permits HRA exemption from previous job's income, you
+                            might have to submit your old rent receipts. It is essential to disclose the salary
+                            from your previous employment to your current employer in Form 12B.
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="question10">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                href="#answer10" aria-expanded="false" aria-controls="answer10">Do I need a
+                                lease agreement with my landlord? </a>
+                        </h4>
+                    </div>
+                    <div id="answer10" class="panel-collapse collapse" role="tabpanel" aria-labelledby="question10">
+                        <div class="panel-body">
+                            Yes, it is important to have a lease agreement that mentions all the details,
+                            including the accommodation, period of lease and rent.
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="question11">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                href="#answer11" aria-expanded="false" aria-controls="answer11">Do I need a
+                                scanned copy of my landlord's PAN card? </a>
+                        </h4>
+                    </div>
+                    <div id="answer11" class="panel-collapse collapse" role="tabpanel" aria-labelledby="question11">
+                        <div class="panel-body">
+                            No, you don't need a scanned copy of your landlord's PAN.
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="question12">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                href="#answer12" aria-expanded="false" aria-controls="answer12">I was not able
+                                to claim HRA from my company. Can I claim it myself?</a>
+                        </h4>
+                    </div>
+                    <div id="answer12" class="panel-collapse collapse" role="tabpanel" aria-labelledby="question12">
+                        <div class="panel-body">
+                            Yes, HRA exemption can be directly claimed during filing your income tax return.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<script src='./js/bootstrap-datepicker.min.js' type='text/javascript'></script>
+<script src="./js/rent-receipt-generator.js"></script>
