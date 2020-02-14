@@ -8,7 +8,7 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-header {
+body > header {
     position: sticky;
     top: 0;
     z-index: 10;
@@ -16,15 +16,18 @@ header {
 
 nav {
     background-color: #8e44ad;
-    /* height: 65px; */
+    display: flex;
+    align-items: center;
+    color: #FFF;
+}
+nav h2{
+    margin: 0;
+    font-size: 24px;
 }
 
 #menuToggle {
     display: flex;
     flex-direction: column;
-    /* position: relative;
-    top: 25px;
-    left: 25px; */
     z-index: 1;
     -webkit-user-select: none;
     user-select: none;
@@ -158,19 +161,21 @@ nav {
     CONTENT
 ================================*/
 .main-content {
-    position: fixed;
+    /* position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
-    transform-origin: 0% 0%;
-    transform: translate(-100%, 0);
-    list-style-type: none;
-    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
     overflow-y: auto;
-    height: 100vh;
+    */
+    list-style-type: none;
+    /* height: 100vh; */
     width: 100%;
     background-color: #FFF;
     padding: 0;
+    position: relative;
+    /* transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0); */
 }
 
 .main-content.isVisible {
@@ -208,6 +213,15 @@ nav {
     font-size: 24px;
 }
 
+.content__header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.content__header a {
+    text-decoration: none;
+    color: #FFF;
+}
 
 /*==============================
     FOOTER
@@ -272,4 +286,13 @@ footer {
 
 .disclaimer-content {
     font-size: 12px;
+}
+
+/*==============================
+    Bootstrap Override
+================================*/
+.container {
+    max-width: 100%;
+    margin:0;
+    padding: 0;
 }

@@ -1,453 +1,477 @@
-<link rel="stylesheet" href="./css/tax-calculator.css" />
-<style>
-    .collapse:not(.show) {
-        display: block;
-    }
-</style>
+<template>
+    <section class="content__main">
+        <link rel="stylesheet" href="./css/tax-calculator.css" />
+        <style>
+            .collapse:not(.show) {
+                display: block;
+            }
+        </style>
 
-<!-- START : SIP Calculator -->
-<section class="sip-calculator">
-    <section class="banner-section sipcalc-banner">
-        <div class="commen-container">
-            <div class="d-flex-align-center banner-section-inner">
-                <div class="calculator-box order-2 sipCalculator">
-                    <div class="calculator-inner-wrap animated3">
-                        <h1 class="calculator-box-title">SIP Calculator</h1>
-                        <div class="calculator-form">
-                            <div class="from-elem-wrapper mb25">
-                                <div class="form-group-elem">
-                                    <label class="radio-btn type2">
-                                        <input type="radio" class="radio-btn-input circle" name="Purpose"
-                                            id="wantInvest" value="investment-details" checked=""><span></span>I
-                                        want to invest
-                                    </label>
-                                    <label class="radio-btn type2">
-                                        <input type="radio" class="radio-btn-input circle" name="Purpose" id="myGoal"
-                                            value="goal-details"><span></span> I know my Goal
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="description-sec">
-                                <div class="investment-details showContent">
-                                    <form>
-                                        <div class="from-elem-wrapper">
-                                            <div class="form-group-elem">
-                                                <div class="label-content">
-                                                    <label class="label-name">I want to invest</label>
-                                                    <span class="badge autowidth"><span class="rupee">₹</span><input
-                                                            type="tel" value="25,000"
-                                                            class="mainvalue semibold input-elmn" id="sipAmount"
-                                                            data-min="1000" data-max="50000" data-text-prev="Amount"
-                                                            data-text-last=""><span class="error-text commen-error"
-                                                            style="visibility: hidden;"></span></span>
+        <header class="content__header">
+            <h3 id="heading" class="text-center calc-title"><a href="#/home">&#8592;</a> SIP Calculator - ETMoney</h3>
+        </header>
 
-                                                </div>
-                                                <div class="rangebox">
-                                                    <span class="range-lable"></span>
-                                                    <input class="slider-rating" type="range" min="1000" max="50000"
-                                                        value="25000" data-text="₹">
-                                                </div>
-                                                <div class="limitbar">
-                                                    <span class="min">1000</span>
-                                                    <span class="max">50k</span>
-                                                </div>
-                                            </div>
+        <!-- START : SIP Calculator -->
+        <section class="sip-calculator">
+            <section class="banner-section sipcalc-banner">
+                <div class="commen-container">
+                    <div class="d-flex-align-center banner-section-inner">
+                        <div class="calculator-box order-2 sipCalculator">
+                            <div class="calculator-inner-wrap animated3">
+                                <h1 class="calculator-box-title">SIP Calculator</h1>
+                                <div class="calculator-form">
+                                    <div class="from-elem-wrapper mb25">
+                                        <div class="form-group-elem">
+                                            <label class="radio-btn type2">
+                                                <input type="radio" class="radio-btn-input circle" name="Purpose"
+                                                    id="wantInvest" value="investment-details" checked=""><span></span>I
+                                                want to invest
+                                            </label>
+                                            <label class="radio-btn type2">
+                                                <input type="radio" class="radio-btn-input circle" name="Purpose"
+                                                    id="myGoal" value="goal-details"><span></span> I know my Goal
+                                            </label>
                                         </div>
-                                        <div class="from-elem-wrapper">
-                                            <div class="form-group-elem">
-                                                <div class="label-content">
-                                                    <label class="label-name">per month for</label>
-                                                    <span class="badge"><input type="tel" value="15"
-                                                            class="mainvalue semibold input-elmn" id="sipMonth"
-                                                            data-min="1" data-max="30" data-text-prev="Years"
-                                                            data-text-last=""> years<span
-                                                            class="error-text commen-error"
-                                                            style="visibility: hidden;"></span></span>
-                                                </div>
-                                                <div class="rangebox">
-                                                    <span class="range-lable"></span>
-                                                    <input type="range" min="1" max="30" value="15" data-text=" years">
-                                                </div>
-                                                <div class="limitbar">
-                                                    <span class="min">1 Yrs</span>
-                                                    <span class="max">30 Yrs</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="from-elem-wrapper">
-                                            <div class="form-group-elem">
-                                                <div class="label-content">
-                                                    <label class="label-name">at an expected return of </label>
-                                                    <span class="badge"><input type="tel" value="12"
-                                                            class="mainvalue semibold input-elmn" id="sipInterest"
-                                                            data-min="5" data-max="20" data-text-prev="Rate of Interest"
-                                                            data-text-last="%"><span class="error-text commen-error"
-                                                            style="visibility: hidden;"></span>
-                                                        <small>%</small></span>
-                                                </div>
-                                                <div class="rangebox">
-                                                    <span class="range-lable"></span>
-                                                    <input type="range" min="5" max="20" value="12" data-text="%">
-                                                </div>
-                                                <div class="limitbar">
-                                                    <span class="min">5%</span>
-                                                    <span class="max">20%</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="calc-btn-box">
-                                            <button type="button" class="bold commen-btn">Calculate Now</button>
-                                            <!-- <i class="arrow"></i> -->
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="goal-details">
-                                    <form>
-                                        <div class="from-elem-wrapper">
-                                            <div class="form-group-elem">
-                                                <div class="label-content">
-                                                    <label class="label-name">I want to save</label>
-                                                    <span class="badge autowidth"><span class="rupee">₹</span><input
-                                                            type="tel" value="2,50,00,000"
-                                                            class="mainvalue semibold input-elmn" id="targetAmount"
-                                                            data-min="500000" data-max="50000000"
-                                                            data-text-prev="Amount" data-text-last=""><span
-                                                            class="error-text commen-error"></span></span>
-                                                </div>
-                                                <div class="rangebox">
-                                                    <span class="range-lable"></span>
-                                                    <input type="range" min="500000" max="50000000" value="25000000"
-                                                        data-text="₹">
-                                                </div>
-                                                <div class="limitbar">
-                                                    <span class="min">5L</span>
-                                                    <span class="max">5Cr</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="from-elem-wrapper">
-                                            <div class="form-group-elem">
-                                                <div class="label-content">
-                                                    <label class="label-name">in</label>
-                                                    <span class="badge"><input type="tel" value="15"
-                                                            class="mainvalue semibold input-elmn" id="tenure"
-                                                            data-min="1" data-max="30" data-text-prev="Years"
-                                                            data-text-last=""> years<span
-                                                            class="error-text commen-error"></span></span>
-                                                </div>
-                                                <div class="rangebox">
-                                                    <span class="range-lable"></span>
-                                                    <input type="range" min="1" max="30" value="15" data-text=" years">
-                                                </div>
-                                                <div class="limitbar">
-                                                    <span class="min">1 Yrs</span>
-                                                    <span class="max">30 Yrs</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="from-elem-wrapper">
-                                            <div class="form-group-elem">
-                                                <div class="label-content">
-                                                    <label class="label-name">at an expected return of </label>
-                                                    <span class="badge"><input type="tel" value="12"
-                                                            class="mainvalue semibold input-elmn" id="roi" data-min="5"
-                                                            data-max="20" data-text-prev="Rate of Interest"
-                                                            data-text-last="%">
-                                                        %<span class="error-text commen-error"></span></span>
-                                                </div>
-                                                <div class="rangebox">
-                                                    <span class="range-lable"></span>
-                                                    <input type="range" min="5" max="20" value="12" data-text="%">
-                                                </div>
-                                                <div class="limitbar">
-                                                    <span class="min">5%</span>
-                                                    <span class="max">20%</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="calc-btn-box">
-                                            <button type="button" class="bold commen-btn">Calculate Now</button>
-                                            <!-- <i class="arrow"></i> -->
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="calculate-result-screen investResult animated3">
-                        <div class="result-values">
-                            <div class="single-result big">
-                                <label>Monthly Installment</label>
-                                <span class="result">₹<span class="mainvalue semibold"
-                                        id="sipInvestAmmount"></span></span>
-                            </div>
-                            <div class="single-result">
-                                <label>Period</label>
-                                <span class="result"><span class="mainvalue semibold" id="sipInvestYear"></span></span>
-                            </div>
-                            <div class="single-result">
-                                <label>Retun</label>
-                                <span class="result"><span class="mainvalue semibold" id="sipInvestRoi"></span></span>
-                            </div>
-                        </div>
-                        <div class="result-description">
-                            <p class="smallfont"> At the end of the investment period, you will receive </p>
-                            <span class="amount small">₹ <span class="semibold" id="ammountRecived"></span>
-                                <div class="two-column">
-                                    <div class="sub-details">
-                                        <p>Total wealth gain</p>
-                                        <span class="amt">₹ <span class="semibold" id="totalWealthGain"></span></span>
                                     </div>
-                                    <div class="sub-details">
-                                        <p>Against the invested amount of</p>
-                                        <span class="amt">₹<span class="semibold" id="totalInvestAmount"></span></span>
+                                    <div class="description-sec">
+                                        <div class="investment-details showContent">
+                                            <form>
+                                                <div class="from-elem-wrapper">
+                                                    <div class="form-group-elem">
+                                                        <div class="label-content">
+                                                            <label class="label-name">I want to invest</label>
+                                                            <span class="badge autowidth"><span
+                                                                    class="rupee">₹</span><input type="tel"
+                                                                    value="25,000" class="mainvalue semibold input-elmn"
+                                                                    id="sipAmount" data-min="1000" data-max="50000"
+                                                                    data-text-prev="Amount" data-text-last=""><span
+                                                                    class="error-text commen-error"
+                                                                    style="visibility: hidden;"></span></span>
+
+                                                        </div>
+                                                        <div class="rangebox">
+                                                            <span class="range-lable"></span>
+                                                            <input class="slider-rating" type="range" min="1000"
+                                                                max="50000" value="25000" data-text="₹">
+                                                        </div>
+                                                        <div class="limitbar">
+                                                            <span class="min">1000</span>
+                                                            <span class="max">50k</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="from-elem-wrapper">
+                                                    <div class="form-group-elem">
+                                                        <div class="label-content">
+                                                            <label class="label-name">per month for</label>
+                                                            <span class="badge"><input type="tel" value="15"
+                                                                    class="mainvalue semibold input-elmn" id="sipMonth"
+                                                                    data-min="1" data-max="30" data-text-prev="Years"
+                                                                    data-text-last=""> years<span
+                                                                    class="error-text commen-error"
+                                                                    style="visibility: hidden;"></span></span>
+                                                        </div>
+                                                        <div class="rangebox">
+                                                            <span class="range-lable"></span>
+                                                            <input type="range" min="1" max="30" value="15"
+                                                                data-text=" years">
+                                                        </div>
+                                                        <div class="limitbar">
+                                                            <span class="min">1 Yrs</span>
+                                                            <span class="max">30 Yrs</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="from-elem-wrapper">
+                                                    <div class="form-group-elem">
+                                                        <div class="label-content">
+                                                            <label class="label-name">at an expected return of </label>
+                                                            <span class="badge"><input type="tel" value="12"
+                                                                    class="mainvalue semibold input-elmn"
+                                                                    id="sipInterest" data-min="5" data-max="20"
+                                                                    data-text-prev="Rate of Interest"
+                                                                    data-text-last="%"><span
+                                                                    class="error-text commen-error"
+                                                                    style="visibility: hidden;"></span>
+                                                                <small>%</small></span>
+                                                        </div>
+                                                        <div class="rangebox">
+                                                            <span class="range-lable"></span>
+                                                            <input type="range" min="5" max="20" value="12"
+                                                                data-text="%">
+                                                        </div>
+                                                        <div class="limitbar">
+                                                            <span class="min">5%</span>
+                                                            <span class="max">20%</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="calc-btn-box">
+                                                    <button type="button" class="bold commen-btn">Calculate Now</button>
+                                                    <!-- <i class="arrow"></i> -->
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="goal-details">
+                                            <form>
+                                                <div class="from-elem-wrapper">
+                                                    <div class="form-group-elem">
+                                                        <div class="label-content">
+                                                            <label class="label-name">I want to save</label>
+                                                            <span class="badge autowidth"><span
+                                                                    class="rupee">₹</span><input type="tel"
+                                                                    value="2,50,00,000"
+                                                                    class="mainvalue semibold input-elmn"
+                                                                    id="targetAmount" data-min="500000"
+                                                                    data-max="50000000" data-text-prev="Amount"
+                                                                    data-text-last=""><span
+                                                                    class="error-text commen-error"></span></span>
+                                                        </div>
+                                                        <div class="rangebox">
+                                                            <span class="range-lable"></span>
+                                                            <input type="range" min="500000" max="50000000"
+                                                                value="25000000" data-text="₹">
+                                                        </div>
+                                                        <div class="limitbar">
+                                                            <span class="min">5L</span>
+                                                            <span class="max">5Cr</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="from-elem-wrapper">
+                                                    <div class="form-group-elem">
+                                                        <div class="label-content">
+                                                            <label class="label-name">in</label>
+                                                            <span class="badge"><input type="tel" value="15"
+                                                                    class="mainvalue semibold input-elmn" id="tenure"
+                                                                    data-min="1" data-max="30" data-text-prev="Years"
+                                                                    data-text-last=""> years<span
+                                                                    class="error-text commen-error"></span></span>
+                                                        </div>
+                                                        <div class="rangebox">
+                                                            <span class="range-lable"></span>
+                                                            <input type="range" min="1" max="30" value="15"
+                                                                data-text=" years">
+                                                        </div>
+                                                        <div class="limitbar">
+                                                            <span class="min">1 Yrs</span>
+                                                            <span class="max">30 Yrs</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="from-elem-wrapper">
+                                                    <div class="form-group-elem">
+                                                        <div class="label-content">
+                                                            <label class="label-name">at an expected return of </label>
+                                                            <span class="badge"><input type="tel" value="12"
+                                                                    class="mainvalue semibold input-elmn" id="roi"
+                                                                    data-min="5" data-max="20"
+                                                                    data-text-prev="Rate of Interest"
+                                                                    data-text-last="%">
+                                                                %<span class="error-text commen-error"></span></span>
+                                                        </div>
+                                                        <div class="rangebox">
+                                                            <span class="range-lable"></span>
+                                                            <input type="range" min="5" max="20" value="12"
+                                                                data-text="%">
+                                                        </div>
+                                                        <div class="limitbar">
+                                                            <span class="min">5%</span>
+                                                            <span class="max">20%</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="calc-btn-box">
+                                                    <button type="button" class="bold commen-btn">Calculate Now</button>
+                                                    <!-- <i class="arrow"></i> -->
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
-                            </span>
-                        </div>
-                        <div class="calc-btn-box cta-bar">
-                            <input type="reset" value="Recalulate">
-                            <a href="/mutual-funds/featured/best-sip-funds/18" target="_blank"
-                                class="bold explore-btn">Explore Best SIP plans</a>
-                        </div>
-                    </div>
-                    <div class="calculate-result-screen goalResult animated3">
-                        <div class="result-values">
-                            <div class="single-result big">
-                                <label>Your Goal</label>
-                                <span class="result">₹<span class="mainvalue semibold"
-                                        id="goalInvestAmmount"></span></span>
                             </div>
-                            <div class="single-result">
-                                <label>Period</label>
-                                <span class="result"><span class="mainvalue semibold" id="goalInvestYear"></span></span>
+                            <div class="calculate-result-screen investResult animated3">
+                                <div class="result-values">
+                                    <div class="single-result big">
+                                        <label>Monthly Installment</label>
+                                        <span class="result">₹<span class="mainvalue semibold"
+                                                id="sipInvestAmmount"></span></span>
+                                    </div>
+                                    <div class="single-result">
+                                        <label>Period</label>
+                                        <span class="result"><span class="mainvalue semibold"
+                                                id="sipInvestYear"></span></span>
+                                    </div>
+                                    <div class="single-result">
+                                        <label>Retun</label>
+                                        <span class="result"><span class="mainvalue semibold"
+                                                id="sipInvestRoi"></span></span>
+                                    </div>
+                                </div>
+                                <div class="result-description">
+                                    <p class="smallfont"> At the end of the investment period, you will receive </p>
+                                    <span class="amount small">₹ <span class="semibold" id="ammountRecived"></span>
+                                        <div class="two-column">
+                                            <div class="sub-details">
+                                                <p>Total wealth gain</p>
+                                                <span class="amt">₹ <span class="semibold"
+                                                        id="totalWealthGain"></span></span>
+                                            </div>
+                                            <div class="sub-details">
+                                                <p>Against the invested amount of</p>
+                                                <span class="amt">₹<span class="semibold"
+                                                        id="totalInvestAmount"></span></span>
+                                            </div>
+                                        </div>
+                                    </span>
+                                </div>
+                                <div class="calc-btn-box cta-bar">
+                                    <input type="reset" value="Recalulate">
+                                    <a href="/mutual-funds/featured/best-sip-funds/18" target="_blank"
+                                        class="bold explore-btn">Explore Best SIP plans</a>
+                                </div>
                             </div>
-                            <div class="single-result">
-                                <label>Retun</label>
-                                <span class="result"><span class="mainvalue semibold" id="goalInvestRoi"></span></span>
+                            <div class="calculate-result-screen goalResult animated3">
+                                <div class="result-values">
+                                    <div class="single-result big">
+                                        <label>Your Goal</label>
+                                        <span class="result">₹<span class="mainvalue semibold"
+                                                id="goalInvestAmmount"></span></span>
+                                    </div>
+                                    <div class="single-result">
+                                        <label>Period</label>
+                                        <span class="result"><span class="mainvalue semibold"
+                                                id="goalInvestYear"></span></span>
+                                    </div>
+                                    <div class="single-result">
+                                        <label>Retun</label>
+                                        <span class="result"><span class="mainvalue semibold"
+                                                id="goalInvestRoi"></span></span>
+                                    </div>
+                                </div>
+                                <div class="result-description">
+                                    <p> To meet this goal, you should start a monthly SIP of </p>
+                                    <span class="amount">₹ <span class="semibold" id="toInvestMontlySip"></span></span>
+                                </div>
+                                <div class="calc-btn-box cta-bar">
+                                    <input type="reset" value="Recalulate">
+                                    <a href="/mutual-funds/featured/best-sip-funds/18" target="_blank"
+                                        class="bold explore-btn">Explore Best SIP plans</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="result-description">
-                            <p> To meet this goal, you should start a monthly SIP of </p>
-                            <span class="amount">₹ <span class="semibold" id="toInvestMontlySip"></span></span>
-                        </div>
-                        <div class="calc-btn-box cta-bar">
-                            <input type="reset" value="Recalulate">
-                            <a href="/mutual-funds/featured/best-sip-funds/18" target="_blank"
-                                class="bold explore-btn">Explore Best SIP plans</a>
+                        <div class="banner-left-box  order-1">
+                            <h3 class="bold">Systematic Investment Plan (SIP) - The best way to invest</h3>
+                            <ul class="check-list">
+                                <li>Put your investment on auto pilot</li>
+                                <li>No need to time the market</li>
+                                <li>Leverage the power of compounding</li>
+                            </ul>
+                            <a href="https://www.etmoney.com/mutual-funds/featured/best-sip-funds/18?utm_source=content&amp;utm_medium=calculator&amp;utm_campaign=sip-calculator"
+                                class="button  button-outline   hidden-xs">Explore Best SIP plans</a>
                         </div>
                     </div>
                 </div>
-                <div class="banner-left-box  order-1">
-                    <h3 class="bold">Systematic Investment Plan (SIP) - The best way to invest</h3>
+
+            </section>
+        </section>
+        <!-- END : SIP Calculator -->
+
+        <div class="text-center thanks-section">Thanks to <a id="logo_original" class="etmoney-logo"
+                href="https://www.etmoney.com/tools-and-calculators/sip-calculator" target="_blank"><img
+                    src="https://img.smartspends.com/static/images/etmoneyweb/etmoneyLogo.svg" /></a></div>
+
+        <section class="calculator-sub-wapper">
+            <div class="calculator-commen-section">
+                <div class="calculator-sub-section">
+                    <h2 class="calculator-sub-title">What is a SIP?</h2>
+                    <p>SIP or Systematic Investment Plan, by definition, is a mode of investment offered by mutual
+                        funds, wherein you can invest a fixed amount of money at regular intervals - this could be
+                        monthly or quarterly. Some investment experts draw a parallel between SIPs and Recurring Deposit
+                        - the only difference is that, in the latter the money is invested in a mutual fund scheme.</p>
+                    <p>With its structured approach, SIP brings balance and discipline to the investment, and is a great
+                        tool for wealth creation. Since the investor invests in a time-bound manner, he/she does not
+                        have to worry about the market dynamics. It is the best way to achieve long-term goals including
+                        retirement planning, buying a house or children's higher education. SIPs have an added advantage
+                        of the power of compounding investments. The longer you stay invested, the more you gain.</p>
+                    <div class="fund-guide">
+                        <ul>
+                            <li><a href="#need_receipt">Benefits of SIP</a></li>
+                            <li><a href="#monthly_rent">How to use the SIP Calculator</a></li>
+                            <li><a href="#faq">Frequently Asked Questions (FAQs)</a></li>
+                        </ul>
+                    </div>
+                    <h2 id="need_receipt" class="calculator-sub-title">Benefits of SIP</h2>
+                    <p>There are several benefits of investing in a SIP. Let's have a look: </p>
                     <ul class="check-list">
-                        <li>Put your investment on auto pilot</li>
-                        <li>No need to time the market</li>
-                        <li>Leverage the power of compounding</li>
+                        <li class="zeroList"><span class="bold">Small investments:</span> The best part of SIPs is that
+                            you can invest small amounts of money, even if it's only ₹500.</li>
+                        <li class="zeroList"><span class="bold">Rupee-cost averaging:</span> The rupee-cost averaging is
+                            a big reason why investors go for SIPs. It helps you buy more units when the price is lower
+                            and fewer units when the price is higher. In addition, it also helps to dilute the effect of
+                            short-term market fluctuation on your investments, making it beneficial in the long-term.
+                        </li>
+                        <li class="zeroList"><span class="bold">Power of compounding:</span> The money that you invest
+                            every month or over a certain period gets compounded over time through regular investments.
+                            If you start early, you can see its effect even more!</li>
+                        <li class="zeroList"><span class="bold">Instills discipline:</span> SIP is modeled in such a way
+                            that it encourages discipline and regularity in investments.</li>
                     </ul>
-                    <a href="https://www.etmoney.com/mutual-funds/featured/best-sip-funds/18?utm_source=content&amp;utm_medium=calculator&amp;utm_campaign=sip-calculator"
-                        class="button  button-outline   hidden-xs">Explore Best SIP plans</a>
+                    <h2 id="monthly_rent" class="calculator-sub-title">How to use the SIP Calculator</h2>
+                    <p>The online SIP calculator makes your task simpler and lets you calculate the amount you need to
+                        start investing or the amount you will receive at the end of the investment period. That's not
+                        all - you can also modify the details to check how it makes a difference to your overall
+                        returns. </p>
+                    <p>Let's understand how the calculator functions based on your requirement: </p>
+                    <p class="mrgn0"><span class="bold">1. You want to invest a fixed amount monthly and want to know
+                            the future value of the investment.</span></p>
+                    <ul class="check-list">
+                        <li class="zeroList"><strong>Step 1:</strong> Select 'I want to invest'</li>
+                        <li class="zeroList"><strong>Step 2:</strong> Select the amount you want to invest monthly</li>
+                        <li class="zeroList"><strong>Step 3:</strong> Enter the investment period you have decided to
+                            invest for and the expected rate of return.</li>
+                        <li class="zeroList"><strong>Step 4:</strong> The SIP calculator will then tell you how much you
+                            will receive at the end of your investment period, your total investment and capital gains.
+                        </li>
+                    </ul>
+                    <div class="disc-img-wrapper">
+                        <img src="https://static.smartspends.com/static/images/etmoneyweb/tools/sip-calculator-1.png"
+                            alt="etmoney sip calculator step1" class="img-responsive">
+                        <img src="https://static.smartspends.com/static/images/etmoneyweb/tools/sip-calculator-2.png"
+                            alt="etmoney sip calculator step1" class="img-responsive">
+                    </div>
+                    <p><span class="bold">2. You are investing for a goal and want to know the required monthly
+                            investment to meet the goal</span></p>
+                    <ul class="check-list">
+                        <li class="zeroList"><strong>Step 1:</strong> Select 'I know my Goal'</li>
+                        <li class="zeroList"><strong>Step 2:</strong> Enter the amount you want to save for your goal.
+                        </li>
+                        <li class="zeroList"><strong>Step 3:</strong> Enter the horizon of your goal in years and
+                            percentage of expected return.</li>
+                        <li class="zeroList"><strong>Step 4:</strong> Basis the details you provide, the calculator will
+                            tell you how much you should start investing monthly towards a SIP.</li>
+                    </ul>
+                    <div class="disc-img-wrapper">
+                        <img src="https://static.smartspends.com/static/images/etmoneyweb/tools/sip-calculator-3.png"
+                            alt="etmoney sip calculator step2" class="img-responsive">
+                        <img src="https://static.smartspends.com/static/images/etmoneyweb/tools/sip-calculator-4.png"
+                            alt="etmoney sip calculator step2" class="img-responsive">
+                    </div>
+                    <h2 id="faq" class="calculator-sub-title">FAQs</h2>
+                    <div class="panel-group customFaq" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="question2">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                        href="#answer2" aria-expanded="false" aria-controls="answer2">Are SIPs tax
+                                        free?</a>
+                                </h4>
+                            </div>
+                            <div id="answer2" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="question2" aria-expanded="false">
+                                <div class="panel-body">No, not at all SIP plans are tax-free. only the SIPs in ELSS
+                                    Mutual Funds are eligible for tax deduction of up to ₹1.5 lakh per annum under
+                                    Section 80C.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="question3">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                        href="#answer3" aria-expanded="false" aria-controls="answer3">What is the
+                                        interest rate on SIPs?</a>
+                                </h4>
+                            </div>
+                            <div id="answer3" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="question3" aria-expanded="false">
+                                <div class="panel-body">
+                                    SIP returns (or interest rate) vary a lot depending upon the asset class chosen. A
+                                    SIP in equity scheme yields higher returns than the one in Debt schemes. On an
+                                    average, for SIP in large cap equity funds, a return of 12-15% can be expected
+                                    whereas from mid-cap equities, a return of 14-17% can be expected.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="question4">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                        href="#answer4" aria-expanded="false" aria-controls="answer4">Which is better RD
+                                        or SIP?</a>
+                                </h4>
+                            </div>
+                            <div id="answer4" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="question4" aria-expanded="false">
+                                <div class="panel-body">
+                                    There is no one correct answer for this question. It depends on the investor's
+                                    investment objective &amp; risk capacity. Since SIPs are market linked, the upside
+                                    on returns are considerably higher as compared to FD which is a fixed income
+                                    product. For aggressive investors, SIP in Equity Funds or ELSS is best suited. Even
+                                    for conservative investors looking to limit short term risk, a SIP in a liquid or
+                                    Debt funds can generate higher returns than Recurring Deposits at negligible risks.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="question5">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                        href="#answer5" aria-expanded="false" aria-controls="answer5">Can we withdraw
+                                        SIP anytime?</a>
+                                </h4>
+                            </div>
+                            <div id="answer5" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="question5" aria-expanded="false">
+                                <div class="panel-body">
+                                    Yes, you can withdraw money from SIPs anytime you wish, except for Equity Linked
+                                    Savings Scheme (ELSS) which has a lock-in period of 3 years.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="question6">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                        href="#answer6" aria-expanded="false" aria-controls="answer6">What if I miss an
+                                        installment on a SIP date or don't have sufficient money in my bank account?</a>
+                                </h4>
+                            </div>
+                            <div id="answer6" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="question6" aria-expanded="false">
+                                <div class="panel-body">
+                                    Your SIP will continue uninterrupted and you can continue paying SIP installments
+                                    from the next due date. There is no penalty on skipping or missing a SIP
+                                    installment, however to maximize your returns, it is recommended to pay every SIP
+                                    installment on it's due date.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="question7">
+                                <h4 class="panel-title">
+                                    <a class="" role="button" data-toggle="collapse" data-parent="#accordion"
+                                        href="#answer7" aria-expanded="true" aria-controls="answer7">Can I increase the
+                                        SIP Amount?</a>
+                                </h4>
+                            </div>
+                            <div id="answer7" class="panel-collapse collapse in" role="tabpanel"
+                                aria-labelledby="question7" aria-expanded="true" style="">
+                                <div class="panel-body">
+                                    Yes, you can. While taking a new SIP, you can opt for a periodic top-up of your
+                                    investment amount. If you did not opt for auto top while registering your SIP, you
+                                    can always start a new SIP in the same scheme, the units allotted in the new SIP,
+                                    wll be added to your portfolio.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
 
+        </section>
     </section>
-</section>
-<!-- END : SIP Calculator -->
 
-<div class="text-center thanks-section">Thanks to <a id="logo_original" class="etmoney-logo"
-        href="https://www.etmoney.com/tools-and-calculators/sip-calculator" target="_blank"><img
-            src="https://img.smartspends.com/static/images/etmoneyweb/etmoneyLogo.svg" /></a></div>
+    <script type='text/javascript' src="./js/sip-calculator.js"></script>
 
-<section class="calculator-sub-wapper">
-    <div class="calculator-commen-section">
-        <div class="calculator-sub-section">
-            <h2 class="calculator-sub-title">What is a SIP?</h2>
-            <p>SIP or Systematic Investment Plan, by definition, is a mode of investment offered by mutual
-                funds, wherein you can invest a fixed amount of money at regular intervals - this could be
-                monthly or quarterly. Some investment experts draw a parallel between SIPs and Recurring Deposit
-                - the only difference is that, in the latter the money is invested in a mutual fund scheme.</p>
-            <p>With its structured approach, SIP brings balance and discipline to the investment, and is a great
-                tool for wealth creation. Since the investor invests in a time-bound manner, he/she does not
-                have to worry about the market dynamics. It is the best way to achieve long-term goals including
-                retirement planning, buying a house or children's higher education. SIPs have an added advantage
-                of the power of compounding investments. The longer you stay invested, the more you gain.</p>
-            <div class="fund-guide">
-                <ul>
-                    <li><a href="#need_receipt">Benefits of SIP</a></li>
-                    <li><a href="#monthly_rent">How to use the SIP Calculator</a></li>
-                    <li><a href="#faq">Frequently Asked Questions (FAQs)</a></li>
-                </ul>
-            </div>
-            <h2 id="need_receipt" class="calculator-sub-title">Benefits of SIP</h2>
-            <p>There are several benefits of investing in a SIP. Let's have a look: </p>
-            <ul class="check-list">
-                <li class="zeroList"><span class="bold">Small investments:</span> The best part of SIPs is that
-                    you can invest small amounts of money, even if it's only ₹500.</li>
-                <li class="zeroList"><span class="bold">Rupee-cost averaging:</span> The rupee-cost averaging is
-                    a big reason why investors go for SIPs. It helps you buy more units when the price is lower
-                    and fewer units when the price is higher. In addition, it also helps to dilute the effect of
-                    short-term market fluctuation on your investments, making it beneficial in the long-term.
-                </li>
-                <li class="zeroList"><span class="bold">Power of compounding:</span> The money that you invest
-                    every month or over a certain period gets compounded over time through regular investments.
-                    If you start early, you can see its effect even more!</li>
-                <li class="zeroList"><span class="bold">Instills discipline:</span> SIP is modeled in such a way
-                    that it encourages discipline and regularity in investments.</li>
-            </ul>
-            <h2 id="monthly_rent" class="calculator-sub-title">How to use the SIP Calculator</h2>
-            <p>The online SIP calculator makes your task simpler and lets you calculate the amount you need to
-                start investing or the amount you will receive at the end of the investment period. That's not
-                all - you can also modify the details to check how it makes a difference to your overall
-                returns. </p>
-            <p>Let's understand how the calculator functions based on your requirement: </p>
-            <p class="mrgn0"><span class="bold">1. You want to invest a fixed amount monthly and want to know
-                    the future value of the investment.</span></p>
-            <ul class="check-list">
-                <li class="zeroList"><strong>Step 1:</strong> Select 'I want to invest'</li>
-                <li class="zeroList"><strong>Step 2:</strong> Select the amount you want to invest monthly</li>
-                <li class="zeroList"><strong>Step 3:</strong> Enter the investment period you have decided to
-                    invest for and the expected rate of return.</li>
-                <li class="zeroList"><strong>Step 4:</strong> The SIP calculator will then tell you how much you
-                    will receive at the end of your investment period, your total investment and capital gains.
-                </li>
-            </ul>
-            <div class="disc-img-wrapper">
-                <img src="https://static.smartspends.com/static/images/etmoneyweb/tools/sip-calculator-1.png"
-                    alt="etmoney sip calculator step1" class="img-responsive">
-                <img src="https://static.smartspends.com/static/images/etmoneyweb/tools/sip-calculator-2.png"
-                    alt="etmoney sip calculator step1" class="img-responsive">
-            </div>
-            <p><span class="bold">2. You are investing for a goal and want to know the required monthly
-                    investment to meet the goal</span></p>
-            <ul class="check-list">
-                <li class="zeroList"><strong>Step 1:</strong> Select 'I know my Goal'</li>
-                <li class="zeroList"><strong>Step 2:</strong> Enter the amount you want to save for your goal.
-                </li>
-                <li class="zeroList"><strong>Step 3:</strong> Enter the horizon of your goal in years and
-                    percentage of expected return.</li>
-                <li class="zeroList"><strong>Step 4:</strong> Basis the details you provide, the calculator will
-                    tell you how much you should start investing monthly towards a SIP.</li>
-            </ul>
-            <div class="disc-img-wrapper">
-                <img src="https://static.smartspends.com/static/images/etmoneyweb/tools/sip-calculator-3.png"
-                    alt="etmoney sip calculator step2" class="img-responsive">
-                <img src="https://static.smartspends.com/static/images/etmoneyweb/tools/sip-calculator-4.png"
-                    alt="etmoney sip calculator step2" class="img-responsive">
-            </div>
-            <h2 id="faq" class="calculator-sub-title">FAQs</h2>
-            <div class="panel-group customFaq" id="accordion" role="tablist" aria-multiselectable="true">
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="question2">
-                        <h4 class="panel-title">
-                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
-                                href="#answer2" aria-expanded="false" aria-controls="answer2">Are SIPs tax
-                                free?</a>
-                        </h4>
-                    </div>
-                    <div id="answer2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="question2"
-                        aria-expanded="false">
-                        <div class="panel-body">No, not at all SIP plans are tax-free. only the SIPs in ELSS
-                            Mutual Funds are eligible for tax deduction of up to ₹1.5 lakh per annum under
-                            Section 80C.
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="question3">
-                        <h4 class="panel-title">
-                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
-                                href="#answer3" aria-expanded="false" aria-controls="answer3">What is the
-                                interest rate on SIPs?</a>
-                        </h4>
-                    </div>
-                    <div id="answer3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="question3"
-                        aria-expanded="false">
-                        <div class="panel-body">
-                            SIP returns (or interest rate) vary a lot depending upon the asset class chosen. A
-                            SIP in equity scheme yields higher returns than the one in Debt schemes. On an
-                            average, for SIP in large cap equity funds, a return of 12-15% can be expected
-                            whereas from mid-cap equities, a return of 14-17% can be expected.
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="question4">
-                        <h4 class="panel-title">
-                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
-                                href="#answer4" aria-expanded="false" aria-controls="answer4">Which is better RD
-                                or SIP?</a>
-                        </h4>
-                    </div>
-                    <div id="answer4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="question4"
-                        aria-expanded="false">
-                        <div class="panel-body">
-                            There is no one correct answer for this question. It depends on the investor's
-                            investment objective &amp; risk capacity. Since SIPs are market linked, the upside
-                            on returns are considerably higher as compared to FD which is a fixed income
-                            product. For aggressive investors, SIP in Equity Funds or ELSS is best suited. Even
-                            for conservative investors looking to limit short term risk, a SIP in a liquid or
-                            Debt funds can generate higher returns than Recurring Deposits at negligible risks.
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="question5">
-                        <h4 class="panel-title">
-                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
-                                href="#answer5" aria-expanded="false" aria-controls="answer5">Can we withdraw
-                                SIP anytime?</a>
-                        </h4>
-                    </div>
-                    <div id="answer5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="question5"
-                        aria-expanded="false">
-                        <div class="panel-body">
-                            Yes, you can withdraw money from SIPs anytime you wish, except for Equity Linked
-                            Savings Scheme (ELSS) which has a lock-in period of 3 years.
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="question6">
-                        <h4 class="panel-title">
-                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
-                                href="#answer6" aria-expanded="false" aria-controls="answer6">What if I miss an
-                                installment on a SIP date or don't have sufficient money in my bank account?</a>
-                        </h4>
-                    </div>
-                    <div id="answer6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="question6"
-                        aria-expanded="false">
-                        <div class="panel-body">
-                            Your SIP will continue uninterrupted and you can continue paying SIP installments
-                            from the next due date. There is no penalty on skipping or missing a SIP
-                            installment, however to maximize your returns, it is recommended to pay every SIP
-                            installment on it's due date.
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="question7">
-                        <h4 class="panel-title">
-                            <a class="" role="button" data-toggle="collapse" data-parent="#accordion" href="#answer7"
-                                aria-expanded="true" aria-controls="answer7">Can I increase the
-                                SIP Amount?</a>
-                        </h4>
-                    </div>
-                    <div id="answer7" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="question7"
-                        aria-expanded="true" style="">
-                        <div class="panel-body">
-                            Yes, you can. While taking a new SIP, you can opt for a periodic top-up of your
-                            investment amount. If you did not opt for auto top while registering your SIP, you
-                            can always start a new SIP in the same scheme, the units allotted in the new SIP,
-                            wll be added to your portfolio.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</section>
-
-
-<script type='text/javascript' src="./js/sip-calculator.js"></script>
+</template>
