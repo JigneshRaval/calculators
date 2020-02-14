@@ -1,957 +1,1089 @@
-<div ng-controller="controllerName" class="ng-scope">
-    <ng-form name="numberForm"
-        class="ng-valid-pattern ng-dirty ng-valid-parse ng-valid-fcsa-number ng-valid ng-valid-required">
-        <div class="calc-main space-btm">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <p>Current Age<br>
-                        &nbsp;</p>
-                </div>
+<template>
+    <section class="content__main">
+        <header class="content__header">
+            <h3 id="heading" class="text-center calc-title"><a href="#/home">&#8592;</a> EPF Calculator</h3>
+        </header>
 
-                <div class="col-lg-5 col-md-6 col-sm-6">
-                    <div width="100%"><input
-                            class="form-control ng-dirty ng-valid-parse ng-valid ng-valid-required ng-touched"
-                            id="txtAge" name="txtAge" ng-model="txtAge" onkeydown="return ValidKeyEntered(event)"
-                            onkeypress="return ValidKeyEntered(event)" required="" type="text"></div>
-                </div>
+        <div ng-controller="controllerName" class="ng-scope">
+            <ng-form name="numberForm"
+                class="ng-valid-pattern ng-dirty ng-valid-parse ng-valid-fcsa-number ng-valid ng-valid-required">
+                <div class="calc-main space-btm">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <p>Current Age<br>
+                                &nbsp;</p>
+                        </div>
 
-                <div class="col-lg-2 col-md-2 col-sm-2"><span class="error ng-hide"
-                        ng-show="numberForm.$submitted &amp;&amp; numberForm.txtAge.$error.required"
-                        style="color:red">Please&nbsp;Enter&nbsp;Age.</span></div>
-            </div>
+                        <div class="col-lg-5 col-md-6 col-sm-6">
+                            <div width="100%"><input
+                                    class="form-control ng-dirty ng-valid-parse ng-valid ng-valid-required ng-touched"
+                                    id="txtAge" name="txtAge" ng-model="txtAge"
+                                    onkeydown="return ValidKeyEntered(event)" onkeypress="return ValidKeyEntered(event)"
+                                    required="" type="text"></div>
+                        </div>
 
-            <div class="row Input-spc">
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <p>Retirement Age<br>
-                        &nbsp;</p>
+                        <div class="col-lg-2 col-md-2 col-sm-2"><span class="error ng-hide"
+                                ng-show="numberForm.$submitted &amp;&amp; numberForm.txtAge.$error.required"
+                                style="color:red">Please&nbsp;Enter&nbsp;Age.</span></div>
+                    </div>
 
-                    <p></p>
-                </div>
+                    <div class="row Input-spc">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <p>Retirement Age<br>
+                                &nbsp;</p>
 
-                <div class="col-lg-5 col-md-6 col-sm-6">
-                    <div width="100%"><input
-                            class="form-control ng-dirty ng-valid-parse ng-valid ng-valid-required ng-touched"
-                            id="txtRage" name="txtRage" ng-model="txtRage" onkeydown="return ValidKeyEntered(event)"
-                            onkeypress="return ValidKeyEntered(event)" required="" type="text"></div>
-                </div>
+                            <p></p>
+                        </div>
 
-                <div class="col-lg-2 col-md-2 col-sm-2"><span class="error ng-hide"
-                        ng-show="numberForm.$submitted &amp;&amp; numberForm.txtRage.$error.required"
-                        style="color:red">Please&nbsp;Enter&nbsp;Age.</span></div>
-            </div>
+                        <div class="col-lg-5 col-md-6 col-sm-6">
+                            <div width="100%"><input
+                                    class="form-control ng-dirty ng-valid-parse ng-valid ng-valid-required ng-touched"
+                                    id="txtRage" name="txtRage" ng-model="txtRage"
+                                    onkeydown="return ValidKeyEntered(event)" onkeypress="return ValidKeyEntered(event)"
+                                    required="" type="text"></div>
+                        </div>
 
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6" style="margin-bottom:30px;">
-                    <p>Current EPF Balance</p>
-                </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2"><span class="error ng-hide"
+                                ng-show="numberForm.$submitted &amp;&amp; numberForm.txtRage.$error.required"
+                                style="color:red">Please&nbsp;Enter&nbsp;Age.</span></div>
+                    </div>
 
-                <div class="col-lg-5 col-md-6 col-sm-6">
-                    <div class="form-group input-group"><input
-                            class="form-control ng-isolate-scope ng-dirty ng-valid-fcsa-number ng-valid-parse ng-valid ng-valid-required ng-touched"
-                            fcsa-number="{  }" id="txtEPF" name="txtEPF" ng-model="ctrl.model.txtEPF"
-                            onkeydown="return ValidKeyEntered(event)" onkeypress="return ValidKeyEntered(event)"
-                            placeholder="Amount" required="" type="text"></div>
-                </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6" style="margin-bottom:30px;">
+                            <p>Current EPF Balance</p>
+                        </div>
 
-                <div class="col-lg-2 col-md-2 col-sm-2" style="margin-top:-10px;"><span class="error ng-hide"
-                        ng-show="numberForm.$submitted &amp;&amp; numberForm.txtEPF.$error.required"
-                        style="color:red">Please&nbsp;Enter&nbsp;Amount.</span></div>
-            </div>
+                        <div class="col-lg-5 col-md-6 col-sm-6">
+                            <div class="form-group input-group"><input
+                                    class="form-control ng-isolate-scope ng-dirty ng-valid-fcsa-number ng-valid-parse ng-valid ng-valid-required ng-touched"
+                                    fcsa-number="{  }" id="txtEPF" name="txtEPF" ng-model="ctrl.model.txtEPF"
+                                    onkeydown="return ValidKeyEntered(event)" onkeypress="return ValidKeyEntered(event)"
+                                    placeholder="Amount" required="" type="text"></div>
+                        </div>
 
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6" style="margin-bottom:30px;">
-                    <p>Employee Contribution</p>
-                </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2" style="margin-top:-10px;"><span class="error ng-hide"
+                                ng-show="numberForm.$submitted &amp;&amp; numberForm.txtEPF.$error.required"
+                                style="color:red">Please&nbsp;Enter&nbsp;Amount.</span></div>
+                    </div>
 
-                <div class="col-lg-5 col-md-6 col-sm-6">
-                    <div class="form-group input-group"><input
-                            class="form-control ng-isolate-scope ng-dirty ng-valid-fcsa-number ng-valid-parse ng-valid ng-valid-required ng-touched"
-                            fcsa-number="{  }" id="txtEmpC" name="txtEmpC" ng-model="ctrl.model.txtEmpC"
-                            onkeydown="return ValidKeyEntered(event)" onkeypress="return ValidKeyEntered(event)"
-                            placeholder="Amount" required="" type="text"></div>
-                </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6" style="margin-bottom:30px;">
+                            <p>Employee Contribution</p>
+                        </div>
 
-                <div class="col-lg-2 col-md-2 col-sm-2" style="margin-top:-10px;"><span class="error ng-hide"
-                        ng-show="numberForm.$submitted &amp;&amp; numberForm.txtEmpC.$error.required"
-                        style="color:red">Please&nbsp;Enter&nbsp;Amount.</span></div>
-            </div>
+                        <div class="col-lg-5 col-md-6 col-sm-6">
+                            <div class="form-group input-group"><input
+                                    class="form-control ng-isolate-scope ng-dirty ng-valid-fcsa-number ng-valid-parse ng-valid ng-valid-required ng-touched"
+                                    fcsa-number="{  }" id="txtEmpC" name="txtEmpC" ng-model="ctrl.model.txtEmpC"
+                                    onkeydown="return ValidKeyEntered(event)" onkeypress="return ValidKeyEntered(event)"
+                                    placeholder="Amount" required="" type="text"></div>
+                        </div>
 
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6" style="margin-bottom:30px;">
-                    <p>Employer Contribution</p>
-                </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2" style="margin-top:-10px;"><span class="error ng-hide"
+                                ng-show="numberForm.$submitted &amp;&amp; numberForm.txtEmpC.$error.required"
+                                style="color:red">Please&nbsp;Enter&nbsp;Amount.</span></div>
+                    </div>
 
-                <div class="col-lg-5 col-md-6 col-sm-6">
-                    <div class="form-group input-group"><input
-                            class="form-control ng-isolate-scope ng-valid-pattern ng-touched ng-dirty ng-valid-fcsa-number ng-valid-parse ng-valid ng-valid-required"
-                            fcsa-number="{  }" id="txtEmprC" name="txtEmprC" ng-model="ctrl.model.txtEmprC"
-                            ng-pattern="/^[0-9]*$/" onkeydown="return ValidKeyEntered(event)"
-                            onkeypress="return ValidKeyEntered(event)" placeholder="Amount" required="" type="text">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6" style="margin-bottom:30px;">
+                            <p>Employer Contribution</p>
+                        </div>
+
+                        <div class="col-lg-5 col-md-6 col-sm-6">
+                            <div class="form-group input-group"><input
+                                    class="form-control ng-isolate-scope ng-valid-pattern ng-touched ng-dirty ng-valid-fcsa-number ng-valid-parse ng-valid ng-valid-required"
+                                    fcsa-number="{  }" id="txtEmprC" name="txtEmprC" ng-model="ctrl.model.txtEmprC"
+                                    ng-pattern="/^[0-9]*$/" onkeydown="return ValidKeyEntered(event)"
+                                    onkeypress="return ValidKeyEntered(event)" placeholder="Amount" required=""
+                                    type="text">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-2 col-md-2 col-sm-2" style="margin-top:-10px;"><span class="error ng-hide"
+                                ng-show="numberForm.$submitted &amp;&amp; numberForm.txtEmprC.$error.required"
+                                style="color:red">Please&nbsp;Enter&nbsp;Amount.</span></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6" style="margin-bottom:30px;">
+                            <p>Growth Rate in EPF Contribution</p>
+                        </div>
+
+                        <div class="col-lg-5 col-md-6 col-sm-6">
+                            <div class="form-group input-group"><input
+                                    class="form-control ng-valid-pattern ng-dirty ng-valid-parse ng-touched ng-valid ng-valid-required"
+                                    id="txtGrthRate" name="txtGrthRate" ng-model="txtGrthRate"
+                                    ng-pattern="/^[0-9]+(.[0-9]{0,2})?$/" onkeydown="return ValidKeyEntered(event)"
+                                    onkeypress="return ValidKeyEntered(event)" required="" type="text"></div>
+                        </div>
+
+                        <div class="col-lg-2 col-md-2 col-sm-2" style="margin-top:-10px;"><span class="error ng-hide"
+                                ng-show="numberForm.$submitted &amp;&amp; numberForm.txtGrthRate.$error.required"
+                                style="color:red">Please&nbsp;Enter&nbsp;Percentage.</span> <span class="ng-hide"
+                                ng-show="numberForm.txtGrthRate.$error.pattern"
+                                style="color:red">Enter&nbsp;upto&nbsp;2&nbsp;decimal.</span></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6" style="margin-bottom:30px;">
+                            <p>Rate of Interest</p>
+                        </div>
+
+                        <div class="col-lg-5 col-md-6 col-sm-6">
+                            <div class="form-group input-group"><input
+                                    class="form-control ng-valid-pattern ng-touched ng-dirty ng-valid-parse ng-valid ng-valid-required"
+                                    id="txtRate" name="txtRate" ng-model="txtRate" ng-pattern="/^[0-9]+(.[0-9]{0,2})?$/"
+                                    onkeydown="return ValidKeyEntered(event)" onkeypress="return ValidKeyEntered(event)"
+                                    required="" type="text"></div>
+                        </div>
+
+                        <div class="col-lg-2 col-md-2  col-sm-2" style="margin-top:-10px;"><span class="error ng-hide"
+                                ng-show="numberForm.$submitted &amp;&amp; numberForm.txtRate.$error.required"
+                                style="color:red">Please&nbsp;Enter&nbsp;Percentage.</span> <span class="ng-hide"
+                                ng-show="numberForm.txtRate.$error.pattern"
+                                style="color:red">Enter&nbsp;upto&nbsp;2&nbsp;decimal.</span></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6" style="margin-bottom:45px;">
+                            <p>Current Pension Fund Balance</p>
+                        </div>
+
+                        <div class="col-lg-5 col-md-6 col-sm-6">
+                            <div class="form-group input-group"><input
+                                    class="form-control ng-isolate-scope ng-valid-pattern ng-dirty ng-valid-fcsa-number ng-valid-parse ng-valid ng-valid-required ng-touched"
+                                    fcsa-number="{  }" id="txtCPF" name="txtCPF" ng-model="ctrl.model.txtCPF"
+                                    ng-pattern="/^[0-9]*$/" onkeydown="return ValidKeyEntered(event)"
+                                    onkeypress="return ValidKeyEntered(event)" placeholder="Amount" required=""
+                                    type="text">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-2 col-md-2 col-sm-2" style="margin-top:-10px;"><span class="error ng-hide"
+                                ng-show="numberForm.$submitted &amp;&amp; numberForm.txtCPF.$error.required"
+                                style="color:red">Please&nbsp;Enter&nbsp;Amount.</span></div>
+                    </div>
+
+                    <div class="row" style="margin-bottom:10px;">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <p></p>
+                        </div>
+
+                        <div class="col-lg-5 col-md-4 col-sm-6"><button class="sgn-btn next-step" id="btnSubmit"
+                                ng-click="submit($event)" onclick="calcEPF()" type="button">Submit</button></div>
+
+                        <div class="col-lg-2 col-md-2 col-sm-2"></div>
                     </div>
                 </div>
+            </ng-form>
+        </div>
 
-                <div class="col-lg-2 col-md-2 col-sm-2" style="margin-top:-10px;"><span class="error ng-hide"
-                        ng-show="numberForm.$submitted &amp;&amp; numberForm.txtEmprC.$error.required"
-                        style="color:red">Please&nbsp;Enter&nbsp;Amount.</span></div>
-            </div>
+        <!-- Thank you note with Logo -->
+        <div class="text-center thanks-section">Thanks to
+            <a class="navbar-brand" href="https://www.personalfn.com/calculator/epf-calculator" target="_blank"><img
+                    class="res-img" src="https://data.personalfn.com/images/qis_logo.png" alt="Personalfn"></a>
+        </div>
+        <!-- Thank you note with Logo -->
 
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6" style="margin-bottom:30px;">
-                    <p>Growth Rate in EPF Contribution</p>
-                </div>
+        <div class="table-responsive">
+            <table class="table table-body" id="tdRslt" width="100%">
+                <tbody>
+                    <tr class="even">
+                        <td align="left"><strong>EPF Balance at Retirement (Rs.)</strong></td>
+                        <td align="left" class="last" id="tdEPF">1,143,981</td>
+                    </tr>
+                    <tr class="even" id="trPension">
+                        <td align="left"><strong>Pension Fund Balance at Retirement (Rs.)</strong></td>
+                        <td align="left" class="last" id="tdPension">141,332</td>
+                    </tr>
+                </tbody>
+            </table>
 
-                <div class="col-lg-5 col-md-6 col-sm-6">
-                    <div class="form-group input-group"><input
-                            class="form-control ng-valid-pattern ng-dirty ng-valid-parse ng-touched ng-valid ng-valid-required"
-                            id="txtGrthRate" name="txtGrthRate" ng-model="txtGrthRate"
-                            ng-pattern="/^[0-9]+(.[0-9]{0,2})?$/" onkeydown="return ValidKeyEntered(event)"
-                            onkeypress="return ValidKeyEntered(event)" required="" type="text"></div>
-                </div>
-
-                <div class="col-lg-2 col-md-2 col-sm-2" style="margin-top:-10px;"><span class="error ng-hide"
-                        ng-show="numberForm.$submitted &amp;&amp; numberForm.txtGrthRate.$error.required"
-                        style="color:red">Please&nbsp;Enter&nbsp;Percentage.</span> <span class="ng-hide"
-                        ng-show="numberForm.txtGrthRate.$error.pattern"
-                        style="color:red">Enter&nbsp;upto&nbsp;2&nbsp;decimal.</span></div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6" style="margin-bottom:30px;">
-                    <p>Rate of Interest</p>
-                </div>
-
-                <div class="col-lg-5 col-md-6 col-sm-6">
-                    <div class="form-group input-group"><input
-                            class="form-control ng-valid-pattern ng-touched ng-dirty ng-valid-parse ng-valid ng-valid-required"
-                            id="txtRate" name="txtRate" ng-model="txtRate" ng-pattern="/^[0-9]+(.[0-9]{0,2})?$/"
-                            onkeydown="return ValidKeyEntered(event)" onkeypress="return ValidKeyEntered(event)"
-                            required="" type="text"></div>
-                </div>
-
-                <div class="col-lg-2 col-md-2  col-sm-2" style="margin-top:-10px;"><span class="error ng-hide"
-                        ng-show="numberForm.$submitted &amp;&amp; numberForm.txtRate.$error.required"
-                        style="color:red">Please&nbsp;Enter&nbsp;Percentage.</span> <span class="ng-hide"
-                        ng-show="numberForm.txtRate.$error.pattern"
-                        style="color:red">Enter&nbsp;upto&nbsp;2&nbsp;decimal.</span></div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6" style="margin-bottom:45px;">
-                    <p>Current Pension Fund Balance</p>
-                </div>
-
-                <div class="col-lg-5 col-md-6 col-sm-6">
-                    <div class="form-group input-group"><input
-                            class="form-control ng-isolate-scope ng-valid-pattern ng-dirty ng-valid-fcsa-number ng-valid-parse ng-valid ng-valid-required ng-touched"
-                            fcsa-number="{  }" id="txtCPF" name="txtCPF" ng-model="ctrl.model.txtCPF"
-                            ng-pattern="/^[0-9]*$/" onkeydown="return ValidKeyEntered(event)"
-                            onkeypress="return ValidKeyEntered(event)" placeholder="Amount" required="" type="text">
-                    </div>
-                </div>
-
-                <div class="col-lg-2 col-md-2 col-sm-2" style="margin-top:-10px;"><span class="error ng-hide"
-                        ng-show="numberForm.$submitted &amp;&amp; numberForm.txtCPF.$error.required"
-                        style="color:red">Please&nbsp;Enter&nbsp;Amount.</span></div>
-            </div>
-
-            <div class="row" style="margin-bottom:10px;">
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <p></p>
-                </div>
-
-                <div class="col-lg-5 col-md-4 col-sm-6"><button class="sgn-btn next-step" id="btnSubmit"
-                        ng-click="submit($event)" onclick="calcEPF()" type="button">Submit</button></div>
-
-                <div class="col-lg-2 col-md-2 col-sm-2"></div>
+            <div id="divRtnMF">
             </div>
         </div>
-    </ng-form>
-</div>
 
-<!-- Thank you note with Logo -->
-<div class="text-center thanks-section">Thanks to
-    <a class="navbar-brand" href="https://www.personalfn.com/calculator/epf-calculator" target="_blank"><img
-            class="res-img" src="https://data.personalfn.com/images/qis_logo.png" alt="Personalfn"></a>
-</div>
-<!-- Thank you note with Logo -->
-
-<div class="table-responsive">
-    <table class="table table-body" id="tdRslt" width="100%">
-        <tbody>
-            <tr class="even">
-                <td align="left"><strong>EPF Balance at Retirement (Rs.)</strong></td>
-                <td align="left" class="last" id="tdEPF">1,143,981</td>
-            </tr>
-            <tr class="even" id="trPension">
-                <td align="left"><strong>Pension Fund Balance at Retirement (Rs.)</strong></td>
-                <td align="left" class="last" id="tdPension">141,332</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <div id="divRtnMF">
-    </div>
-</div>
-
-<article>
-    <details>
-        <summary>How to Check PF balance?</summary>
         <article>
-            <div class="mt50">
-                <div>
-                    <p class="txt-normal"><strong>Step 1.</strong> Go to the government EPF portal</p>
-                </div>
-                <div>
-                    <p class="txt-normal"><strong>Step 2.</strong> Select the location (state, regional branch office)
-                        of your PF office</p>
-                </div>
-                <div>
-                    <p class="txt-normal"><strong>Step 3.</strong>Complete the online form complete with your personal
-                        info and the EPFO account number specified in your payslip</p>
-                </div>
-                <div>
-                    <p class="txt-normal"><strong>Step 4.</strong> Submit the form after verifying the details provided
-                    </p>
-                </div>
-                <div>
-                    <p class="txt-normal"><strong>Step 5.</strong> If all your records are in place, you will be sent
-                        the EPF balance as SMS to your registered mobile</p>
-                </div>
-            </div>
-        </article>
-    </details>
+            <details>
+                <summary>How to Check PF balance?</summary>
+                <article>
+                    <div class="mt50">
+                        <div>
+                            <p class="txt-normal"><strong>Step 1.</strong> Go to the government EPF portal</p>
+                        </div>
+                        <div>
+                            <p class="txt-normal"><strong>Step 2.</strong> Select the location (state, regional branch
+                                office)
+                                of your PF office</p>
+                        </div>
+                        <div>
+                            <p class="txt-normal"><strong>Step 3.</strong>Complete the online form complete with your
+                                personal
+                                info and the EPFO account number specified in your payslip</p>
+                        </div>
+                        <div>
+                            <p class="txt-normal"><strong>Step 4.</strong> Submit the form after verifying the details
+                                provided
+                            </p>
+                        </div>
+                        <div>
+                            <p class="txt-normal"><strong>Step 5.</strong> If all your records are in place, you will be
+                                sent
+                                the EPF balance as SMS to your registered mobile</p>
+                        </div>
+                    </div>
+                </article>
+            </details>
 
-    <details>
-        <summary>Rate of Interest in EPF</summary>
-        <article>
-            <div class="mt50">
-                <div>
-                    <p class="txt-normal">The money accumulated in the government EPF trust offers compounded interest.
-                        At present, the interest rate is 8.65%. EPF is under the purview of a Central Board of Trustees
-                        and the government, who decide the interest rate. They review the interest rate annually.Opening
-                        balance for 2018 – 2017 balance + monthly contributions in 2018+ interest</p>
-                </div>
-            </div>
-        </article>
-    </details>
+            <details>
+                <summary>Rate of Interest in EPF</summary>
+                <article>
+                    <div class="mt50">
+                        <div>
+                            <p class="txt-normal">The money accumulated in the government EPF trust offers compounded
+                                interest.
+                                At present, the interest rate is 8.65%. EPF is under the purview of a Central Board of
+                                Trustees
+                                and the government, who decide the interest rate. They review the interest rate
+                                annually.Opening
+                                balance for 2018 – 2017 balance + monthly contributions in 2018+ interest</p>
+                        </div>
+                    </div>
+                </article>
+            </details>
 
-    <details>
-        <summary>Benefits of EPF</summary>
-        <article>
-            <div>
-                <p class="txt-normal">1. You can nominate a family member as your nominee, so that they can avail
-                    the pension or the corpus in the event of your demise
-                </p>
-            </div>
-            <div>
-                <p class="txt-normal">2. You get a fixed income once you retire, without having to work</p>
-            </div>
-            <div>
-                <p class="txt-normal">3. EPF allows you to invest more than the basic 12% of your salary every month
-                    under the provision of Volunteer provident fund</p>
-            </div>
-            <div>
-                <p class="txt-normal">4. You also get life insurance cover under EPF</p>
-            </div>
-            <div>
-                <p class="txt-normal">5. EPF is not mandatory, though it is strongly recommended that you join</p>
-            </div>
-            <div>
-                <p class="txt-normal">6. When you withdraw EPF (after 60), you can avail both EPS and EPF</p>
-            </div>
-            <div>
-                <p class="txt-normal">7. You can withdraw early in case of an emergency under certain defined
-                    circumstances like job loss, wedding, loan repayment etc
-                </p>
-            </div>
-            <div>
-                <p class="txt-normal">8. TThere is no need to withdraw or open a new EPF as you can link the old one
-                    and the new one</p>
-            </div>
-        </article>
-    </details>
+            <details>
+                <summary>Benefits of EPF</summary>
+                <article>
+                    <div>
+                        <p class="txt-normal">1. You can nominate a family member as your nominee, so that they can
+                            avail
+                            the pension or the corpus in the event of your demise
+                        </p>
+                    </div>
+                    <div>
+                        <p class="txt-normal">2. You get a fixed income once you retire, without having to work</p>
+                    </div>
+                    <div>
+                        <p class="txt-normal">3. EPF allows you to invest more than the basic 12% of your salary every
+                            month
+                            under the provision of Volunteer provident fund</p>
+                    </div>
+                    <div>
+                        <p class="txt-normal">4. You also get life insurance cover under EPF</p>
+                    </div>
+                    <div>
+                        <p class="txt-normal">5. EPF is not mandatory, though it is strongly recommended that you join
+                        </p>
+                    </div>
+                    <div>
+                        <p class="txt-normal">6. When you withdraw EPF (after 60), you can avail both EPS and EPF</p>
+                    </div>
+                    <div>
+                        <p class="txt-normal">7. You can withdraw early in case of an emergency under certain defined
+                            circumstances like job loss, wedding, loan repayment etc
+                        </p>
+                    </div>
+                    <div>
+                        <p class="txt-normal">8. TThere is no need to withdraw or open a new EPF as you can link the old
+                            one
+                            and the new one</p>
+                    </div>
+                </article>
+            </details>
 
-    <details>
-        <summary>How to transfer EPF money online?</summary>
-        <article>
-            <div>
-                <p class="txt-normal"><strong>Step 1.</strong> In the event of a job change, EPF can be transferred
-                    using the Unified Account Number (UAN) and the account number will stay the same</p>
-            </div>
-            <div>
-                <p class="txt-normal"><strong>Step 2.</strong> Go to the official EPF member portal and register</p>
-            </div>
-            <div>
-                <p class="txt-normal"><strong>Step 3.</strong> Login once you get the login credentials</p>
-            </div>
-            <div>
-                <p class="txt-normal"><strong>Step 4.</strong> Visit the Online Transfer Claim Portal and request
-                    for EPF transfer using the same login details as above</p>
-            </div>
-            <div>
-                <p class="txt-normal"><strong>Step 5.</strong> If you are eligible to make the transfer claim
-                    online, you can do it without having to submit Form 13</p>
-            </div>
-            <div>
-                <p class="txt-normal"><strong>Step 6.</strong> Click ‘Request for Transfer of Funds’ and enter your
-                    old employment details as directed</p>
-            </div>
-            <div>
-                <p class="txt-normal"><strong>Step 7.</strong> Get it authenticated by your previous or new employer
-                </p>
-            </div>
-            <div>
-                <p class="txt-normal"><strong>Step 8.</strong> After entering the details, you will receive a PIN on
-                    your mobile</p>
-            </div>
-            <div>
-                <p class="txt-normal"><strong>Step 9.</strong> Use the tracking ID generated for you to track your
-                    application</p>
-            </div>
-            <div>
-                <p class="txt-normal"><strong>Note:</strong> You cannot withdraw all your EPF. You will receive your
-                    PF amount after the deductions mentioned under Table D in the EPF rules.</p>
-            </div>
-        </article>
-    </details>
+            <details>
+                <summary>How to transfer EPF money online?</summary>
+                <article>
+                    <div>
+                        <p class="txt-normal"><strong>Step 1.</strong> In the event of a job change, EPF can be
+                            transferred
+                            using the Unified Account Number (UAN) and the account number will stay the same</p>
+                    </div>
+                    <div>
+                        <p class="txt-normal"><strong>Step 2.</strong> Go to the official EPF member portal and register
+                        </p>
+                    </div>
+                    <div>
+                        <p class="txt-normal"><strong>Step 3.</strong> Login once you get the login credentials</p>
+                    </div>
+                    <div>
+                        <p class="txt-normal"><strong>Step 4.</strong> Visit the Online Transfer Claim Portal and
+                            request
+                            for EPF transfer using the same login details as above</p>
+                    </div>
+                    <div>
+                        <p class="txt-normal"><strong>Step 5.</strong> If you are eligible to make the transfer claim
+                            online, you can do it without having to submit Form 13</p>
+                    </div>
+                    <div>
+                        <p class="txt-normal"><strong>Step 6.</strong> Click ‘Request for Transfer of Funds’ and enter
+                            your
+                            old employment details as directed</p>
+                    </div>
+                    <div>
+                        <p class="txt-normal"><strong>Step 7.</strong> Get it authenticated by your previous or new
+                            employer
+                        </p>
+                    </div>
+                    <div>
+                        <p class="txt-normal"><strong>Step 8.</strong> After entering the details, you will receive a
+                            PIN on
+                            your mobile</p>
+                    </div>
+                    <div>
+                        <p class="txt-normal"><strong>Step 9.</strong> Use the tracking ID generated for you to track
+                            your
+                            application</p>
+                    </div>
+                    <div>
+                        <p class="txt-normal"><strong>Note:</strong> You cannot withdraw all your EPF. You will receive
+                            your
+                            PF amount after the deductions mentioned under Table D in the EPF rules.</p>
+                    </div>
+                </article>
+            </details>
 
-    <details>
-        <summary>EPF Calculator</summary>
-        <article>
-            <div class="col-lg-12" style="text-align:justify;">
-                <h2>EPF Calculator</h2>
+            <details>
+                <summary>EPF Calculator</summary>
+                <article>
+                    <div class="col-lg-12" style="text-align:justify;">
+                        <h2>EPF Calculator</h2>
 
-                <p>Our EPF Calculator is one step solution to all your EPF related calculation questions. It easily
-                    calculates the
-                    return on your EPF contribution within no time. EPF Calculator is an online tool and hence can be
-                    used anywhere
-                    anytime.</p>
+                        <p>Our EPF Calculator is one step solution to all your EPF related calculation questions. It
+                            easily
+                            calculates the
+                            return on your EPF contribution within no time. EPF Calculator is an online tool and hence
+                            can
+                            be
+                            used anywhere
+                            anytime.</p>
 
-                <h3>How to use EPF Calculator</h3>
+                        <h3>How to use EPF Calculator</h3>
 
-                <p>Details which you need to provide are as below:</p>
+                        <p>Details which you need to provide are as below:</p>
 
-                <ul>
-                    <li>Current Age</li>
-                    <li>Retirement Age</li>
-                    <li>Current EPF Balance</li>
-                    <li>Employee Contribution</li>
-                    <li>Employer Contribution</li>
-                    <li>Growth Rate in EPF Contribution</li>
-                    <li>Rate of Interest</li>
-                    <li>Current Pension Fund Balance</li>
-                </ul>
-                &nbsp;
+                        <ul>
+                            <li>Current Age</li>
+                            <li>Retirement Age</li>
+                            <li>Current EPF Balance</li>
+                            <li>Employee Contribution</li>
+                            <li>Employer Contribution</li>
+                            <li>Growth Rate in EPF Contribution</li>
+                            <li>Rate of Interest</li>
+                            <li>Current Pension Fund Balance</li>
+                        </ul>
+                        &nbsp;
 
-                <p>Now let’s look at each input point in detail:</p>
+                        <p>Now let’s look at each input point in detail:</p>
 
-                <h3>Current EPF Balance</h3>
+                        <h3>Current EPF Balance</h3>
 
-                <p>Your monthly contributions towards your EPF account creates a balance for yourself. You can either
-                    check your EPF
-                    account balance online, via SMS or Missed Call or via Mobile App. We will discus their process in
-                    detail at the
-                    end.</p>
+                        <p>Your monthly contributions towards your EPF account creates a balance for yourself. You can
+                            either
+                            check your EPF
+                            account balance online, via SMS or Missed Call or via Mobile App. We will discus their
+                            process
+                            in
+                            detail at the
+                            end.</p>
 
-                <h3>Employee Contribution</h3>
+                        <h3>Employee Contribution</h3>
 
-                <p>This your contribution towards your retirement corpus of EPF. The employee contribution of 12% goes
-                    straight into
-                    the EPF.</p>
+                        <p>This your contribution towards your retirement corpus of EPF. The employee contribution of
+                            12%
+                            goes
+                            straight into
+                            the EPF.</p>
 
-                <h3>Employer Contribution</h3>
+                        <h3>Employer Contribution</h3>
 
-                <p>But the employer’s contribution is allocated across the EPF and the EPS. The employer also bears 3
-                    additional
-                    costs i.e. the EDLIS, the EPF admin charges and the EDLIS admin charges.</p>
+                        <p>But the employer’s contribution is allocated across the EPF and the EPS. The employer also
+                            bears
+                            3
+                            additional
+                            costs i.e. the EDLIS, the EPF admin charges and the EDLIS admin charges.</p>
 
-                <p>Employer Contribution is divided as:</p>
-                <p><img src="./images/EPF-Calculation-Methods.jpg" /></p>
-                <ul style="list-style-type:disc;padding-left:40px">
-                    <li>3.67% into EPF</li>
-                    <li>8.33% into EPS</li>
-                    <li>0.5% into EDLIS</li>
-                    <li>0.85% for EPF Administrative Charges</li>
-                    <li>0.01% for EDLIS Administrative Charges</li>
-                </ul>
+                        <p>Employer Contribution is divided as:</p>
+                        <p><img src="./images/EPF-Calculation-Methods.jpg" /></p>
+                        <ul style="list-style-type:disc;padding-left:40px">
+                            <li>3.67% into EPF</li>
+                            <li>8.33% into EPS</li>
+                            <li>0.5% into EDLIS</li>
+                            <li>0.85% for EPF Administrative Charges</li>
+                            <li>0.01% for EDLIS Administrative Charges</li>
+                        </ul>
 
-                <h3>Growth Rate in EPF</h3>
+                        <h3>Growth Rate in EPF</h3>
 
-                <p>This is also equal to your salary growth rate. In other words, enter the percent at which you expect
-                    your salary
-                    to grow. This in turn will lead to growth in your EPF contribution.</p>
+                        <p>This is also equal to your salary growth rate. In other words, enter the percent at which you
+                            expect
+                            your salary
+                            to grow. This in turn will lead to growth in your EPF contribution.</p>
 
-                <h3>Rate of Interest</h3>
+                        <h3>Rate of Interest</h3>
 
-                <p>You can either put the current EPF rate of interest or the rate at which you assume your EPF would
-                    deliver
-                    returns.</p>
+                        <p>You can either put the current EPF rate of interest or the rate at which you assume your EPF
+                            would
+                            deliver
+                            returns.</p>
 
-                <h3>Current Pension Fund Balance</h3>
+                        <h3>Current Pension Fund Balance</h3>
 
-                <p>Your pension fund balance is mentioned in your EPF Passbook which is part of Employees’ Pension
-                    Scheme (EPS).</p>
+                        <p>Your pension fund balance is mentioned in your EPF Passbook which is part of Employees’
+                            Pension
+                            Scheme (EPS).</p>
 
-                <h2>Segregation of Your EPF Contribution</h2>
+                        <h2>Segregation of Your EPF Contribution</h2>
 
-                <p>Currently, the following three schemes are in operation under the EPF Act of 1952, and it is into
-                    these trusts
-                    that your monthly contributions go:</p>
+                        <p>Currently, the following three schemes are in operation under the EPF Act of 1952, and it is
+                            into
+                            these trusts
+                            that your monthly contributions go:</p>
 
-                <ul style="list-style-type:disc;padding-left:40px">
-                    <li>Employees’ Provident Fund Scheme (EPF) (1952)</li>
-                    <li>Employees’ Deposit Linked Insurance Scheme (EDLI) (1976)</li>
-                    <li>Employees’ Pension Scheme (EPS) (1995)</li>
-                </ul>
-                &nbsp;
+                        <ul style="list-style-type:disc;padding-left:40px">
+                            <li>Employees’ Provident Fund Scheme (EPF) (1952)</li>
+                            <li>Employees’ Deposit Linked Insurance Scheme (EDLI) (1976)</li>
+                            <li>Employees’ Pension Scheme (EPS) (1995)</li>
+                        </ul>
+                        &nbsp;
 
-                <p>EPF, EPS and EDLIS are calculated on the basis of your Basic + Dearness Allowance (DA) (including
-                    cash value of
-                    any food concession allowed to the employee) + Retaining Allowance (RA) if any. (Retaining Allowance
-                    means
-                    allowance payable for the time being to an employee of any factory or other establishment during any
-                    period in
-                    which the establishment is not working, for retaining his services.)</p>
+                        <p>EPF, EPS and EDLIS are calculated on the basis of your Basic + Dearness Allowance (DA)
+                            (including
+                            cash value of
+                            any food concession allowed to the employee) + Retaining Allowance (RA) if any. (Retaining
+                            Allowance
+                            means
+                            allowance payable for the time being to an employee of any factory or other establishment
+                            during
+                            any
+                            period in
+                            which the establishment is not working, for retaining his services.)</p>
 
-                <h2>What is Employee Provident Fund (EPF)?</h2>
+                        <h2>What is Employee Provident Fund (EPF)?</h2>
 
-                <p>An employee provident fund is created, through contributions, to provide financial support to
-                    individuals above a
-                    certain age, such as post <a
-                        href="https://www.personalfn.com/knowledge-center/financial-planning/tutorials/11-12-22/the_psychology_of_planning_for_your_retirement.aspx">retirement
-                        age or the incapacitation of the employee to continue working either temporarily or
-                        permanently</a>.
-                    Contributions are made on a monthly basis, by both employees and employers, thereby encouraging
-                    employees to
-                    save a portion of their salary each month. Investments made by a vast number of employees across
-                    India are <a
-                        href="http://www.personalfn.com/knowledge-center/fixed-income/fip-views-on-news/10-10-12/epf_money_in_stock_market.aspx">pooled
-                        together and invested by a trust</a>.</p>
+                        <p>An employee provident fund is created, through contributions, to provide financial support to
+                            individuals above a
+                            certain age, such as post <a
+                                href="https://www.personalfn.com/knowledge-center/financial-planning/tutorials/11-12-22/the_psychology_of_planning_for_your_retirement.aspx">retirement
+                                age or the incapacitation of the employee to continue working either temporarily or
+                                permanently</a>.
+                            Contributions are made on a monthly basis, by both employees and employers, thereby
+                            encouraging
+                            employees to
+                            save a portion of their salary each month. Investments made by a vast number of employees
+                            across
+                            India are <a
+                                href="http://www.personalfn.com/knowledge-center/fixed-income/fip-views-on-news/10-10-12/epf_money_in_stock_market.aspx">pooled
+                                together and invested by a trust</a>.</p>
 
-                <p>The EPF is a tax-free investment instrument for the salaried class having an Exempt-Exempt-Exempt
-                    status The
-                    contributions made by the employee eligible for tax deductions under Section 80 C, the interest
-                    earned on the
-                    total investments and the withdrawal (including partial withdrawals for specific expenses) are
-                    exempt from the
-                    purview of taxation.</p>
+                        <p>The EPF is a tax-free investment instrument for the salaried class having an
+                            Exempt-Exempt-Exempt
+                            status The
+                            contributions made by the employee eligible for tax deductions under Section 80 C, the
+                            interest
+                            earned on the
+                            total investments and the withdrawal (including partial withdrawals for specific expenses)
+                            are
+                            exempt from the
+                            purview of taxation.</p>
 
-                <p>Here, you contribute 12% of the specified salary (either Rs. 6,500 or your actual Basic if it is
-                    higher -
-                    whichever you choose) and your employer contributes 3.67% of the specified salary (either Rs. 6,500
-                    or the
-                    actual Basic, whichever is higher, if it so chooses).</p>
+                        <p>Here, you contribute 12% of the specified salary (either Rs. 6,500 or your actual Basic if it
+                            is
+                            higher -
+                            whichever you choose) and your employer contributes 3.67% of the specified salary (either
+                            Rs.
+                            6,500
+                            or the
+                            actual Basic, whichever is higher, if it so chooses).</p>
 
-                <h2>What is Employee Pension Scheme (EPS)?</h2>
+                        <h2>What is Employee Pension Scheme (EPS)?</h2>
 
-                <p>In this fund the employer and the Central Government contribute a defined amount every month with the
-                    sole
-                    objective of providing regular pension to the employee post retirement. You as an employee do not
-                    contribute to
-                    your own Pension Scheme, this is contributed by your employer and by the Central Government. Your
-                    employer
-                    contributes 8.33% of Rs. 6,500 Basic salary to the Employee Pension Scheme, and the Central
-                    Government
-                    contributes 1.16% of the same. The EPS provides you with regular annuity after your retirement.</p>
-
-                <h2>Check your EPF balance Online</h2>
-
-                <p>Yes, it can. <b>Here are a few steps to be followed to check EPF balance using UAN number:</b></p>
-
-                <ul style="list-style-type:disc;padding-left:40px">
-                    <li style="text-align:left;"><b>Step 1:</b>Open the web page <a
-                            href="https://passbook.epfindia.gov.in/MemberPassBook/Login.jsp"
-                            style="color: #ff8f00;">https://passbook.epfindia.gov.in/MemberPassBook/Login.jsp</a></li>
-                    <li><b>Step 2:</b> Enter your Universal Account Number of UAN.</li>
-                    <li><b>Step 3:</b> Enter your password set for the UAN portal &amp; fill in the captcha code</li>
-                    <li><b>Step 4:</b> Once logged in, select your EPF account number from the list.</li>
-                    <li><b>Step 5:</b> The passbook with updated balances will be loaded on the page.</li>
-                </ul>
-
-                <h2>Check EPF balance via SMS or Missed Call</h2>
-
-                <p>Employees can now check their EPF balance through SMS or by giving a missed call. One such way which
-                    comes in
-                    handy at times when you do not have an active online connection is via SMS or missed calls. For this
-                    you will
-                    need to have an activated UAN number. In case you have a valid UAN, your mobile number too will be
-                    registered
-                    with the EPF department. Giving a simple missed call to 011-22901406 will ensure that you receive a
-                    SMS that
-                    lists down your PF number, age and name as per the EPF records. However, you will require your UAN
-                    along with
-                    Aadhaar Number or PAN Number in order to know your EPF balance.</p>
-
-                <p>KYC details along with UAN are mandatory for knowing your EPF balance. Once your UAN is integrated
-                    with your KYC,
-                    every time you give a missed call to the Employee’s Provident Fund department, you will receive SMS
-                    with your
-                    EPF details including the EPF balance.</p>
-
-                <h2>Check EPF balance via mobile app</h2>
-
-                <p>EPFO recently launched a mobile app for PF balance tracking riding on the mobile application trend in
-                    the Indian
-                    market. The mobile app helps to check the EPF balance and generate an account statement. The mobile
-                    app
-                    currently in the market is only available for the android version. EPFO will soon be launching
-                    mobile app
-                    versions for both blackberry and iOS devices.</p>
-
-                <p><b>Steps for using the EPF mobile app:</b></p>
-
-                <ul style="list-style-type:disc;padding-left:40px">
-                    <li><b>Step 1:</b> Open the mobile app – Umang (<a href="https://web.umang.gov.in/web/"
-                            style="color: #ff8f00;">https://web.umang.gov.in/web/</a>) - on your phone and click EPFO
-                    </li>
-                    <li><b>Step 2:</b> Under the Employee Services option, click passbook and then input your 12-digit
-                        UAN number.
-                        The system will send an OTP to the mobile number registered with the EPFO</li>
-                    <li><b>Step 3:</b> Once verified, you will be shown a screen which displays your updated EPF balance
-                        information
-                        along with personal details like your name, date of birth, Aadhaar number; PAN for tax
-                        deduction, last month
-                        EPF contribution etc.</li>
-                </ul>
-                &nbsp;
-
-                <p>The Mobile App is a good and handy way to check your EPF balance and that too on the go.</p>
-
-                <h2>What is the Universal Account Number (UAN)?</h2>
-
-                <p>UAN stands for Universal Account Number, which is a unique 12-digit number for all individuals
-                    enrolled under the
-                    EPF scheme. The best part is, UAN is a unique number assigned to each employee and remains permanent
-                    even when
-                    you switch your employment. UAN can be generated by logging in to the EPF website.</p>
-
-                <p>Once you have registered your UAN, you will receive details like EPF balance and other such
-                    information on your
-                    mobile phone via SMS.</p>
-
-                <p>The members who do not have smart phone can activate their UAN account by sending an SMS to
-                    07738299899 from the
-                    comfort of their mobile phones which would enable them to avail all UAN related facilities.</p>
-
-                <p>The format of the SMS is EPFOHO<uan>LAN. LAN denotes the first three character of the preferred
-                        language in which
-                        the member desires to get the details.</uan>
-                </p>
-
-                <p>This facility is available in ten different languages namely English, Hindi, Punjabi, Gujarati,
-                    Marathi, Kannada,
-                    Telugu, Tamil, Malayalam and Bengali. A missed call service has been launched for those members who
-                    have
-                    activated their UAN. Such members can give a missed call to 011-22901406 to fetch the details about
-                    their
-                    accounts.</p>
-
-                <p>The government has taken necessary steps to offer UAN upfront to employees thus paving the way to
-                    experience the
-                    next generation of e-enabled services of EPFO.</p>
-
-                <h2>How to Transfer Your EPF Money Online</h2>
-
-                <p>The UAN number makes it simple to track your funds even while you move from one organisation to
-                    another at any
-                    point of time. You, too, can follow these steps and complete the hassle-free transfer procedure:</p>
-
-                <ul style="list-style-type:disc;padding-left:40px">
-                    <li><b>Step 1: Check Your Eligibility</b>
-
-                        <p>You can check your eligibility at the Online Transfer Claim Portal (OTCP) under the category
-                            “FOR
-                            EMPLOYEES” on the home-page of EPFO website – <a href="http://www.epfindia.gov.in"
-                                style="color: #ff8f00;">www.epfindia.gov.in</a></p>
-                    </li>
-                    <li><b>Step 2: Fill in the Application Form </b>
-                        <p>Once you’ve followed the above procedure, fill in the application form.</p>
-                    </li>
-                    <li><b>Step 3: Submit the form </b>
-                        <p>At this step, a Captcha code will appear; type that into the field and click on “GET PIN”
-                            button. But
-                            before you go ahead, don’t forget to signify your assent by selecting the button, “I Agree”.
+                        <p>In this fund the employer and the Central Government contribute a defined amount every month
+                            with
+                            the
+                            sole
+                            objective of providing regular pension to the employee post retirement. You as an employee
+                            do
+                            not
+                            contribute to
+                            your own Pension Scheme, this is contributed by your employer and by the Central Government.
+                            Your
+                            employer
+                            contributes 8.33% of Rs. 6,500 Basic salary to the Employee Pension Scheme, and the Central
+                            Government
+                            contributes 1.16% of the same. The EPS provides you with regular annuity after your
+                            retirement.
                         </p>
 
-                        <p>Soon, you will receive the PIN on your registered mobile number. Submitting the PIN you’ve
-                            received will
-                            complete your online application transfer process.</p>
-                    </li>
-                    <li><b>Step 4: Track your transfer status </b>
-                        <p>A tracking ID will be generated once the application is over. With this, you can track your
-                            online
-                            application. And don’t forget to save the Printable Transfer Claim Form (Form 13) generated
-                            on your
-                            machine (desktop, laptop, tablet, phablet, smartphone or any other gadget you’re using),
-                            take a
-                            print-out, sign and send it across to the employer (current or previous) you’ve chosen to
-                            complete the
-                            claim process.</p>
+                        <h2>Check your EPF balance Online</h2>
 
-                        <p>Online transfer claim has simplified the whole process and is hassle free. It takes 30-60
-                            days to
-                            complete the claim settlement process and for the transfer to be done. Even your employer
-                            can view,
-                            verify or correct, and submit your details online through this portal.</p>
-                    </li>
-                </ul>
+                        <p>Yes, it can. <b>Here are a few steps to be followed to check EPF balance using UAN
+                                number:</b>
+                        </p>
 
-                <h2>Benefits of EPF</h2>
+                        <ul style="list-style-type:disc;padding-left:40px">
+                            <li style="text-align:left;"><b>Step 1:</b>Open the web page <a
+                                    href="https://passbook.epfindia.gov.in/MemberPassBook/Login.jsp"
+                                    style="color: #ff8f00;">https://passbook.epfindia.gov.in/MemberPassBook/Login.jsp</a>
+                            </li>
+                            <li><b>Step 2:</b> Enter your Universal Account Number of UAN.</li>
+                            <li><b>Step 3:</b> Enter your password set for the UAN portal &amp; fill in the captcha code
+                            </li>
+                            <li><b>Step 4:</b> Once logged in, select your EPF account number from the list.</li>
+                            <li><b>Step 5:</b> The passbook with updated balances will be loaded on the page.</li>
+                        </ul>
 
-                <p>For a salaried person, contributions to the EPF offer a lot of benefits:</p>
+                        <h2>Check EPF balance via SMS or Missed Call</h2>
 
-                <ul style="list-style-type:disc;padding-left:40px">
-                    <li><b>Safe returns</b>
+                        <p>Employees can now check their EPF balance through SMS or by giving a missed call. One such
+                            way
+                            which
+                            comes in
+                            handy at times when you do not have an active online connection is via SMS or missed calls.
+                            For
+                            this
+                            you will
+                            need to have an activated UAN number. In case you have a valid UAN, your mobile number too
+                            will
+                            be
+                            registered
+                            with the EPF department. Giving a simple missed call to 011-22901406 will ensure that you
+                            receive a
+                            SMS that
+                            lists down your PF number, age and name as per the EPF records. However, you will require
+                            your
+                            UAN
+                            along with
+                            Aadhaar Number or PAN Number in order to know your EPF balance.</p>
 
-                        <p>This is one of the safest <a
-                                href="http://www.personalfn.com/knowledge-center/mutual-funds/views-on-news/12-07-25/your_debt_mutual_funds_will_soon_be_less_risky.aspx"
-                                style="color: #ff8f00;">debt instruments</a> available in the country. It is government
-                            backed and
-                            guarantees safety of principal and interest earned. It can help you accumulate a significant
-                            corpus for
-                            your retirement, as the contributions happen month on month for your entire working life.
-                            This makes it
-                            suitable for very long term financial goals.</p>
-                    </li>
-                    <li><b>Friendly tax treatment</b>
-                        <p>This is an E-E-E instrument – meaning your contributions are deductible under Section 80C,
-                            interest
-                            earned is tax free and maturity proceeds are also tax free, provided contributions to the
-                            fund have been
-                            for more than 5 years of service.</p>
-                    </li>
-                    <li><b>Interest earned on EPF is the equivalent of a high pre-tax rate</b>
-                        <p>Considering that the EPF is paying 8.75% this year, this is the equivalent of a 12.50% rate
-                            of interest
-                            (for somebody in the 30% tax bracket). This interest rate is guaranteed and risk-free.</p>
-                    </li>
-                </ul>
+                        <p>KYC details along with UAN are mandatory for knowing your EPF balance. Once your UAN is
+                            integrated
+                            with your KYC,
+                            every time you give a missed call to the Employee’s Provident Fund department, you will
+                            receive
+                            SMS
+                            with your
+                            EPF details including the EPF balance.</p>
 
-                <h2>Two common questions about EPF withdrawal</h2>
+                        <h2>Check EPF balance via mobile app</h2>
 
-                <h3>Can I withdraw my EPF money?</h3>
+                        <p>EPFO recently launched a mobile app for PF balance tracking riding on the mobile application
+                            trend in
+                            the Indian
+                            market. The mobile app helps to check the EPF balance and generate an account statement. The
+                            mobile
+                            app
+                            currently in the market is only available for the android version. EPFO will soon be
+                            launching
+                            mobile app
+                            versions for both blackberry and iOS devices.</p>
 
-                <p>Yes, you can. Technically, the EPF is not withdrawable while you are still working, but there is some
-                    leeway
-                    here. There are certain circumstances when you can actually withdraw your money from EPF account
-                    before
-                    maturity. You can withdraw from your EPF account for the below needs:</p>
+                        <p><b>Steps for using the EPF mobile app:</b></p>
 
-                <ol>
-                    <li>Construction / Purchase of a House including acquisition of site or plot for such purpose</li>
-                    <li>Addition / Repair to the existing house</li>
-                    <li>Repayment of loans</li>
-                    <li>Medical Treatment in case of certain major Illness</li>
-                    <li>Marriage or Education</li>
-                    <li>Withdrawal within one year before the retirement</li>
-                </ol>
+                        <ul style="list-style-type:disc;padding-left:40px">
+                            <li><b>Step 1:</b> Open the mobile app – Umang (<a href="https://web.umang.gov.in/web/"
+                                    style="color: #ff8f00;">https://web.umang.gov.in/web/</a>) - on your phone and click
+                                EPFO
+                            </li>
+                            <li><b>Step 2:</b> Under the Employee Services option, click passbook and then input your
+                                12-digit
+                                UAN number.
+                                The system will send an OTP to the mobile number registered with the EPFO</li>
+                            <li><b>Step 3:</b> Once verified, you will be shown a screen which displays your updated EPF
+                                balance
+                                information
+                                along with personal details like your name, date of birth, Aadhaar number; PAN for tax
+                                deduction, last month
+                                EPF contribution etc.</li>
+                        </ul>
+                        &nbsp;
 
-                <h3>Is it illegal to withdraw the PF in between jobs?</h3>
+                        <p>The Mobile App is a good and handy way to check your EPF balance and that too on the go.</p>
 
-                <p>This is a little-known fact about the EPF that is often flouted. But yes, it is illegal to withdraw
-                    your PF
-                    between jobs.</p>
+                        <h2>What is the Universal Account Number (UAN)?</h2>
 
-                <h2>To Conclude</h2>
+                        <p>UAN stands for Universal Account Number, which is a unique 12-digit number for all
+                            individuals
+                            enrolled under the
+                            EPF scheme. The best part is, UAN is a unique number assigned to each employee and remains
+                            permanent
+                            even when
+                            you switch your employment. UAN can be generated by logging in to the EPF website.</p>
 
-                <p>Apart from the main features, it also allows withdrawals as detailed in an earlier question and you
-                    can also
-                    avail a loan against your EPF, using it as security.</p>
+                        <p>Once you have registered your UAN, you will receive details like EPF balance and other such
+                            information on your
+                            mobile phone via SMS.</p>
 
-                <p>However, keep in mind; this is a very long term instrument. If you have <a
-                        href="http://www.personalfn.com/knowledge-center/financial-planning/tutorials/11-09-20/how_to_set_s_m_a_r_t_financial_goals.aspx"
-                        style="color: #ff8f00;">short term financial goals</a>, don’t try to fund it by withdrawals from
-                    your EPF.
-                    If your goals are in fact primarily short term, as is the case with young couples, or parents
-                    funding their
-                    children’s educations in a few years, you might want to consider only investing the minimum amount
-                    in your EPF,
-                    and channelizing your remaining funds towards a more liquid instrument, keeping your risk appetite
-                    and goal time
-                    horizon in mind.</p>
-            </div>
+                        <p>The members who do not have smart phone can activate their UAN account by sending an SMS to
+                            07738299899 from the
+                            comfort of their mobile phones which would enable them to avail all UAN related facilities.
+                        </p>
+
+                        <p>The format of the SMS is EPFOHO<uan>LAN. LAN denotes the first three character of the
+                                preferred
+                                language in which
+                                the member desires to get the details.</uan>
+                        </p>
+
+                        <p>This facility is available in ten different languages namely English, Hindi, Punjabi,
+                            Gujarati,
+                            Marathi, Kannada,
+                            Telugu, Tamil, Malayalam and Bengali. A missed call service has been launched for those
+                            members
+                            who
+                            have
+                            activated their UAN. Such members can give a missed call to 011-22901406 to fetch the
+                            details
+                            about
+                            their
+                            accounts.</p>
+
+                        <p>The government has taken necessary steps to offer UAN upfront to employees thus paving the
+                            way to
+                            experience the
+                            next generation of e-enabled services of EPFO.</p>
+
+                        <h2>How to Transfer Your EPF Money Online</h2>
+
+                        <p>The UAN number makes it simple to track your funds even while you move from one organisation
+                            to
+                            another at any
+                            point of time. You, too, can follow these steps and complete the hassle-free transfer
+                            procedure:
+                        </p>
+
+                        <ul style="list-style-type:disc;padding-left:40px">
+                            <li><b>Step 1: Check Your Eligibility</b>
+
+                                <p>You can check your eligibility at the Online Transfer Claim Portal (OTCP) under the
+                                    category
+                                    “FOR
+                                    EMPLOYEES” on the home-page of EPFO website – <a href="http://www.epfindia.gov.in"
+                                        style="color: #ff8f00;">www.epfindia.gov.in</a></p>
+                            </li>
+                            <li><b>Step 2: Fill in the Application Form </b>
+                                <p>Once you’ve followed the above procedure, fill in the application form.</p>
+                            </li>
+                            <li><b>Step 3: Submit the form </b>
+                                <p>At this step, a Captcha code will appear; type that into the field and click on “GET
+                                    PIN”
+                                    button. But
+                                    before you go ahead, don’t forget to signify your assent by selecting the button, “I
+                                    Agree”.
+                                </p>
+
+                                <p>Soon, you will receive the PIN on your registered mobile number. Submitting the PIN
+                                    you’ve
+                                    received will
+                                    complete your online application transfer process.</p>
+                            </li>
+                            <li><b>Step 4: Track your transfer status </b>
+                                <p>A tracking ID will be generated once the application is over. With this, you can
+                                    track
+                                    your
+                                    online
+                                    application. And don’t forget to save the Printable Transfer Claim Form (Form 13)
+                                    generated
+                                    on your
+                                    machine (desktop, laptop, tablet, phablet, smartphone or any other gadget you’re
+                                    using),
+                                    take a
+                                    print-out, sign and send it across to the employer (current or previous) you’ve
+                                    chosen
+                                    to
+                                    complete the
+                                    claim process.</p>
+
+                                <p>Online transfer claim has simplified the whole process and is hassle free. It takes
+                                    30-60
+                                    days to
+                                    complete the claim settlement process and for the transfer to be done. Even your
+                                    employer
+                                    can view,
+                                    verify or correct, and submit your details online through this portal.</p>
+                            </li>
+                        </ul>
+
+                        <h2>Benefits of EPF</h2>
+
+                        <p>For a salaried person, contributions to the EPF offer a lot of benefits:</p>
+
+                        <ul style="list-style-type:disc;padding-left:40px">
+                            <li><b>Safe returns</b>
+
+                                <p>This is one of the safest <a
+                                        href="http://www.personalfn.com/knowledge-center/mutual-funds/views-on-news/12-07-25/your_debt_mutual_funds_will_soon_be_less_risky.aspx"
+                                        style="color: #ff8f00;">debt instruments</a> available in the country. It is
+                                    government
+                                    backed and
+                                    guarantees safety of principal and interest earned. It can help you accumulate a
+                                    significant
+                                    corpus for
+                                    your retirement, as the contributions happen month on month for your entire working
+                                    life.
+                                    This makes it
+                                    suitable for very long term financial goals.</p>
+                            </li>
+                            <li><b>Friendly tax treatment</b>
+                                <p>This is an E-E-E instrument – meaning your contributions are deductible under Section
+                                    80C,
+                                    interest
+                                    earned is tax free and maturity proceeds are also tax free, provided contributions
+                                    to
+                                    the
+                                    fund have been
+                                    for more than 5 years of service.</p>
+                            </li>
+                            <li><b>Interest earned on EPF is the equivalent of a high pre-tax rate</b>
+                                <p>Considering that the EPF is paying 8.75% this year, this is the equivalent of a
+                                    12.50%
+                                    rate
+                                    of interest
+                                    (for somebody in the 30% tax bracket). This interest rate is guaranteed and
+                                    risk-free.
+                                </p>
+                            </li>
+                        </ul>
+
+                        <h2>Two common questions about EPF withdrawal</h2>
+
+                        <h3>Can I withdraw my EPF money?</h3>
+
+                        <p>Yes, you can. Technically, the EPF is not withdrawable while you are still working, but there
+                            is
+                            some
+                            leeway
+                            here. There are certain circumstances when you can actually withdraw your money from EPF
+                            account
+                            before
+                            maturity. You can withdraw from your EPF account for the below needs:</p>
+
+                        <ol>
+                            <li>Construction / Purchase of a House including acquisition of site or plot for such
+                                purpose
+                            </li>
+                            <li>Addition / Repair to the existing house</li>
+                            <li>Repayment of loans</li>
+                            <li>Medical Treatment in case of certain major Illness</li>
+                            <li>Marriage or Education</li>
+                            <li>Withdrawal within one year before the retirement</li>
+                        </ol>
+
+                        <h3>Is it illegal to withdraw the PF in between jobs?</h3>
+
+                        <p>This is a little-known fact about the EPF that is often flouted. But yes, it is illegal to
+                            withdraw
+                            your PF
+                            between jobs.</p>
+
+                        <h2>To Conclude</h2>
+
+                        <p>Apart from the main features, it also allows withdrawals as detailed in an earlier question
+                            and
+                            you
+                            can also
+                            avail a loan against your EPF, using it as security.</p>
+
+                        <p>However, keep in mind; this is a very long term instrument. If you have <a
+                                href="http://www.personalfn.com/knowledge-center/financial-planning/tutorials/11-09-20/how_to_set_s_m_a_r_t_financial_goals.aspx"
+                                style="color: #ff8f00;">short term financial goals</a>, don’t try to fund it by
+                            withdrawals
+                            from
+                            your EPF.
+                            If your goals are in fact primarily short term, as is the case with young couples, or
+                            parents
+                            funding their
+                            children’s educations in a few years, you might want to consider only investing the minimum
+                            amount
+                            in your EPF,
+                            and channelizing your remaining funds towards a more liquid instrument, keeping your risk
+                            appetite
+                            and goal time
+                            horizon in mind.</p>
+                    </div>
+                </article>
+            </details>
         </article>
-    </details>
-</article>
-
-<script>
-    function calcEPF() {
-        if (0 == allnumeric(document.getElementById("txtAge")))
-            return !1;
-        if (0 == allnumeric(document.getElementById("txtRage")))
-            return !1;
-        if (0 == document.getElementById("txtEPF"))
-            return !1;
-        if (0 == document.getElementById("txtEmpC"))
-            return !1;
-        if (0 == document.getElementById("txtEmprC"))
-            return !1;
-        if (0 == document.getElementById("txtCPF"))
-            return !1;
-        var e, t, n = 0, a = 0, d = 0, l = 0, r = 0, o = 0, u = 0, m = 0, c = 0, s = 0, g = 0, p = 0;
-        n = document.getElementById("txtAge").value,
-            a = document.getElementById("txtRage").value,
-            d = document.getElementById("txtEPF").value.replace(/\,/g, ""),
-            l = document.getElementById("txtEmpC").value.replace(/\,/g, ""),
-            r = document.getElementById("txtEmprC").value.replace(/\,/g, ""),
-            o = document.getElementById("txtGrthRate").value,
-            u = document.getElementById("txtRate").value,
-            m = document.getElementById("txtCPF").value.replace(/\,/g, ""),
-            n = Math.round(parseInt(n)),
-            a = Math.round(parseInt(a)),
-            d = parseFloat(d).toFixed(4),
-            l = parseFloat(l).toFixed(4),
-            r = parseFloat(r).toFixed(4),
-            o = parseFloat(o).toFixed(4),
-            u = parseFloat(u).toFixed(4),
-            m = parseFloat(m).toFixed(4),
-            g = d,
-            g = parseFloat(g).toFixed(4),
-            p = l,
-            p = parseFloat(p).toFixed(4),
-            s = r - 541,
-            s = parseFloat(s).toFixed(4);
-        var y = r;
-        y = parseFloat(y).toFixed(4),
-            t = 6492,
-            e = +t + +m,
-            e = parseFloat(e).toFixed(4);
-        var v = "<table class='style1' style='background-color: transparent;padding: 8px;line-height: 1.42857143;vertical-align: top;width:100%';><tr  color:black;font-size:16px;'><th style='font-size:14px;font-weight:500;border:1px solid #ddd;padding: 8px;line-height: 1.42857143;vertical-align: top;border-bottom-width: 2px;'>Age</th><th style='font-size:14px;font-weight:500;border:1px solid #ddd;padding: 8px;line-height: 1.42857143;vertical-align: top;border-bottom-width: 2px;'>Opening EPF Balance</th><th style='font-size:14px;font-weight:500;border:1px solid #ddd;padding: 8px;line-height: 1.42857143;vertical-align: top;border-bottom-width: 2px;'>Employee Contribution (p.m.)</th><th style='font-size:14px;font-weight:500;border:1px solid #ddd;padding: 8px;line-height: 1.42857143;vertical-align: top;border-bottom-width: 2px;'>Employer Contribution (p.m.)</th><th style='font-size:14px;font-weight:500;border:1px solid #ddd;padding: 8px;line-height: 1.42857143;vertical-align: top;border-bottom-width: 2px;'>Closing EPF Balance</th><th style='font-size:14px;font-weight:500;border:1px solid #ddd;padding: 8px;line-height: 1.42857143;vertical-align: top;border-bottom-width: 2px;'>Diverted to Pension Fund (Rs. 541 p.m.)</th></tr>"
-            , I = a - n;
-        for (i = 1; i <= I + 1; i++)
-            isEven(i) ? cls = "even" : cls = "odd",
-                v = v + "<tr class=" + cls + "><td id=tdAge" + i + " style='font-size:14px;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;vertical-align: top;'>" + n + "</td><td id=tdOEPF" + i + " style='font-size:14px;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;vertical-align: top;' align='center'>" + formatNumber(d.toString().substring(0, d.toString().indexOf(".")), 0, !0, !0, -1) + "</td>",
-                per = i - 1,
-                v = v + "<td id=tdempC" + i + " style='font-size:14px;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;vertical-align: top;' align='center'>" + formatNumber(p.toString().substring(0, p.toString().indexOf(".")), 0, !0, !0, -1) + "</td>",
-                v = v + "<td id=tdemprC" + i + " style='font-size:14px;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;vertical-align: top;' align='center'>" + formatNumber(s.toString().substring(0, s.toString().indexOf(".")), 0, !0, !0, -1) + "</td>",
-                c = fv(u / 100 / 12, 12, -p - s, -d),
-                v = v + "<td id=tdCEPF" + i + " style='font-size:14px;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;vertical-align: top;' align='center'>" + formatNumber(c.toString().substring(0, c.toString().indexOf(".")), 0, !0, !0, -1) + "</td>",
-                v = v + "<td id=tdpens" + i + " style='font-size:14px;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;vertical-align: top;' align='center'>" + formatNumber(e.toString().substring(0, e.toString().indexOf(".")), 0, !0, !0, -1) + "</td></tr>",
-                document.getElementById("tdEPF").innerHTML = formatNumber(c.toString().substring(0, c.toString().indexOf(".")), 0, !0, !0, -1),
-                document.getElementById("tdPension").innerHTML = formatNumber(e.toString().substring(0, e.toString().indexOf(".")), 0, !0, !0, -1),
-                n += 1,
-                d = c,
+    </section>
+    <script>
+        function calcEPF() {
+            if (0 == allnumeric(document.getElementById("txtAge")))
+                return !1;
+            if (0 == allnumeric(document.getElementById("txtRage")))
+                return !1;
+            if (0 == document.getElementById("txtEPF"))
+                return !1;
+            if (0 == document.getElementById("txtEmpC"))
+                return !1;
+            if (0 == document.getElementById("txtEmprC"))
+                return !1;
+            if (0 == document.getElementById("txtCPF"))
+                return !1;
+            var e, t, n = 0, a = 0, d = 0, l = 0, r = 0, o = 0, u = 0, m = 0, c = 0, s = 0, g = 0, p = 0;
+            n = document.getElementById("txtAge").value,
+                a = document.getElementById("txtRage").value,
+                d = document.getElementById("txtEPF").value.replace(/\,/g, ""),
+                l = document.getElementById("txtEmpC").value.replace(/\,/g, ""),
+                r = document.getElementById("txtEmprC").value.replace(/\,/g, ""),
+                o = document.getElementById("txtGrthRate").value,
+                u = document.getElementById("txtRate").value,
+                m = document.getElementById("txtCPF").value.replace(/\,/g, ""),
+                n = Math.round(parseInt(n)),
+                a = Math.round(parseInt(a)),
                 d = parseFloat(d).toFixed(4),
-                p *= 1 + o / 100,
+                l = parseFloat(l).toFixed(4),
+                r = parseFloat(r).toFixed(4),
+                o = parseFloat(o).toFixed(4),
+                u = parseFloat(u).toFixed(4),
+                m = parseFloat(m).toFixed(4),
+                g = d,
+                g = parseFloat(g).toFixed(4),
+                p = l,
                 p = parseFloat(p).toFixed(4),
-                s = y * (1 + o / 100) - 541,
-                s = parseFloat(s).toFixed(4),
-                y *= 1 + o / 100,
-                y = parseFloat(y).toFixed(4),
-                e = +t + +e,
+                s = r - 541,
+                s = parseFloat(s).toFixed(4);
+            var y = r;
+            y = parseFloat(y).toFixed(4),
+                t = 6492,
+                e = +t + +m,
                 e = parseFloat(e).toFixed(4);
-        v += "</tbody></table>",
-            document.getElementById("divRtnMF").innerHTML = v,
-            document.getElementById("trEPF").style.display = "inline",
-            document.getElementById("trPension").style.display = "inline",
-            document.getElementById("tdRslt").style.display = "inline"
-    }
-    function allnumeric(e) {
-        var t = /^[0-9]+$/;
-        return !!e.value.match(t)
-    }
-    function isEven(e) {
-        return e % 2 == 0
-    }
-    function calcInt(e, t) {
-        var n = t * e / 100 / 12;
-        return n
-    }
-    function calcRate() {
-        var e = document.getElementById("txtEqui").value / 12 / 100;
-        return e
-    }
-    function calcFV(e, t, n) {
-        var a = e * Math.pow(1 + t, n);
-        return a
-    }
-    function PMTcalculation() {
-        if (("" == document.getElementById("yr").value || "" == document.getElementById("rate").value) && "" == document.getElementById("id1").innerHTML)
-            return document.getElementById("id1").innerHTML = "Please Enter values",
-                !1;
-        if ("" == document.getElementById("id1").innerHTML) {
-            var e;
-            rate = parseFloat(document.getElementById("rate").value) / 100,
-                nper = parseFloat(document.getElementById("yr").value);
-            var t;
-            t = document.getElementById("cf").value;
-            var n = -1 * t
-                , a = 0
-                , d = 1;
-            fvif = Math.pow(1 + rate, nper),
-                fvifa = (Math.pow(1 + rate, nper) - 1) / rate;
-            var e = floor((-a * fvif - n) / ((1 + rate * d) * fvifa));
-            fvif = Math.pow(1 + rate / 12, 12 * nper),
-                fvifa = (Math.pow(1 + rate / 12, 12 * nper) - 1) / (rate / 12);
-            var l = floor((-a * fvif - n) / ((1 + rate / 12 * d) * fvifa));
-            isNaN(e) || (document.getElementById("tot").value = addseps(e)),
-                isNaN(l) || (document.getElementById("tot1").value = addseps(l))
+            var v = "<table class='style1' style='background-color: transparent;padding: 8px;line-height: 1.42857143;vertical-align: top;width:100%';><tr  color:black;font-size:16px;'><th style='font-size:14px;font-weight:500;border:1px solid #ddd;padding: 8px;line-height: 1.42857143;vertical-align: top;border-bottom-width: 2px;'>Age</th><th style='font-size:14px;font-weight:500;border:1px solid #ddd;padding: 8px;line-height: 1.42857143;vertical-align: top;border-bottom-width: 2px;'>Opening EPF Balance</th><th style='font-size:14px;font-weight:500;border:1px solid #ddd;padding: 8px;line-height: 1.42857143;vertical-align: top;border-bottom-width: 2px;'>Employee Contribution (p.m.)</th><th style='font-size:14px;font-weight:500;border:1px solid #ddd;padding: 8px;line-height: 1.42857143;vertical-align: top;border-bottom-width: 2px;'>Employer Contribution (p.m.)</th><th style='font-size:14px;font-weight:500;border:1px solid #ddd;padding: 8px;line-height: 1.42857143;vertical-align: top;border-bottom-width: 2px;'>Closing EPF Balance</th><th style='font-size:14px;font-weight:500;border:1px solid #ddd;padding: 8px;line-height: 1.42857143;vertical-align: top;border-bottom-width: 2px;'>Diverted to Pension Fund (Rs. 541 p.m.)</th></tr>"
+                , I = a - n;
+            for (i = 1; i <= I + 1; i++)
+                isEven(i) ? cls = "even" : cls = "odd",
+                    v = v + "<tr class=" + cls + "><td id=tdAge" + i + " style='font-size:14px;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;vertical-align: top;'>" + n + "</td><td id=tdOEPF" + i + " style='font-size:14px;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;vertical-align: top;' align='center'>" + formatNumber(d.toString().substring(0, d.toString().indexOf(".")), 0, !0, !0, -1) + "</td>",
+                    per = i - 1,
+                    v = v + "<td id=tdempC" + i + " style='font-size:14px;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;vertical-align: top;' align='center'>" + formatNumber(p.toString().substring(0, p.toString().indexOf(".")), 0, !0, !0, -1) + "</td>",
+                    v = v + "<td id=tdemprC" + i + " style='font-size:14px;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;vertical-align: top;' align='center'>" + formatNumber(s.toString().substring(0, s.toString().indexOf(".")), 0, !0, !0, -1) + "</td>",
+                    c = fv(u / 100 / 12, 12, -p - s, -d),
+                    v = v + "<td id=tdCEPF" + i + " style='font-size:14px;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;vertical-align: top;' align='center'>" + formatNumber(c.toString().substring(0, c.toString().indexOf(".")), 0, !0, !0, -1) + "</td>",
+                    v = v + "<td id=tdpens" + i + " style='font-size:14px;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;vertical-align: top;' align='center'>" + formatNumber(e.toString().substring(0, e.toString().indexOf(".")), 0, !0, !0, -1) + "</td></tr>",
+                    document.getElementById("tdEPF").innerHTML = formatNumber(c.toString().substring(0, c.toString().indexOf(".")), 0, !0, !0, -1),
+                    document.getElementById("tdPension").innerHTML = formatNumber(e.toString().substring(0, e.toString().indexOf(".")), 0, !0, !0, -1),
+                    n += 1,
+                    d = c,
+                    d = parseFloat(d).toFixed(4),
+                    p *= 1 + o / 100,
+                    p = parseFloat(p).toFixed(4),
+                    s = y * (1 + o / 100) - 541,
+                    s = parseFloat(s).toFixed(4),
+                    y *= 1 + o / 100,
+                    y = parseFloat(y).toFixed(4),
+                    e = +t + +e,
+                    e = parseFloat(e).toFixed(4);
+            v += "</tbody></table>",
+                document.getElementById("divRtnMF").innerHTML = v,
+                document.getElementById("trEPF").style.display = "inline",
+                document.getElementById("trPension").style.display = "inline",
+                document.getElementById("tdRslt").style.display = "inline"
         }
-    }
-    function addseps(e) {
-        var e = e;
-        e += "",
-            iLen = e.length,
-            pos = e.indexOf("."),
-            pos > -1 && (iLen = pos),
-            temp = "",
-            temp = e.substring(iLen, e.length);
-        for (var t = iLen - 1; t >= 0; t--)
-            (iLen - t - 1) % 3 == 0 && t != iLen - 1 ? temp = e.charAt(t) + "," + temp : temp = e.charAt(t) + temp;
-        return temp
-    }
-    function floor(e) {
-        return Math.floor(e * Math.pow(10, 2)) / Math.pow(10, 2)
-    }
-    function CheckRate() {
-        "" != document.getElementById("rate").value && (isNaN(document.getElementById("rate").value) ? (document.getElementById("id1").innerHTML = "Please enter a correct number",
-            document.getElementById("rate").focus()) : document.getElementById("rate").value <= 0 ? (document.getElementById("id1").innerHTML = "Please enter a correct number",
-                document.getElementById("rate").focus()) : document.getElementById("rate").value >= 100 ? (document.getElementById("id1").innerHTML = "Rate of interest should be less then 100",
-                    document.getElementById("rate").focus()) : document.getElementById("id1").innerHTML = ""),
-            document.getElementById("id4").innerHTML = ""
-    }
-    function CheckYears() {
-        "" != document.getElementById("yr").value && (isNaN(document.getElementById("yr").value) ? (document.getElementById("id1").innerHTML = "Please enter a correct number",
-            document.getElementById("yr").focus()) : document.getElementById("yr").value <= 0 ? (document.getElementById("id1").innerHTML = "Please enter a correct number",
-                document.getElementById("yr").focus()) : document.getElementById("yr").value >= 100 ? (document.getElementById("id1").innerHTML = "Year should be less then 100",
-                    document.getElementById("yr").focus()) : document.getElementById("id1").innerHTML = ""),
-            document.getElementById("id3").innerHTML = ""
-    }
-    function clearFields() {
-        document.getElementById("yr").value = "",
-            document.getElementById("rate").value = "",
-            document.getElementById("tot").value = "",
-            document.getElementById("tot1").value = "",
-            document.getElementById("id1").innerHTML = ""
-    }
-    function MSG1() {
-        document.getElementById("id2").innerHTML = "(The total amount you wish to save)"
-    }
-    function MSG1OUT() {
-        document.getElementById("id2").innerHTML = ""
-    }
-    function MSG2() {
-        document.getElementById("id3").innerHTML = "(The total number of years that you will save for.)"
-    }
-    function MSG3() {
-        document.getElementById("id4").innerHTML = "(The average interest rate that you expect on your investments.)"
-    }
-    function calcSIP() {
-        var e = parseFloat(document.getElementById("txtSIPamt").value)
-            , t = parseFloat(document.getElementById("txtMnth1").value)
-            , n = parseFloat(document.getElementById("txtMnth2").value)
-            , a = parseFloat(document.getElementById("txtRate").value)
-            , d = document.getElementById("txtFV");
-        isNaN(e) || isNaN(t) || isNaN(n) || isNaN(a) || (finrate = a / 100,
-            rate1 = a / 100 / 12,
-            rate2 = Math.pow(1 + rate1, 12),
-            per = parseInt(t + n),
-            finalRate = (Math.pow((12 + a / 100) / 12, 12) - 1) / 12,
-            finalrate1 = finalRate + 1,
-            d.value = Math.round(calcSIPFV(0, rate1, per, e)))
-    }
-    function FVMonthlySavingCalc() {
-        var e = parseFloat(document.getElementById("txtSavings").value)
-            , t = parseFloat(document.getElementById("txtAnnumRate").value)
-            , n = parseFloat(document.getElementById("txtPeriod").value)
-            , a = document.getElementById("txtFV");
-        finrate = t / 100 / 12,
-            period = parseInt(12 * n),
-            a.value = Math.round(calcSIPFV(0, finrate, period, e))
-    }
-    function SavingsCalc() {
-        var e, t, n, a = document.getElementById("ddlFrq").value, d = parseFloat(document.getElementById("txtInv").value), l = parseFloat(document.getElementById("txtYrs").value), r = parseFloat(document.getElementById("txtRate").value), o = document.getElementById("txtFV");
-        isNaN(d) || isNaN(l) || isNaN(r) || ("monthly" == a && (e = 12,
-            n = parseInt(12 * l),
-            t = r / 100 / 12),
-            "quarterly" == a && (e = 4,
-                n = parseInt(4 * l),
-                t = r / 100 / 4),
-            "halfyearly" == a && (e = 2,
-                n = parseInt(2 * l),
-                t = r / 100 / 2),
-            "yearly" == a && (e = 1,
-                n = parseInt(1 * l),
-                t = r / 100 / 1)),
-            o.value = Math.round(calcSIPFV(0, t, n, d))
-    }
-    function calcSIPFV(e, t, n, a) {
-        return rate1 = 1 + t,
-            pwr = Math.pow(rate1, n + 1),
-            pwramt = pwr - 1,
-            pwramt1 = pwramt / t,
-            fv = a * pwramt1 - a
-    }
-    function GoldPrice() {
-        var e = parseFloat(document.getElementById("txtTroyPrice").value).toFixed(4)
-            , t = document.getElementById("txtGramPrice");
-        if (t.value = parseFloat(e / 31.1034768).toFixed(4),
-            "" != e && "" != document.getElementById("txtRBIRate").value) {
-            var n = parseFloat(document.getElementById("txtRBIRate").value).toFixed(4)
-                , a = document.getElementById("txtGoldPrice")
-                , d = document.getElementById("txtGoldPricePerHalf")
-                , l = document.getElementById("txtGoldPricePertengms");
-            a.value = parseFloat(n * t.value).toFixed(4),
-                d.value = parseFloat(a.value / 2).toFixed(4),
-                l.value = parseFloat(10 * a.value).toFixed(4)
+        function allnumeric(e) {
+            var t = /^[0-9]+$/;
+            return !!e.value.match(t)
         }
-    }
-    function sectionsCalculators() {
-        var e = document.getElementById("txtPremium").value
-            , t = document.getElementById("txtPPF").value
-            , n = document.getElementById("txtNSC").value
-            , a = document.getElementById("txtULIP").value
-            , d = document.getElementById("txtELSS").value
-            , l = document.getElementById("txtBankFD").value
-            , r = document.getElementById("txtPensionPlans").value
-            , o = document.getElementById("txtHL").value
-            , i = document.getElementById("txtIB").value
-            , u = document.getElementById("txtChildrenTutFees").value
-            , m = document.getElementById("txt80C")
-            , c = document.getElementById("txtLimli80C")
-            , s = document.getElementById("txtSec80C")
-            , g = document.getElementById("txt80CCF")
-            , p = document.getElementById("txtLimit80CCF")
-            , y = document.getElementById("txtUnder80CCF");
-        "" != e && "" != t && "" != n && "" != a && "" != d && "" != l && "" != r && "" != o && "" != i && "" != u && (m.value = parseInt(e) + parseInt(t) + parseInt(n) + parseInt(a) + parseInt(d) + parseInt(l) + parseInt(r) + parseInt(o) + parseInt(u),
-            c.value = 1e5,
-            parseInt(m.value) > parseInt(c.value) ? s.value = c.value : s.value = m.value,
-            g.value = i,
-            p.value = 2e4,
-            g.value > p.value ? y.value = p.value : y.value = g.value)
-    }
-    function fv(e, t, n, a) {
-        return t = parseFloat(t),
-            n = parseFloat(n),
-            a = parseFloat(a),
-            0 == e ? fv_value = -(a + n * t) : (x = Math.pow(1 + e, t),
-                fv_value = -(-n + x * n + e * x * a) / e),
-            fv_value
-    }
-    function formatNumber(e, t, n, a, d) {
-        if (isNaN(parseInt(e)))
-            return e;
-        var l = e
-            , r = 0 > e ? -1 : 1;
-        l *= Math.pow(10, t),
-            l = Math.round(Math.abs(l)),
-            l /= Math.pow(10, t),
-            l *= r;
-        var o = new String(l);
-        if (!n && 1 > e && e > -1 && 0 != e && (o = e > 0 ? o.substring(1, o.length) : "-" + o.substring(2, o.length)),
-            d && (e >= 1e3 || -1e3 >= e)) {
-            var i = o.indexOf(".");
-            for (0 > i && (i = o.length),
-                i -= 3; i >= 1;)
-                o = o.substring(0, i) + "," + o.substring(i, o.length),
-                    i -= 3
+        function isEven(e) {
+            return e % 2 == 0
         }
-        return a && 0 > e && (o = "(" + o.substring(1, o.length) + ")"),
-            o
-    }
-    function ValidKeyEntered(e) {
-        var t = e.charCode ? e.charCode : e.keyCode;
-        return t >= 48 && 57 >= t || 16 == t || 46 == t || t >= 35 && 40 >= t || t >= 96 && 105 >= t || 8 == t || 9 == t || 190 == t
-    }
-
-</script>
+        function calcInt(e, t) {
+            var n = t * e / 100 / 12;
+            return n
+        }
+        function calcRate() {
+            var e = document.getElementById("txtEqui").value / 12 / 100;
+            return e
+        }
+        function calcFV(e, t, n) {
+            var a = e * Math.pow(1 + t, n);
+            return a
+        }
+        function PMTcalculation() {
+            if (("" == document.getElementById("yr").value || "" == document.getElementById("rate").value) && "" == document.getElementById("id1").innerHTML)
+                return document.getElementById("id1").innerHTML = "Please Enter values",
+                    !1;
+            if ("" == document.getElementById("id1").innerHTML) {
+                var e;
+                rate = parseFloat(document.getElementById("rate").value) / 100,
+                    nper = parseFloat(document.getElementById("yr").value);
+                var t;
+                t = document.getElementById("cf").value;
+                var n = -1 * t
+                    , a = 0
+                    , d = 1;
+                fvif = Math.pow(1 + rate, nper),
+                    fvifa = (Math.pow(1 + rate, nper) - 1) / rate;
+                var e = floor((-a * fvif - n) / ((1 + rate * d) * fvifa));
+                fvif = Math.pow(1 + rate / 12, 12 * nper),
+                    fvifa = (Math.pow(1 + rate / 12, 12 * nper) - 1) / (rate / 12);
+                var l = floor((-a * fvif - n) / ((1 + rate / 12 * d) * fvifa));
+                isNaN(e) || (document.getElementById("tot").value = addseps(e)),
+                    isNaN(l) || (document.getElementById("tot1").value = addseps(l))
+            }
+        }
+        function addseps(e) {
+            var e = e;
+            e += "",
+                iLen = e.length,
+                pos = e.indexOf("."),
+                pos > -1 && (iLen = pos),
+                temp = "",
+                temp = e.substring(iLen, e.length);
+            for (var t = iLen - 1; t >= 0; t--)
+                (iLen - t - 1) % 3 == 0 && t != iLen - 1 ? temp = e.charAt(t) + "," + temp : temp = e.charAt(t) + temp;
+            return temp
+        }
+        function floor(e) {
+            return Math.floor(e * Math.pow(10, 2)) / Math.pow(10, 2)
+        }
+        function CheckRate() {
+            "" != document.getElementById("rate").value && (isNaN(document.getElementById("rate").value) ? (document.getElementById("id1").innerHTML = "Please enter a correct number",
+                document.getElementById("rate").focus()) : document.getElementById("rate").value <= 0 ? (document.getElementById("id1").innerHTML = "Please enter a correct number",
+                    document.getElementById("rate").focus()) : document.getElementById("rate").value >= 100 ? (document.getElementById("id1").innerHTML = "Rate of interest should be less then 100",
+                        document.getElementById("rate").focus()) : document.getElementById("id1").innerHTML = ""),
+                document.getElementById("id4").innerHTML = ""
+        }
+        function CheckYears() {
+            "" != document.getElementById("yr").value && (isNaN(document.getElementById("yr").value) ? (document.getElementById("id1").innerHTML = "Please enter a correct number",
+                document.getElementById("yr").focus()) : document.getElementById("yr").value <= 0 ? (document.getElementById("id1").innerHTML = "Please enter a correct number",
+                    document.getElementById("yr").focus()) : document.getElementById("yr").value >= 100 ? (document.getElementById("id1").innerHTML = "Year should be less then 100",
+                        document.getElementById("yr").focus()) : document.getElementById("id1").innerHTML = ""),
+                document.getElementById("id3").innerHTML = ""
+        }
+        function clearFields() {
+            document.getElementById("yr").value = "",
+                document.getElementById("rate").value = "",
+                document.getElementById("tot").value = "",
+                document.getElementById("tot1").value = "",
+                document.getElementById("id1").innerHTML = ""
+        }
+        function MSG1() {
+            document.getElementById("id2").innerHTML = "(The total amount you wish to save)"
+        }
+        function MSG1OUT() {
+            document.getElementById("id2").innerHTML = ""
+        }
+        function MSG2() {
+            document.getElementById("id3").innerHTML = "(The total number of years that you will save for.)"
+        }
+        function MSG3() {
+            document.getElementById("id4").innerHTML = "(The average interest rate that you expect on your investments.)"
+        }
+        function calcSIP() {
+            var e = parseFloat(document.getElementById("txtSIPamt").value)
+                , t = parseFloat(document.getElementById("txtMnth1").value)
+                , n = parseFloat(document.getElementById("txtMnth2").value)
+                , a = parseFloat(document.getElementById("txtRate").value)
+                , d = document.getElementById("txtFV");
+            isNaN(e) || isNaN(t) || isNaN(n) || isNaN(a) || (finrate = a / 100,
+                rate1 = a / 100 / 12,
+                rate2 = Math.pow(1 + rate1, 12),
+                per = parseInt(t + n),
+                finalRate = (Math.pow((12 + a / 100) / 12, 12) - 1) / 12,
+                finalrate1 = finalRate + 1,
+                d.value = Math.round(calcSIPFV(0, rate1, per, e)))
+        }
+        function FVMonthlySavingCalc() {
+            var e = parseFloat(document.getElementById("txtSavings").value)
+                , t = parseFloat(document.getElementById("txtAnnumRate").value)
+                , n = parseFloat(document.getElementById("txtPeriod").value)
+                , a = document.getElementById("txtFV");
+            finrate = t / 100 / 12,
+                period = parseInt(12 * n),
+                a.value = Math.round(calcSIPFV(0, finrate, period, e))
+        }
+        function SavingsCalc() {
+            var e, t, n, a = document.getElementById("ddlFrq").value, d = parseFloat(document.getElementById("txtInv").value), l = parseFloat(document.getElementById("txtYrs").value), r = parseFloat(document.getElementById("txtRate").value), o = document.getElementById("txtFV");
+            isNaN(d) || isNaN(l) || isNaN(r) || ("monthly" == a && (e = 12,
+                n = parseInt(12 * l),
+                t = r / 100 / 12),
+                "quarterly" == a && (e = 4,
+                    n = parseInt(4 * l),
+                    t = r / 100 / 4),
+                "halfyearly" == a && (e = 2,
+                    n = parseInt(2 * l),
+                    t = r / 100 / 2),
+                "yearly" == a && (e = 1,
+                    n = parseInt(1 * l),
+                    t = r / 100 / 1)),
+                o.value = Math.round(calcSIPFV(0, t, n, d))
+        }
+        function calcSIPFV(e, t, n, a) {
+            return rate1 = 1 + t,
+                pwr = Math.pow(rate1, n + 1),
+                pwramt = pwr - 1,
+                pwramt1 = pwramt / t,
+                fv = a * pwramt1 - a
+        }
+        function GoldPrice() {
+            var e = parseFloat(document.getElementById("txtTroyPrice").value).toFixed(4)
+                , t = document.getElementById("txtGramPrice");
+            if (t.value = parseFloat(e / 31.1034768).toFixed(4),
+                "" != e && "" != document.getElementById("txtRBIRate").value) {
+                var n = parseFloat(document.getElementById("txtRBIRate").value).toFixed(4)
+                    , a = document.getElementById("txtGoldPrice")
+                    , d = document.getElementById("txtGoldPricePerHalf")
+                    , l = document.getElementById("txtGoldPricePertengms");
+                a.value = parseFloat(n * t.value).toFixed(4),
+                    d.value = parseFloat(a.value / 2).toFixed(4),
+                    l.value = parseFloat(10 * a.value).toFixed(4)
+            }
+        }
+        function sectionsCalculators() {
+            var e = document.getElementById("txtPremium").value
+                , t = document.getElementById("txtPPF").value
+                , n = document.getElementById("txtNSC").value
+                , a = document.getElementById("txtULIP").value
+                , d = document.getElementById("txtELSS").value
+                , l = document.getElementById("txtBankFD").value
+                , r = document.getElementById("txtPensionPlans").value
+                , o = document.getElementById("txtHL").value
+                , i = document.getElementById("txtIB").value
+                , u = document.getElementById("txtChildrenTutFees").value
+                , m = document.getElementById("txt80C")
+                , c = document.getElementById("txtLimli80C")
+                , s = document.getElementById("txtSec80C")
+                , g = document.getElementById("txt80CCF")
+                , p = document.getElementById("txtLimit80CCF")
+                , y = document.getElementById("txtUnder80CCF");
+            "" != e && "" != t && "" != n && "" != a && "" != d && "" != l && "" != r && "" != o && "" != i && "" != u && (m.value = parseInt(e) + parseInt(t) + parseInt(n) + parseInt(a) + parseInt(d) + parseInt(l) + parseInt(r) + parseInt(o) + parseInt(u),
+                c.value = 1e5,
+                parseInt(m.value) > parseInt(c.value) ? s.value = c.value : s.value = m.value,
+                g.value = i,
+                p.value = 2e4,
+                g.value > p.value ? y.value = p.value : y.value = g.value)
+        }
+        function fv(e, t, n, a) {
+            return t = parseFloat(t),
+                n = parseFloat(n),
+                a = parseFloat(a),
+                0 == e ? fv_value = -(a + n * t) : (x = Math.pow(1 + e, t),
+                    fv_value = -(-n + x * n + e * x * a) / e),
+                fv_value
+        }
+        function formatNumber(e, t, n, a, d) {
+            if (isNaN(parseInt(e)))
+                return e;
+            var l = e
+                , r = 0 > e ? -1 : 1;
+            l *= Math.pow(10, t),
+                l = Math.round(Math.abs(l)),
+                l /= Math.pow(10, t),
+                l *= r;
+            var o = new String(l);
+            if (!n && 1 > e && e > -1 && 0 != e && (o = e > 0 ? o.substring(1, o.length) : "-" + o.substring(2, o.length)),
+                d && (e >= 1e3 || -1e3 >= e)) {
+                var i = o.indexOf(".");
+                for (0 > i && (i = o.length),
+                    i -= 3; i >= 1;)
+                    o = o.substring(0, i) + "," + o.substring(i, o.length),
+                        i -= 3
+            }
+            return a && 0 > e && (o = "(" + o.substring(1, o.length) + ")"),
+                o
+        }
+        function ValidKeyEntered(e) {
+            var t = e.charCode ? e.charCode : e.keyCode;
+            return t >= 48 && 57 >= t || 16 == t || 46 == t || t >= 35 && 40 >= t || t >= 96 && 105 >= t || 8 == t || 9 == t || 190 == t
+        }
+    </script>
+</template>

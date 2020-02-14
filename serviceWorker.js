@@ -1,6 +1,6 @@
 // Set this to true for production
 var doCache = false;
-const CACHE_NAME = "cache-v4.0.9";
+const CACHE_NAME = "cache-v4.0.10";
 
 const assetToCache = [
     "manifest.json",

@@ -1,205 +1,215 @@
-<link rel="stylesheet" href="./css/groww.css" type="text/css">
+<template>
+    <section class="content__main">
+        <link rel="stylesheet" href="./css/groww.css" type="text/css">
 
-<h3 id="heading" class="text-center calc-title"><button onclick="hidePanel()">&#8592;</button> FD Calculator - Fixed Deposit Calculator</h3>
+        <header class="content__header">
+            <h3 id="heading" class="text-center calc-title"><a href="#/home">&#8592;</a> FD Calculator
+            </h3>
+        </header>
 
-<form name="sipForm">
-    <div class="sip-calculator">
-        <p>Check returns on your fixed deposits (FDs) without any hassle</p>
-        <div class="container">
-            <div class="radio">
-                <input onclick="changeMode('fd')" id="radio-1" name="radio" type="radio" checked="">
-                <label for="radio-1" class="radio-label">FD</label>
-                <label>&nbsp;&nbsp;&nbsp;</label>
-                <input onclick="changeMode('fd_with_tax')" id="radio-2" name="radio" type="radio">
-                <label for="radio-2" class="radio-label">FD with Tax</label>
-            </div>
-        </div>
-        <div class="sip-calculator-amount">
-            <p style="margin-top: 1.8em;" class="d-flex">
-                <label id="amountLabel">Total Investment</label>
-                <input name="TotalInvestment" id="inputTotalInvestment" type="number" step="500" value="5000" min="500"
-                    max="150000" oninput="showTotalInvestment(this.value)">
-                <span id="amount"></span> Rs.
-            </p>
-            <input class="amount-slider" name="realTotalInvestmentAmount" id="myTotalInvestmentAmount" type="range"
-                step="500" min="500" max="150000" value="5000">
-        </div>
-        <div class="sip-calculator-year">
-            <p style="margin-top: 1.8em;" class="d-flex">
-                <label>Number of Years</label>
-                <input name="Years" id="inputYears" type="number" value="10" min="1" max="25" step="1"
-                    oninput="showValYears(this.value)">
-                <span id="years"></span> Yr
-            </p>
-            <input class="year-slider" name="realYears" id="myYears" type="range" min="1" max="25" step="1" value="10">
-        </div>
-        <div class="sip-calculator-roi">
-            <p style="margin-top: 1.8em;" class="d-flex">
-                <label>Rate of Interest</label>
-                <input name="Retunrs" id="inputRoi" type="number" value="7" min="1" max="15" step="1"
-                    oninput="showValRoi(this.value)">
-                <span id="roi"></span> %
-            </p>
-            <input class="roi-slider" name="realRoi" id="myRoi" type="range" min="1" max="15" step="1" value="7">
-        </div>
-        <div class="sip-calculator-roi">
-            <p style="margin-top: 1.8em;">
-            </p>
-            <div id="tax_bracket" style="display: none;">
-                <label>Select Tax Bracket</label>
-                <div class="select">
-                    <select name="slct" id="slct" oninput="showValTaxBracket(this.value)">
-                        <!-- <option selected disabled>Choose an option</option> -->
-                        <option selected="" value="0">0% (Less than 2.5 Lac)</option>
-                        <option value="5">5% (2.5 - 5 Lac)</option>
-                        <option value="20">20% (5 - 10 Lac)</option>
-                        <option value="30">30% (10 Lac+)</option>
-                    </select>
+        <form name="sipForm">
+            <div class="sip-calculator">
+                <p>Check returns on your fixed deposits (FDs) without any hassle</p>
+                <div class="container">
+                    <div class="radio">
+                        <input onclick="changeMode('fd')" id="radio-1" name="radio" type="radio" checked="">
+                        <label for="radio-1" class="radio-label">FD</label>
+                        <label>&nbsp;&nbsp;&nbsp;</label>
+                        <input onclick="changeMode('fd_with_tax')" id="radio-2" name="radio" type="radio">
+                        <label for="radio-2" class="radio-label">FD with Tax</label>
+                    </div>
                 </div>
+                <div class="sip-calculator-amount">
+                    <p class="d-flex">
+                        <label id="amountLabel">Total Investment</label>
+                        <input name="TotalInvestment" id="inputTotalInvestment" type="number" step="500" value="5000"
+                            min="500" max="150000" oninput="showTotalInvestment(this.value)">
+                        <span id="amount"></span> Rs.
+                    </p>
+                    <input class="amount-slider" name="realTotalInvestmentAmount" id="myTotalInvestmentAmount"
+                        type="range" step="500" min="500" max="150000" value="5000">
+                </div>
+                <div class="sip-calculator-year">
+                    <p class="d-flex">
+                        <label>Number of Years</label>
+                        <input name="Years" id="inputYears" type="number" value="10" min="1" max="25" step="1"
+                            oninput="showValYears(this.value)">
+                        <span id="years"></span> Yr
+                    </p>
+                    <input class="year-slider" name="realYears" id="myYears" type="range" min="1" max="25" step="1"
+                        value="10">
+                </div>
+                <div class="sip-calculator-roi">
+                    <p class="d-flex">
+                        <label>Rate of Interest</label>
+                        <input name="Retunrs" id="inputRoi" type="number" value="7" min="1" max="15" step="1"
+                            oninput="showValRoi(this.value)">
+                        <span id="roi"></span> %
+                    </p>
+                    <input class="roi-slider" name="realRoi" id="myRoi" type="range" min="1" max="15" step="1"
+                        value="7">
+                </div>
+                <div class="sip-calculator-roi">
+                    <p>
+                    </p>
+                    <div id="tax_bracket" style="display: none;">
+                        <label>Select Tax Bracket</label>
+                        <div class="select">
+                            <select name="slct" id="slct" oninput="showValTaxBracket(this.value)">
+                                <!-- <option selected disabled>Choose an option</option> -->
+                                <option selected="" value="0">0% (Less than 2.5 Lac)</option>
+                                <option value="5">5% (2.5 - 5 Lac)</option>
+                                <option value="20">20% (5 - 10 Lac)</option>
+                                <option value="30">30% (10 Lac+)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <p></p>
+                </div>
+                <p class="calculations">
+                    <strong>Total Value:</strong>
+                    <span id="totalValue" style="font-size: 1.2em;margin-left: 8px;">Rs. 10,008</span>
+                </p>
+                <!-- <div style="margin-top: 15px;"><img class="groww-logo" src="groww-logo-ed.png" target="_parent" align="right"/></div> -->
             </div>
-            <p></p>
-        </div>
-        <p class="calculations">
-            <strong>Total Value:</strong>
-            <span id="totalValue" style="font-size: 1.2em;margin-left: 8px;">Rs. 10,008</span>
-        </p>
-        <!-- <div style="margin-top: 15px;"><img class="groww-logo" src="groww-logo-ed.png" target="_parent" align="right"/></div> -->
-    </div>
-</form>
+        </form>
 
-<!-- Thank you note with Logo -->
-<div class="text-center thanks-section">Thanks to <a href="https://groww.in/" target="_blank"> <img
-            class="logo logo-dark" alt="logo" src="https://groww.in/wp-content/uploads/2018/04/logo-groww-dark.png"
-            width="100" />
-    </a></div>
-<!-- Thank you note with Logo -->
+        <!-- Thank you note with Logo -->
+        <div class="text-center thanks-section">Thanks to <a href="https://groww.in/" target="_blank"> <img
+                    class="logo logo-dark" alt="logo"
+                    src="https://groww.in/wp-content/uploads/2018/04/logo-groww-dark.png" width="100" />
+            </a></div>
+        <!-- Thank you note with Logo -->
 
-<section>
-    <h3><b>The formula to determine FD maturity amount</b></h3>
-    <p><span>There are two types of FD that you may avail- simple interest FD and compound
-            interest FD. Groww has calculators for both these types of FD.</span></p>
-    <p><span>The </span><b>fixed deposit calculator</b><span> for
-            simple interest FD uses the following formula –</span></p>
-    <p><span>M = P + (P x r x t/100), where –</span></p>
-    <ul>
-        <li><span>P is the principal amount that you deposit</span>
-        </li>
-        <li><span>r is the rate of interest per annum</span></li>
-        <li><span>t is the tenure in years</span></li>
-    </ul>
-    <p><span>For example, if you deposit a sum of Rs. 1,00,000 for 5 years at 10% interest,
-            the equation reads –</span></p>
-    <p><span>M= Rs. 1,00,000 + (1,00,000 x 10 x 5/100)</span></p>
-    <p><span>= Rs. 1,50,000</span></p>
-    <p><span>For compound interest FD, the </span><b>FD return calculator </b><span>uses the following formula –</span>
-    </p>
-    <p><span>M= P + P {(1 + i/100) t – 1}, where –</span></p>
-    <ul>
-        <li><span>P is the principal amount</span></li>
-        <li><span>i is the rate of interest per period</span></li>
-        <li><span>t is the tenure</span></li>
-    </ul>
-    <p><span>For example, if you take the same variables, the compound interest FD will
-            accrue,</span></p>
-    <p><span>M= Rs. 1,00,000 {(1 + 10/100) 5-1}</span></p>
-    <p><span>Or, Rs. 1,61,051</span></p>
-</section>
+        <section>
+            <h3><b>The formula to determine FD maturity amount</b></h3>
+            <p><span>There are two types of FD that you may avail- simple interest FD and compound
+                    interest FD. Groww has calculators for both these types of FD.</span></p>
+            <p><span>The </span><b>fixed deposit calculator</b><span> for
+                    simple interest FD uses the following formula –</span></p>
+            <p><span>M = P + (P x r x t/100), where –</span></p>
+            <ul>
+                <li><span>P is the principal amount that you deposit</span>
+                </li>
+                <li><span>r is the rate of interest per annum</span></li>
+                <li><span>t is the tenure in years</span></li>
+            </ul>
+            <p><span>For example, if you deposit a sum of Rs. 1,00,000 for 5 years at 10% interest,
+                    the equation reads –</span></p>
+            <p><span>M= Rs. 1,00,000 + (1,00,000 x 10 x 5/100)</span></p>
+            <p><span>= Rs. 1,50,000</span></p>
+            <p><span>For compound interest FD, the </span><b>FD return calculator </b><span>uses the following formula
+                    –</span>
+            </p>
+            <p><span>M= P + P {(1 + i/100) t – 1}, where –</span></p>
+            <ul>
+                <li><span>P is the principal amount</span></li>
+                <li><span>i is the rate of interest per period</span></li>
+                <li><span>t is the tenure</span></li>
+            </ul>
+            <p><span>For example, if you take the same variables, the compound interest FD will
+                    accrue,</span></p>
+            <p><span>M= Rs. 1,00,000 {(1 + 10/100) 5-1}</span></p>
+            <p><span>Or, Rs. 1,61,051</span></p>
+        </section>
+    </section>
 
-<script>
-    'use strict';
-    var amountSlider = document.getElementById("myTotalInvestmentAmount");
-    var amountOutput = document.getElementById("inputTotalInvestment");
-    var roiSlider = document.getElementById("myRoi");
-    var roiOutput = document.getElementById("inputRoi");
-    var yearSlider = document.getElementById("myYears");
-    var yearOutput = document.getElementById("inputYears");
+    <script>
+        'use strict';
+        var amountSlider = document.getElementById("myTotalInvestmentAmount");
+        var amountOutput = document.getElementById("inputTotalInvestment");
+        var roiSlider = document.getElementById("myRoi");
+        var roiOutput = document.getElementById("inputRoi");
+        var yearSlider = document.getElementById("myYears");
+        var yearOutput = document.getElementById("inputYears");
 
-    var taxBracket = document.getElementById("slct");
+        var taxBracket = document.getElementById("slct");
 
-    amountOutput.innerHTML = amountSlider.value;
-    roiOutput.innerHTML = roiSlider.value;
-    yearOutput.innerHTML = yearSlider.value;
+        amountOutput.innerHTML = amountSlider.value;
+        roiOutput.innerHTML = roiSlider.value;
+        yearOutput.innerHTML = yearSlider.value;
 
-    amountSlider.oninput = function () {
-        amountOutput.innerHTML = this.value;
-    }
-    roiSlider.oninput = function () {
-        roiOutput.innerHTML = this.value;
-    }
-    yearSlider.oninput = function () {
-        yearOutput.innerHTML = this.value;
-    }
-
-    function showTotalInvestment(newVal) {
-        amountSlider.value = newVal;
-        calculateIt();
-    };
-
-    function showValRoi(newVal) {
-        roiSlider.value = newVal;
-        calculateIt();
-    };
-
-    function showValYears(newVal) {
-        yearSlider.value = newVal;
-        calculateIt();
-    };
-
-    function showValTaxBracket(newVal) {
-        var taxBracketValue = taxBracket.value;
-        calculateIt();
-    }
-
-    amountSlider.addEventListener("input", updateValueAmount);
-    roiSlider.addEventListener("input", updateValueRoi);
-    yearSlider.addEventListener("input", updateValueYears);
-
-    function updateValueAmount(e) {
-        amountOutput.value = e.srcElement.value;
-        calculateIt();
-    }
-
-    function updateValueRoi(e) {
-        roiOutput.value = e.srcElement.value;
-        calculateIt();
-    }
-
-    function updateValueYears(e) {
-        yearOutput.value = e.srcElement.value;
-        calculateIt();
-    }
-
-    var calculatorMode = 'fd';
-    var heading = document.getElementById("heading");
-    var amountLabel = document.getElementById("amountLabel");
-
-    function changeMode(mode) {
-        calculatorMode = mode;
-        heading.innerHTML = mode === 'fd' ? 'FD Calculator' : 'FD with Tax Calculator';
-        if (mode === 'fd') {
-            document.getElementById("tax_bracket").style.display = "none";
-        } else {
-            document.getElementById("tax_bracket").style.display = "unset";
+        amountSlider.oninput = function () {
+            amountOutput.innerHTML = this.value;
         }
-        return calculatorMode;
-    }
+        roiSlider.oninput = function () {
+            roiOutput.innerHTML = this.value;
+        }
+        yearSlider.oninput = function () {
+            yearOutput.innerHTML = this.value;
+        }
 
-    function calculateIt() {
-        var totalValueOutput = document.getElementById("totalValue");
+        function showTotalInvestment(newVal) {
+            amountSlider.value = newVal;
+            calculateIt();
+        };
 
-        var totalInvestmentValue = document.sipForm.realTotalInvestmentAmount.value; //fieldname2
-        var rateOfInterestValue = document.sipForm.realRoi.value; //fieldname6
-        var numberofYearsValue = document.sipForm.realYears.value; //fieldname3
+        function showValRoi(newVal) {
+            roiSlider.value = newVal;
+            calculateIt();
+        };
 
-        var taxBracketValue = taxBracket.value; //fieldname7
+        function showValYears(newVal) {
+            yearSlider.value = newVal;
+            calculateIt();
+        };
+
+        function showValTaxBracket(newVal) {
+            var taxBracketValue = taxBracket.value;
+            calculateIt();
+        }
+
+        amountSlider.addEventListener("input", updateValueAmount);
+        roiSlider.addEventListener("input", updateValueRoi);
+        yearSlider.addEventListener("input", updateValueYears);
+
+        function updateValueAmount(e) {
+            amountOutput.value = e.srcElement.value;
+            calculateIt();
+        }
+
+        function updateValueRoi(e) {
+            roiOutput.value = e.srcElement.value;
+            calculateIt();
+        }
+
+        function updateValueYears(e) {
+            yearOutput.value = e.srcElement.value;
+            calculateIt();
+        }
+
+        var calculatorMode = 'fd';
+        var heading = document.getElementById("heading");
+        var amountLabel = document.getElementById("amountLabel");
+
+        function changeMode(mode) {
+            calculatorMode = mode;
+            heading.innerHTML = mode === 'fd' ? 'FD Calculator' : 'FD with Tax Calculator';
+            if (mode === 'fd') {
+                document.getElementById("tax_bracket").style.display = "none";
+            } else {
+                document.getElementById("tax_bracket").style.display = "unset";
+            }
+            return calculatorMode;
+        }
+
+        function calculateIt() {
+            var totalValueOutput = document.getElementById("totalValue");
+
+            var totalInvestmentValue = document.sipForm.realTotalInvestmentAmount.value; //fieldname2
+            var rateOfInterestValue = document.sipForm.realRoi.value; //fieldname6
+            var numberofYearsValue = document.sipForm.realYears.value; //fieldname3
+
+            var taxBracketValue = taxBracket.value; //fieldname7
 
 
-        var fd = Math.round(totalInvestmentValue * (Math.pow((1 + rateOfInterestValue / 400), 4 * numberofYearsValue)));
-        var fdWithTax = Math.round(totalInvestmentValue * (Math.pow((1 + rateOfInterestValue * (1 - taxBracketValue / 100) / 400), 4 * numberofYearsValue)));
+            var fd = Math.round(totalInvestmentValue * (Math.pow((1 + rateOfInterestValue / 400), 4 * numberofYearsValue)));
+            var fdWithTax = Math.round(totalInvestmentValue * (Math.pow((1 + rateOfInterestValue * (1 - taxBracketValue / 100) / 400), 4 * numberofYearsValue)));
 
-        var finalOutput = calculatorMode === 'fd' ? fd : fdWithTax;
+            var finalOutput = calculatorMode === 'fd' ? fd : fdWithTax;
 
-        totalValueOutput.innerHTML = "Rs. " + finalOutput.toLocaleString();
-    }
-    calculateIt();
-</script>
+            totalValueOutput.innerHTML = "Rs. " + finalOutput.toLocaleString();
+        }
+        calculateIt();
+    </script>
+</template>
