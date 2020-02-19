@@ -1,6 +1,6 @@
 // Set this to true for production
 var doCache = false;
-const CACHE_NAME = "cache-v4.0.5";
+const CACHE_NAME = "cache-v4.0.7";
 
 const assetToCache = [
     "manifest.json",
@@ -19,18 +19,18 @@ const assetToCache = [
     "js/rent-receipt-generator.js",
     "js/sip-calculator.js",
     "index.html",
-    "EPF-Calculator-personalfn.html",
-    "simple-interest-calculator.html",
-    "rent-receipt-generator.html",
-    "income-tax-calculator.html",
-    "sip-calculator.html",
-    "FD-Calculator-Groww.html",
-    "HRA-Calculator-Groww.html",
-    "NPS-Calculator-Groww.html",
-    "PPF-Calculator-Groww.html",
-    "SIP-Calculator-Groww.html",
-    "SWP-Calculator-Groww.html",
-    "stock-average-calculator.html"
+    "views/EPF-Calculator-personalfn.html",
+    "views/simple-interest-calculator.html",
+    "views/rent-receipt-generator.html",
+    "views/income-tax-calculator.html",
+    "views/sip-calculator.html",
+    "views/FD-Calculator-Groww.html",
+    "views/HRA-Calculator-Groww.html",
+    "views/NPS-Calculator-Groww.html",
+    "views/PPF-Calculator-Groww.html",
+    "views/SIP-Calculator-Groww.html",
+    "views/SWP-Calculator-Groww.html",
+    "views/stock-average-calculator.html"
 ];
 
 self.addEventListener("install", function (event) {

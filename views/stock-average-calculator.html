@@ -5,6 +5,18 @@
                 margin: 1em auto;
             }
 
+            #frmMain input[type=number] {
+                width: 100px;
+            }
+
+            #frmMain .input-group input {
+                /* flex: 1 1 auto; */
+            }
+
+            #frmMain .form-row {
+                justify-content: space-around;
+            }
+
             .stock-output {
                 border: 1px solid #b3b3b3;
                 box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
@@ -18,44 +30,48 @@
                 Calculator</h3>
         </header>
 
-        <form id="frmMain">
+        <form id="frmMain" class="form-inline">
             <div class="row">
 
-                <div class="col-md-12 col-lg-8 mb-4">
+                <div class="col-md-12 col-lg-8">
                     <div class="form-row">
-                        <div class="col-7">
+                        <div class="form-group mb-2">
                             <label for="inputEmail4">If I have</label>
-                            <input type="text" class="form-control" id="inputEmail4" name="AShares"
-                                placeholder="Shares">
+                            <input type="number" class="form-control" id="inputEmail4" name="AShares"
+                                placeholder="Shares" onChange="calcForm()">
                         </div>
-                        <div class="col">
+                        <div class="form-group mb-2">
                             <label for="inputEmail4">shares bought at Rs.</label>
-                            <input type="text" class="form-control" placeholder="Price" name="BPrice">
+                            <input type="number" class="form-control" placeholder="Price" name="BPrice"
+                                onChange="calcForm()" />
                         </div>
                     </div>
 
                     <div class="form-row">
-                        <div class="col-7">
+                        <div class="form-group mb-2">
                             <label for="inputEmail4">Later on I buy</label>
-                            <input type="text" class="form-control" id="inputEmail4" name="CShares"
-                                placeholder="Shares">
+                            <input type="number" class="form-control" id="inputEmail4" name="CShares"
+                                placeholder="Shares" onChange="calcForm()" />
                         </div>
-                        <div class="col">
+                        <div class="form-group mb-2">
                             <label for="inputEmail4">shares bought at Rs.</label>
-                            <input type="text" class="form-control" placeholder="Price" name="DPrice">
+                            <input type="number" class="form-control" placeholder="Price" name="DPrice"
+                                onChange="calcForm()" />
                         </div>
                     </div>
-                    <p class="py-2">
-                        <input onclick="calcForm();" type="button" value="Calculate" class="btn btn-primary">
-                        <input type="reset" value="Clear" class="btn btn-secondary">
-                    </p>
+                    <div class="form-row">
+                        <p class="py-1">
+                            <input onclick="calcForm();" type="button" value="Calculate" class="btn btn-primary">
+                            <input type="reset" value="Clear" class="btn btn-secondary">
+                        </p>
+                    </div>
                 </div>
 
                 <div class="col-md-4 stock-output">
                     As of <strong class="today-date"></strong>
 
                     <br />
-                    I have
+                    I will have
                     <div class="input-group">
 
                         <input name="EShares" class="form-control" size="7" type="text" readonly>
@@ -97,7 +113,7 @@
             var frmMain = document.forms["frmMain"];
             let shares = frmMain.elements["EShares"].value;
             let avgPrice = frmMain.elements["FPrice"].value;
-            let output = document.querySelector('3output');
+            let output = document.querySelector('#output');
             output.innerHTML = `<strong>${shares ? shares : 0}</strong> shares @ an average price of Rs. <strong>${avgPrice ? avgPrice : 0}</strong>`;
         }
 
