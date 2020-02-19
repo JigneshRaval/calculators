@@ -44,9 +44,11 @@ document.addEventListener("DOMContentLoaded", function () {
         if (scrollTimer) {
             clearTimeout(scrollTimer);
         }
-        scrollTimer = setTimeout(() => {
-            getScrollPosition(scrollElement);
-        }, 250);
+        if (scrollElement) {
+            scrollTimer = setTimeout(() => {
+                getScrollPosition(scrollElement);
+            }, 250);
+        }
     }, false);
 
     // Method 2 : using import
