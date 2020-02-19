@@ -60,6 +60,9 @@
                         </div>
                     </div>
                     <div class="form-row">
+                        <div class="output">
+
+                        </div>
                         <p class="py-1">
                             <input onclick="calcForm();" type="button" value="Calculate" class="btn btn-primary">
                             <input type="reset" value="Clear" class="btn btn-secondary">
@@ -89,7 +92,7 @@
                             <span class="input-group-text" id="inputGroupPrepend">Rs.</span>
                         </div>
                     </div>
-                    <div id="output">
+                    <div class="output">
 
                     </div>
                 </div>
@@ -113,8 +116,10 @@
             var frmMain = document.forms["frmMain"];
             let shares = frmMain.elements["EShares"].value;
             let avgPrice = frmMain.elements["FPrice"].value;
-            let output = document.querySelector('#output');
-            output.innerHTML = `<strong>${shares ? shares : 0}</strong> shares @ an average price of Rs. <strong>${avgPrice ? avgPrice : 0}</strong>`;
+            let output = document.querySelectorAll('.output');
+            output.forEach(item => {
+                item.innerHTML = `<strong>${shares ? shares : 0}</strong> shares @ an average price of Rs. <strong>${avgPrice ? avgPrice : 0}</strong>`;
+            });
         }
 
         getOutput();
