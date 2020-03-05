@@ -1,0 +1,36 @@
+{
+    "name": "simple-blog-react",
+    "version": "1.0.0",
+    "bin": "server-build.js",
+    "main": "server-build.js",
+    "description": "Simple blog using React, Webpack 4 and Typescript",
+    "license": "MIT",
+    "dependencies": {},
+    "devDependencies": {},
+    "scripts": {
+        "build": "pkg server-build.js --targets latest-win-x64",
+        "build-nexe": "nexe --resource ./**/*"
+    },
+    "config": {
+        "myPort": "8080"
+    },
+    "pkg": {
+        "scripts": [
+            "server-build.js",
+            "service-worker-init.js",
+            "serviceWorker.js",
+            "serviceWorkerInit.js",
+            "js/**/*.js",
+            "node_modules"
+        ],
+        "assets": [
+            "index.html",
+            "manifest.json",
+            "views/**/*",
+            "images/**/*",
+            "css/**/*",
+            "components/**/*",
+            "js/**/*.js"
+        ]
+    }
+}
